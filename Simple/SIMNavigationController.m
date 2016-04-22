@@ -24,17 +24,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-- (BOOL)shouldAutorotate
-{
-    return self.visibleViewController.shouldAutorotate;
-}
-
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations
-{
-    return UIInterfaceOrientationMaskAll;
-}
-
 /*
 #pragma mark - Navigation
 
