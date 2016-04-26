@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5F372A6080684C389FF536E5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70D0FCADDEEAFDECA99C8BD1 /* libPods.a */; };
+		A01234911CCF0D19003819E4 /* MasonryAnimateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A01234901CCF0D19003819E4 /* MasonryAnimateViewController.m */; };
 		A0DEEA8E1CC9F8BD006516E3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DEEA8D1CC9F8BD006516E3 /* main.m */; };
 		A0DEEA911CC9F8BD006516E3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DEEA901CC9F8BD006516E3 /* AppDelegate.m */; };
 		A0DEEA941CC9F8BD006516E3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DEEA931CC9F8BD006516E3 /* ViewController.m */; };
@@ -40,6 +41,8 @@
 		70D0FCADDEEAFDECA99C8BD1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A012348B1CCE0E1B003819E4 /* Simple.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Simple.pch; sourceTree = "<group>"; };
 		A012348C1CCE0EE3003819E4 /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
+		A012348F1CCF0D19003819E4 /* MasonryAnimateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasonryAnimateViewController.h; sourceTree = "<group>"; };
+		A01234901CCF0D19003819E4 /* MasonryAnimateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasonryAnimateViewController.m; sourceTree = "<group>"; };
 		A0DEEA891CC9F8BD006516E3 /* Simple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Simple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0DEEA8D1CC9F8BD006516E3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A0DEEA8F1CC9F8BD006516E3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -125,6 +128,8 @@
 				A0DEEAC21CCA04C2006516E3 /* SIMNavigationController.m */,
 				A0DEEA921CC9F8BD006516E3 /* ViewController.h */,
 				A0DEEA931CC9F8BD006516E3 /* ViewController.m */,
+				A012348F1CCF0D19003819E4 /* MasonryAnimateViewController.h */,
+				A01234901CCF0D19003819E4 /* MasonryAnimateViewController.m */,
 				A0DEEA981CC9F8BD006516E3 /* Assets.xcassets */,
 				A0DEEA9A1CC9F8BD006516E3 /* LaunchScreen.storyboard */,
 				A0DEEA9D1CC9F8BD006516E3 /* Info.plist */,
@@ -351,6 +356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A01234911CCF0D19003819E4 /* MasonryAnimateViewController.m in Sources */,
 				A0DEEA941CC9F8BD006516E3 /* ViewController.m in Sources */,
 				A0DEEAC31CCA04C2006516E3 /* SIMNavigationController.m in Sources */,
 				A0DEEA911CC9F8BD006516E3 /* AppDelegate.m in Sources */,
