@@ -106,14 +106,6 @@
     }];
 }
 
-
-//masonry中级运用
--(void)addMediumDemo
-{
-
-}
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
