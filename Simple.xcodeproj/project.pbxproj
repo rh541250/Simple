@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		5F372A6080684C389FF536E5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70D0FCADDEEAFDECA99C8BD1 /* libPods.a */; };
-		A060D3891CD0D79200B7D230 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A060D37A1CD0D79200B7D230 /* AppDelegate.m */; };
-		A060D38A1CD0D79200B7D230 /* SIMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A060D37C1CD0D79200B7D230 /* SIMNavigationController.m */; };
-		A060D38B1CD0D79200B7D230 /* MasonryAnimateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A060D3831CD0D79200B7D230 /* MasonryAnimateViewController.m */; };
-		A060D38C1CD0D79200B7D230 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A060D3851CD0D79200B7D230 /* ViewController.m */; };
-		A060D38D1CD0D79200B7D230 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A060D3861CD0D79200B7D230 /* ViewController.xib */; };
+		A060D3A41CD1D85B00B7D230 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A060D3901CD1D85B00B7D230 /* AppDelegate.m */; };
+		A060D3A51CD1D85B00B7D230 /* SIMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A060D3941CD1D85B00B7D230 /* SIMNavigationController.m */; };
+		A060D3A61CD1D85B00B7D230 /* MasonryAnimateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A060D39E1CD1D85B00B7D230 /* MasonryAnimateViewController.m */; };
+		A060D3A71CD1D85B00B7D230 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A060D3A01CD1D85B00B7D230 /* ViewController.m */; };
+		A060D3A81CD1D85B00B7D230 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A060D3A11CD1D85B00B7D230 /* ViewController.xib */; };
 		A0DEEA8E1CC9F8BD006516E3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DEEA8D1CC9F8BD006516E3 /* main.m */; };
 		A0DEEA991CC9F8BD006516E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0DEEA981CC9F8BD006516E3 /* Assets.xcassets */; };
 		A0DEEA9C1CC9F8BD006516E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0DEEA9A1CC9F8BD006516E3 /* LaunchScreen.storyboard */; };
@@ -40,17 +40,17 @@
 /* Begin PBXFileReference section */
 		37FB6355DDE5C501F95370A6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		70D0FCADDEEAFDECA99C8BD1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		A060D3791CD0D79200B7D230 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		A060D37A1CD0D79200B7D230 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A060D37B1CD0D79200B7D230 /* SIMNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMNavigationController.h; sourceTree = "<group>"; };
-		A060D37C1CD0D79200B7D230 /* SIMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMNavigationController.m; sourceTree = "<group>"; };
-		A060D37E1CD0D79200B7D230 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
-		A060D37F1CD0D79200B7D230 /* Simple.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Simple.pch; sourceTree = "<group>"; };
-		A060D3821CD0D79200B7D230 /* MasonryAnimateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasonryAnimateViewController.h; sourceTree = "<group>"; };
-		A060D3831CD0D79200B7D230 /* MasonryAnimateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasonryAnimateViewController.m; sourceTree = "<group>"; };
-		A060D3841CD0D79200B7D230 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A060D3851CD0D79200B7D230 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		A060D3861CD0D79200B7D230 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		A060D38F1CD1D85B00B7D230 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A060D3901CD1D85B00B7D230 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A060D3931CD1D85B00B7D230 /* SIMNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMNavigationController.h; sourceTree = "<group>"; };
+		A060D3941CD1D85B00B7D230 /* SIMNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMNavigationController.m; sourceTree = "<group>"; };
+		A060D3971CD1D85B00B7D230 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
+		A060D39D1CD1D85B00B7D230 /* MasonryAnimateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasonryAnimateViewController.h; sourceTree = "<group>"; };
+		A060D39E1CD1D85B00B7D230 /* MasonryAnimateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasonryAnimateViewController.m; sourceTree = "<group>"; };
+		A060D39F1CD1D85B00B7D230 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A060D3A01CD1D85B00B7D230 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A060D3A11CD1D85B00B7D230 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		A060D3AA1CD1D8C500B7D230 /* Simple.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Simple.pch; sourceTree = "<group>"; };
 		A0DEEA891CC9F8BD006516E3 /* Simple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Simple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0DEEA8D1CC9F8BD006516E3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A0DEEA981CC9F8BD006516E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -99,53 +99,101 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A060D3781CD0D79200B7D230 /* Base */ = {
+		A060D38E1CD1D85B00B7D230 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				A060D3791CD0D79200B7D230 /* AppDelegate.h */,
-				A060D37A1CD0D79200B7D230 /* AppDelegate.m */,
-				A060D37B1CD0D79200B7D230 /* SIMNavigationController.h */,
-				A060D37C1CD0D79200B7D230 /* SIMNavigationController.m */,
+				A060D38F1CD1D85B00B7D230 /* AppDelegate.h */,
+				A060D3901CD1D85B00B7D230 /* AppDelegate.m */,
 			);
-			path = Base;
+			path = AppDelegate;
 			sourceTree = "<group>";
 		};
-		A060D37D1CD0D79200B7D230 /* Config */ = {
+		A060D3911CD1D85B00B7D230 /* Public */ = {
 			isa = PBXGroup;
 			children = (
-				A060D37E1CD0D79200B7D230 /* constants.h */,
-				A060D37F1CD0D79200B7D230 /* Simple.pch */,
-			);
-			path = Config;
-			sourceTree = "<group>";
-		};
-		A060D3801CD0D79200B7D230 /* Public */ = {
-			isa = PBXGroup;
-			children = (
+				A060D3921CD1D85B00B7D230 /* Base */,
+				A060D3951CD1D85B00B7D230 /* Category */,
+				A060D3961CD1D85B00B7D230 /* Define */,
+				A060D3981CD1D85B00B7D230 /* SubClasses */,
+				A060D3991CD1D85B00B7D230 /* ThirdParty */,
+				A060D39A1CD1D85B00B7D230 /* Tools */,
 			);
 			path = Public;
 			sourceTree = "<group>";
 		};
-		A060D3811CD0D79200B7D230 /* VC */ = {
+		A060D3921CD1D85B00B7D230 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				A060D3821CD0D79200B7D230 /* MasonryAnimateViewController.h */,
-				A060D3831CD0D79200B7D230 /* MasonryAnimateViewController.m */,
-				A060D3841CD0D79200B7D230 /* ViewController.h */,
-				A060D3851CD0D79200B7D230 /* ViewController.m */,
-				A060D3861CD0D79200B7D230 /* ViewController.xib */,
+				A060D3931CD1D85B00B7D230 /* SIMNavigationController.h */,
+				A060D3941CD1D85B00B7D230 /* SIMNavigationController.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		A060D3951CD1D85B00B7D230 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		A060D3961CD1D85B00B7D230 /* Define */ = {
+			isa = PBXGroup;
+			children = (
+				A060D3971CD1D85B00B7D230 /* constants.h */,
+				A060D3AA1CD1D8C500B7D230 /* Simple.pch */,
+			);
+			path = Define;
+			sourceTree = "<group>";
+		};
+		A060D3981CD1D85B00B7D230 /* SubClasses */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SubClasses;
+			sourceTree = "<group>";
+		};
+		A060D3991CD1D85B00B7D230 /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ThirdParty;
+			sourceTree = "<group>";
+		};
+		A060D39A1CD1D85B00B7D230 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		A060D39B1CD1D85B00B7D230 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A060D39C1CD1D85B00B7D230 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				A060D39D1CD1D85B00B7D230 /* MasonryAnimateViewController.h */,
+				A060D39E1CD1D85B00B7D230 /* MasonryAnimateViewController.m */,
+				A060D39F1CD1D85B00B7D230 /* ViewController.h */,
+				A060D3A01CD1D85B00B7D230 /* ViewController.m */,
+				A060D3A11CD1D85B00B7D230 /* ViewController.xib */,
 			);
 			path = VC;
 			sourceTree = "<group>";
 		};
-		A060D3871CD0D79200B7D230 /* View */ = {
+		A060D3A21CD1D85B00B7D230 /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		A060D3881CD0D79200B7D230 /* VM */ = {
+		A060D3A31CD1D85B00B7D230 /* VM */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -177,12 +225,12 @@
 		A0DEEA8B1CC9F8BD006516E3 /* Simple */ = {
 			isa = PBXGroup;
 			children = (
-				A060D3781CD0D79200B7D230 /* Base */,
-				A060D37D1CD0D79200B7D230 /* Config */,
-				A060D3801CD0D79200B7D230 /* Public */,
-				A060D3811CD0D79200B7D230 /* VC */,
-				A060D3871CD0D79200B7D230 /* View */,
-				A060D3881CD0D79200B7D230 /* VM */,
+				A060D38E1CD1D85B00B7D230 /* AppDelegate */,
+				A060D3911CD1D85B00B7D230 /* Public */,
+				A060D39B1CD1D85B00B7D230 /* Resources */,
+				A060D39C1CD1D85B00B7D230 /* VC */,
+				A060D3A21CD1D85B00B7D230 /* View */,
+				A060D3A31CD1D85B00B7D230 /* VM */,
 				A0DEEA8C1CC9F8BD006516E3 /* Supporting Files */,
 			);
 			path = Simple;
@@ -334,7 +382,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0DEEA9C1CC9F8BD006516E3 /* LaunchScreen.storyboard in Resources */,
-				A060D38D1CD0D79200B7D230 /* ViewController.xib in Resources */,
+				A060D3A81CD1D85B00B7D230 /* ViewController.xib in Resources */,
 				A0DEEA991CC9F8BD006516E3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,11 +456,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A060D38B1CD0D79200B7D230 /* MasonryAnimateViewController.m in Sources */,
-				A060D3891CD0D79200B7D230 /* AppDelegate.m in Sources */,
+				A060D3A61CD1D85B00B7D230 /* MasonryAnimateViewController.m in Sources */,
+				A060D3A41CD1D85B00B7D230 /* AppDelegate.m in Sources */,
 				A0DEEA8E1CC9F8BD006516E3 /* main.m in Sources */,
-				A060D38A1CD0D79200B7D230 /* SIMNavigationController.m in Sources */,
-				A060D38C1CD0D79200B7D230 /* ViewController.m in Sources */,
+				A060D3A51CD1D85B00B7D230 /* SIMNavigationController.m in Sources */,
+				A060D3A71CD1D85B00B7D230 /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,7 +596,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				GCC_PREFIX_HEADER = /Users/ehsy/Desktop/Simple/Simple/Simple.pch;
+				GCC_PREFIX_HEADER = $SRCROOT/Simple/Public/Define/Simple.pch;
 				INFOPLIST_FILE = Simple/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ehsy.Simple;
@@ -564,7 +612,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				GCC_PREFIX_HEADER = /Users/ehsy/Desktop/Simple/Simple/Simple.pch;
+				GCC_PREFIX_HEADER = $SRCROOT/Simple/Public/Define/Simple.pch;
 				INFOPLIST_FILE = Simple/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ehsy.Simple;
