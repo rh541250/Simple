@@ -13,6 +13,8 @@
 		A060D3A61CD1D85B00B7D230 /* MasonryAnimateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A060D39E1CD1D85B00B7D230 /* MasonryAnimateViewController.m */; };
 		A060D3A71CD1D85B00B7D230 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A060D3A01CD1D85B00B7D230 /* ViewController.m */; };
 		A060D3A81CD1D85B00B7D230 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A060D3A11CD1D85B00B7D230 /* ViewController.xib */; };
+		A0ACB38A1CD1DA0C0078715B /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0ACB3891CD1DA0C0078715B /* UIImage+Rotate.m */; };
+		A0ACB38D1CD1DE1D0078715B /* UIImage+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = A0ACB38C1CD1DE1D0078715B /* UIImage+Tools.m */; };
 		A0DEEA8E1CC9F8BD006516E3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A0DEEA8D1CC9F8BD006516E3 /* main.m */; };
 		A0DEEA991CC9F8BD006516E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0DEEA981CC9F8BD006516E3 /* Assets.xcassets */; };
 		A0DEEA9C1CC9F8BD006516E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0DEEA9A1CC9F8BD006516E3 /* LaunchScreen.storyboard */; };
@@ -51,6 +53,10 @@
 		A060D3A01CD1D85B00B7D230 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		A060D3A11CD1D85B00B7D230 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		A060D3AA1CD1D8C500B7D230 /* Simple.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Simple.pch; sourceTree = "<group>"; };
+		A0ACB3881CD1DA0C0078715B /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rotate.h"; sourceTree = "<group>"; };
+		A0ACB3891CD1DA0C0078715B /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Rotate.m"; sourceTree = "<group>"; };
+		A0ACB38B1CD1DE1D0078715B /* UIImage+Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tools.h"; sourceTree = "<group>"; };
+		A0ACB38C1CD1DE1D0078715B /* UIImage+Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tools.m"; sourceTree = "<group>"; };
 		A0DEEA891CC9F8BD006516E3 /* Simple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Simple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0DEEA8D1CC9F8BD006516E3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A0DEEA981CC9F8BD006516E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -133,6 +139,10 @@
 		A060D3951CD1D85B00B7D230 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				A0ACB3881CD1DA0C0078715B /* UIImage+Rotate.h */,
+				A0ACB3891CD1DA0C0078715B /* UIImage+Rotate.m */,
+				A0ACB38B1CD1DE1D0078715B /* UIImage+Tools.h */,
+				A0ACB38C1CD1DE1D0078715B /* UIImage+Tools.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -227,10 +237,10 @@
 			children = (
 				A060D38E1CD1D85B00B7D230 /* AppDelegate */,
 				A060D3911CD1D85B00B7D230 /* Public */,
-				A060D39B1CD1D85B00B7D230 /* Resources */,
 				A060D39C1CD1D85B00B7D230 /* VC */,
 				A060D3A21CD1D85B00B7D230 /* View */,
 				A060D3A31CD1D85B00B7D230 /* VM */,
+				A060D39B1CD1D85B00B7D230 /* Resources */,
 				A0DEEA8C1CC9F8BD006516E3 /* Supporting Files */,
 			);
 			path = Simple;
@@ -458,7 +468,9 @@
 			files = (
 				A060D3A61CD1D85B00B7D230 /* MasonryAnimateViewController.m in Sources */,
 				A060D3A41CD1D85B00B7D230 /* AppDelegate.m in Sources */,
+				A0ACB38A1CD1DA0C0078715B /* UIImage+Rotate.m in Sources */,
 				A0DEEA8E1CC9F8BD006516E3 /* main.m in Sources */,
+				A0ACB38D1CD1DE1D0078715B /* UIImage+Tools.m in Sources */,
 				A060D3A51CD1D85B00B7D230 /* SIMNavigationController.m in Sources */,
 				A060D3A71CD1D85B00B7D230 /* ViewController.m in Sources */,
 			);
