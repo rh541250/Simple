@@ -24,4 +24,7 @@ typedef NS_ENUM(NSInteger,SvResizeMode){
 #pragma - mark 图片裁剪
 - (UIImage *)cropImageWithRect:(CGRect)cropRect;
 
+#pragma  - mark 通过颜色绘纯色图
+- (UIImage *)imageWithColor:(UIColor *)color;
+
 @end

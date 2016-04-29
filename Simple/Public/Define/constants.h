@@ -12,5 +12,8 @@
 
 #define WS(weakSelf) __weak __typeof(&*self)weakSelf = self
 
+#define  ScreenWidth [[UIScreen mainScreen] bounds].size.height
+#define  ScreenHeight [[UIScreen mainScreen] bounds].size.width
+
 
 #endif /* constants_h */

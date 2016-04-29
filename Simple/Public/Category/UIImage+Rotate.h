@@ -16,7 +16,6 @@ typedef  NS_ENUM(NSInteger,SvCropMode) {
 
 @interface UIImage (Rotate)
 
-
 - (UIImage *)rotateImageWithRadian:(CGFloat)radian cropMode:(SvCropMode)cropMode;
 
 
