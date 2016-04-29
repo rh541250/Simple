@@ -8,6 +8,8 @@
 
 #import "SIMMainViewController.h"
 #import "SIMItem.h"
+#import "ViewController.h"
+#import "MasonryAnimateViewController.h"
 @interface SIMMainViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView *simTableView;
@@ -32,34 +34,35 @@ static  NSString *SIMTableViewCellIdentify = @"SIMTableViewCellIdentify";
     
     SIMItem *item = [SIMItem new];
     item.name = @"masonry基础";
+    item.VCName = @"ViewController";
     [dataArr addObject:item];
     
     item = [SIMItem new];
     item.name = @"masonry动画";
+    item.VCName = @"MasonryAnimateViewController";
     [dataArr addObject:item];
 }
 
 - (void)initViews
 {
+    self.title = @"MainVC";
+    
     simTableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
     simTableView.delegate = self;
     simTableView.dataSource = self;
     simTableView.tableFooterView = [UIView new];
-    simTableView.rowHeight = 40.0;
+    simTableView.rowHeight = 44.0;
     [self.view addSubview:simTableView];
     
     WS(ws);
     [simTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@(ScreenWidth));
-        make.height.equalTo(@(ScreenHeight));
-        make.left.equalTo(ws.view).offset(0);
-        make.top.equalTo(ws.view).offset(0);
+        make.size.mas_equalTo(ws.view.bounds.size);
+        make.top.equalTo(ws.view).with.offset(0);
+        make.left.equalTo(ws.view).with.offset(0);
     }];
-    
 }
 
-
-#pragma  - mark tableView delegate
+#pragma  - mark tableView datasource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -76,13 +79,23 @@ static  NSString *SIMTableViewCellIdentify = @"SIMTableViewCellIdentify";
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:SIMTableViewCellIdentify];
         cell.backgroundColor = [UIColor whiteColor];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     SIMItem *item = dataArr[indexPath.row];
     cell.textLabel.text = item.name;
     return cell;
 }
 
+#pragma - mark tableView delegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SIMItem *item = dataArr[indexPath.row];
+    if (item.VCName) {
+        UIViewController *vc = [[NSClassFromString(item.VCName) alloc] init];
+        vc.navigationItem.title = item.name;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 
 - (void)didReceiveMemoryWarning {

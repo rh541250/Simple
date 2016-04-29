@@ -11,5 +11,6 @@
 @interface SIMItem : NSObject
 
 @property (nonatomic,copy)NSString *name;
+@property (nonatomic,copy)NSString *VCName;
 
 @end

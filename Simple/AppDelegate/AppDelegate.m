@@ -8,8 +8,7 @@
 
 #import "AppDelegate.h"
 #import "SIMNavigationController.h"
-#import "ViewController.h"
-#import "MasonryAnimateViewController.h"
+#import "SIMMainViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -21,10 +20,9 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
-    SIMNavigationController *nav = [[SIMNavigationController alloc]initWithRootViewController:[[MasonryAnimateViewController alloc]init]];
+    SIMNavigationController *nav = [[SIMNavigationController alloc]initWithRootViewController:[[SIMMainViewController alloc]init]];
     
     self.window.rootViewController = nav;
-    
     [self.window makeKeyAndVisible];
     
     return YES;
