@@ -10,7 +10,10 @@
 #import "SIMItem.h"
 #import "ViewController.h"
 #import "MasonryAnimateViewController.h"
-@interface SIMMainViewController ()<UITableViewDelegate,UITableViewDataSource>
+
+#define NAVBAR_CHANGE_POINT 50
+
+@interface SIMMainViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 {
     UITableView *simTableView;
     
@@ -45,6 +48,8 @@ static  NSString *SIMTableViewCellIdentify = @"SIMTableViewCellIdentify";
 
 - (void)initViews
 {
+    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
+    
     self.title = @"MainVC";
     
     simTableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
@@ -95,6 +100,19 @@ static  NSString *SIMTableViewCellIdentify = @"SIMTableViewCellIdentify";
         [self.navigationController pushViewController:vc animated:YES];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma - mark - scrollView delegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    UIColor *color = [UIColor colorWithRed:0/255.0 green:175/255.0 blue:240/255.0 alpha:1];
+    CGFloat offset = scrollView.contentOffset.y;
+    if (offset > 0) {
+        CGFloat alpha = 1 - (64-offset)/64;
+        [self.navigationController.navigationBar lt_setBackgroundColor:[color colorWithAlphaComponent:alpha]];
+    }else{
+        [self.navigationController.navigationBar lt_setBackgroundColor:[color colorWithAlphaComponent:0]];
+    }
 }
 
 
