@@ -14,6 +14,9 @@
 		A060D3A61CD1D85B00B7D230 /* MasonryAnimateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A060D39E1CD1D85B00B7D230 /* MasonryAnimateViewController.m */; };
 		A060D3A71CD1D85B00B7D230 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A060D3A01CD1D85B00B7D230 /* ViewController.m */; };
 		A060D3A81CD1D85B00B7D230 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A060D3A11CD1D85B00B7D230 /* ViewController.xib */; };
+		A070649E1CD8439C00CCA264 /* CGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A070649D1CD8439C00CCA264 /* CGViewController.m */; };
+		A07064A11CD8445600CCA264 /* CGView.m in Sources */ = {isa = PBXBuildFile; fileRef = A07064A01CD8445600CCA264 /* CGView.m */; };
+		A07064A31CD872BC00CCA264 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A07064A21CD872BC00CCA264 /* 1.jpg */; };
 		A0ACB3901CD307830078715B /* SIMMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0ACB38F1CD307830078715B /* SIMMainViewController.m */; };
 		A0ACB3941CD30A050078715B /* SIMItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A0ACB3931CD30A050078715B /* SIMItem.m */; };
 		A0ACB39B1CD33D630078715B /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0ACB3971CD33D630078715B /* UIImage+Rotate.m */; };
@@ -58,6 +61,11 @@
 		A060D3A01CD1D85B00B7D230 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		A060D3A11CD1D85B00B7D230 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		A060D3AA1CD1D8C500B7D230 /* Simple.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Simple.pch; sourceTree = "<group>"; };
+		A070649C1CD8439C00CCA264 /* CGViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGViewController.h; sourceTree = "<group>"; };
+		A070649D1CD8439C00CCA264 /* CGViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGViewController.m; sourceTree = "<group>"; };
+		A070649F1CD8445600CCA264 /* CGView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGView.h; sourceTree = "<group>"; };
+		A07064A01CD8445600CCA264 /* CGView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGView.m; sourceTree = "<group>"; };
+		A07064A21CD872BC00CCA264 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		A0ACB38E1CD307830078715B /* SIMMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMMainViewController.h; sourceTree = "<group>"; };
 		A0ACB38F1CD307830078715B /* SIMMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMMainViewController.m; sourceTree = "<group>"; };
 		A0ACB3921CD30A050078715B /* SIMItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMItem.h; sourceTree = "<group>"; };
@@ -148,6 +156,7 @@
 		A060D3951CD1D85B00B7D230 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				A07064A41CD8751500CCA264 /* UIViewController */,
 				A0ACB3951CD33D630078715B /* UIImage */,
 				A0ACB39A1CD33D630078715B /* UINavigationBar */,
 			);
@@ -187,6 +196,7 @@
 		A060D39B1CD1D85B00B7D230 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A07064A21CD872BC00CCA264 /* 1.jpg */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -201,6 +211,8 @@
 				A060D39F1CD1D85B00B7D230 /* ViewController.h */,
 				A060D3A01CD1D85B00B7D230 /* ViewController.m */,
 				A060D3A11CD1D85B00B7D230 /* ViewController.xib */,
+				A070649C1CD8439C00CCA264 /* CGViewController.h */,
+				A070649D1CD8439C00CCA264 /* CGViewController.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -208,6 +220,8 @@
 		A060D3A21CD1D85B00B7D230 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A070649F1CD8445600CCA264 /* CGView.h */,
+				A07064A01CD8445600CCA264 /* CGView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -217,6 +231,13 @@
 			children = (
 			);
 			path = VM;
+			sourceTree = "<group>";
+		};
+		A07064A41CD8751500CCA264 /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIViewController;
 			sourceTree = "<group>";
 		};
 		A0ACB3911CD309C00078715B /* M */ = {
@@ -431,6 +452,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0DEEA9C1CC9F8BD006516E3 /* LaunchScreen.storyboard in Resources */,
+				A07064A31CD872BC00CCA264 /* 1.jpg in Resources */,
 				A060D3A81CD1D85B00B7D230 /* ViewController.xib in Resources */,
 				A0DEEA991CC9F8BD006516E3 /* Assets.xcassets in Resources */,
 			);
@@ -510,8 +532,10 @@
 				A0ACB3901CD307830078715B /* SIMMainViewController.m in Sources */,
 				A0582BC11CD33DAA007109B5 /* UINavigationBar+BackgroundColor.m in Sources */,
 				A0DEEA8E1CC9F8BD006516E3 /* main.m in Sources */,
+				A070649E1CD8439C00CCA264 /* CGViewController.m in Sources */,
 				A0ACB39C1CD33D630078715B /* UIImage+Tools.m in Sources */,
 				A0ACB3941CD30A050078715B /* SIMItem.m in Sources */,
+				A07064A11CD8445600CCA264 /* CGView.m in Sources */,
 				A060D3A51CD1D85B00B7D230 /* SIMNavigationController.m in Sources */,
 				A0ACB39B1CD33D630078715B /* UIImage+Rotate.m in Sources */,
 				A060D3A71CD1D85B00B7D230 /* ViewController.m in Sources */,

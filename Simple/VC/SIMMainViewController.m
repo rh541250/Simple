@@ -10,6 +10,7 @@
 #import "SIMItem.h"
 #import "ViewController.h"
 #import "MasonryAnimateViewController.h"
+#import "CGViewController.h"
 
 #define NAVBAR_CHANGE_POINT 50
 
@@ -31,6 +32,11 @@ static  NSString *SIMTableViewCellIdentify = @"SIMTableViewCellIdentify";
     [self initViews];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+}
+
 - (void)initData
 {
     dataArr = [NSMutableArray arrayWithCapacity:5];
@@ -44,11 +50,16 @@ static  NSString *SIMTableViewCellIdentify = @"SIMTableViewCellIdentify";
     item.name = @"masonry动画";
     item.VCName = @"MasonryAnimateViewController";
     [dataArr addObject:item];
+    
+    item = [SIMItem new];
+    item.name = @"绘图";
+    item.VCName = @"CGViewController";
+    [dataArr addObject:item];
 }
 
 - (void)initViews
 {
-    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
+//    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
     
     self.title = @"MainVC";
     
@@ -103,17 +114,17 @@ static  NSString *SIMTableViewCellIdentify = @"SIMTableViewCellIdentify";
 }
 
 #pragma - mark - scrollView delegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    UIColor *color = [UIColor colorWithRed:0/255.0 green:175/255.0 blue:240/255.0 alpha:1];
-    CGFloat offset = scrollView.contentOffset.y;
-    if (offset > 0) {
-        CGFloat alpha = 1 - (64-offset)/64;
-        [self.navigationController.navigationBar lt_setBackgroundColor:[color colorWithAlphaComponent:alpha]];
-    }else{
-        [self.navigationController.navigationBar lt_setBackgroundColor:[color colorWithAlphaComponent:0]];
-    }
-}
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+//{
+//    UIColor *color = [UIColor colorWithRed:0/255.0 green:175/255.0 blue:240/255.0 alpha:1];
+//    CGFloat offset = scrollView.contentOffset.y;
+//    if (offset > 0) {
+//        CGFloat alpha = 1 - (64-offset)/64;
+//        [self.navigationController.navigationBar lt_setBackgroundColor:[color colorWithAlphaComponent:alpha]];
+//    }else{
+//        [self.navigationController.navigationBar lt_setBackgroundColor:[color colorWithAlphaComponent:0]];
+//    }
+//}
 
 
 - (void)didReceiveMemoryWarning {
