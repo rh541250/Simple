@@ -20,8 +20,8 @@
     [super viewDidLoad];
 //    [self initViews];
     self.view.backgroundColor = [UIColor whiteColor];
-    UIImageView *iv = [[UIImageView alloc]initWithImage:[self drawImage:CGSizeMake(ScreenWidth, ScreenHeight - 100)]];
-    iv.frame = CGRectMake(0, 100, ScreenWidth, ScreenHeight - 100);
+    UIImageView *iv = [[UIImageView alloc]initWithImage:[self drawImage:CGSizeMake(ScreenWidth, ScreenHeight - 64)]];
+    iv.frame = CGRectMake(0, 64, ScreenWidth, ScreenHeight - 64);
     
     [self.view addSubview:iv];
 }
@@ -43,51 +43,45 @@
 
 - (UIImage *)drawImage:(CGSize)size
 {
-    UIGraphicsBeginImageContextWithOptions(size, NO, 0);
     
-    CGContextRef con = UIGraphicsGetCurrentContext();
+    UIImage *image = [UIImage imageNamed:@"4"];
     
-    // 在上下文裁剪区域中挖一个三角形状的孔
+    CGSize sz = CGSizeMake(image.size.width * image.scale, image.size.height *image.scale);
     
-    CGContextMoveToPoint(con, 90, 100);
+    CGImageRef imgRef = image.CGImage;
     
-    CGContextAddLineToPoint(con, 100, 90);
     
-    CGContextAddLineToPoint(con, 110, 100);
     
-    CGContextClosePath(con);
+    CGImageRef leftRef = CGImageCreateWithImageInRect(imgRef, CGRectMake(0, 0, sz.width/2.0, sz.height));
     
-    CGContextAddRect(con, CGContextGetClipBoundingBox(con));
+    CGImageRef rightRef = CGImageCreateWithImageInRect(imgRef, CGRectMake(sz.width/ 2.0, 0, sz.width/2.0, sz.height));
     
-    // 使用奇偶规则，裁剪区域为矩形减去三角形区域
     
-    CGContextEOClip(con);
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(sz.width *1.5, sz.height), NO, 0);
     
-    // 绘制垂线
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
     
-    CGContextMoveToPoint(con, 100, 100);
+    CGContextDrawImage(ctx, CGRectMake(0, 0, sz.width/2.0, sz.height), flip(leftRef));
+    CGContextDrawImage(ctx, CGRectMake(sz.width, 0, sz.width/2.0, sz.height), flip(rightRef));
     
-    CGContextAddLineToPoint(con, 100, 19);
+    UIImage *im = UIGraphicsGetImageFromCurrentImageContext();
     
-    CGContextSetLineWidth(con, 20);
+    UIGraphicsEndImageContext();
     
-    CGContextStrokePath(con);
+    CGImageRelease(leftRef);
+    CGImageRelease(rightRef);
+    return im;
+}
+
+CGImageRef flip (CGImageRef im){
+
+    CGSize sz = CGSizeMake(CGImageGetWidth(im), CGImageGetHeight(im));
+    UIGraphicsBeginImageContextWithOptions(sz, NO, 0);
+    CGContextDrawImage(UIGraphicsGetCurrentContext(), CGRectMake(0, 0, sz.width, sz.height),im);
+    CGImageRef result = UIGraphicsGetImageFromCurrentImageContext().CGImage;
     
-    // 画红色箭头
-    
-    CGContextSetFillColorWithColor(con, [[UIColor redColor] CGColor]);
-    
-    CGContextMoveToPoint(con, 80, 25);
-    
-    CGContextAddLineToPoint(con, 100, 0); 
-    
-    CGContextAddLineToPoint(con, 120, 25); 
-    
-    CGContextFillPath(con);  
-    
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    return image;
-    
+    UIGraphicsEndImageContext();
+    return result;
 }
 
 
