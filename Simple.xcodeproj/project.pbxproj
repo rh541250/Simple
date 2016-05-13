@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5F372A6080684C389FF536E5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70D0FCADDEEAFDECA99C8BD1 /* libPods.a */; };
+		A020DD0F1CE34AFD00642710 /* CAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A020DD0E1CE34AFD00642710 /* CAViewController.m */; };
 		A0582BC11CD33DAA007109B5 /* UINavigationBar+BackgroundColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A0582BC01CD33DAA007109B5 /* UINavigationBar+BackgroundColor.m */; };
 		A060D3A41CD1D85B00B7D230 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A060D3901CD1D85B00B7D230 /* AppDelegate.m */; };
 		A060D3A51CD1D85B00B7D230 /* SIMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A060D3941CD1D85B00B7D230 /* SIMNavigationController.m */; };
@@ -17,6 +18,7 @@
 		A070649E1CD8439C00CCA264 /* CGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A070649D1CD8439C00CCA264 /* CGViewController.m */; };
 		A07064A11CD8445600CCA264 /* CGView.m in Sources */ = {isa = PBXBuildFile; fileRef = A07064A01CD8445600CCA264 /* CGView.m */; };
 		A07064A31CD872BC00CCA264 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A07064A21CD872BC00CCA264 /* 1.jpg */; };
+		A07064B61CDC736300CCA264 /* 4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A07064B51CDC736300CCA264 /* 4@2x.png */; };
 		A0ACB3901CD307830078715B /* SIMMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0ACB38F1CD307830078715B /* SIMMainViewController.m */; };
 		A0ACB3941CD30A050078715B /* SIMItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A0ACB3931CD30A050078715B /* SIMItem.m */; };
 		A0ACB39B1CD33D630078715B /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0ACB3971CD33D630078715B /* UIImage+Rotate.m */; };
@@ -48,6 +50,8 @@
 /* Begin PBXFileReference section */
 		37FB6355DDE5C501F95370A6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		70D0FCADDEEAFDECA99C8BD1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A020DD0D1CE34AFD00642710 /* CAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAViewController.h; sourceTree = "<group>"; };
+		A020DD0E1CE34AFD00642710 /* CAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAViewController.m; sourceTree = "<group>"; };
 		A0582BBF1CD33DAA007109B5 /* UINavigationBar+BackgroundColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+BackgroundColor.h"; sourceTree = "<group>"; };
 		A0582BC01CD33DAA007109B5 /* UINavigationBar+BackgroundColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+BackgroundColor.m"; sourceTree = "<group>"; };
 		A060D38F1CD1D85B00B7D230 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -66,6 +70,7 @@
 		A070649F1CD8445600CCA264 /* CGView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGView.h; sourceTree = "<group>"; };
 		A07064A01CD8445600CCA264 /* CGView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGView.m; sourceTree = "<group>"; };
 		A07064A21CD872BC00CCA264 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		A07064B51CDC736300CCA264 /* 4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4@2x.png"; sourceTree = "<group>"; };
 		A0ACB38E1CD307830078715B /* SIMMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMMainViewController.h; sourceTree = "<group>"; };
 		A0ACB38F1CD307830078715B /* SIMMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMMainViewController.m; sourceTree = "<group>"; };
 		A0ACB3921CD30A050078715B /* SIMItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMItem.h; sourceTree = "<group>"; };
@@ -196,6 +201,7 @@
 		A060D39B1CD1D85B00B7D230 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A07064B51CDC736300CCA264 /* 4@2x.png */,
 				A07064A21CD872BC00CCA264 /* 1.jpg */,
 			);
 			path = Resources;
@@ -213,6 +219,8 @@
 				A060D3A11CD1D85B00B7D230 /* ViewController.xib */,
 				A070649C1CD8439C00CCA264 /* CGViewController.h */,
 				A070649D1CD8439C00CCA264 /* CGViewController.m */,
+				A020DD0D1CE34AFD00642710 /* CAViewController.h */,
+				A020DD0E1CE34AFD00642710 /* CAViewController.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -453,6 +461,7 @@
 			files = (
 				A0DEEA9C1CC9F8BD006516E3 /* LaunchScreen.storyboard in Resources */,
 				A07064A31CD872BC00CCA264 /* 1.jpg in Resources */,
+				A07064B61CDC736300CCA264 /* 4@2x.png in Resources */,
 				A060D3A81CD1D85B00B7D230 /* ViewController.xib in Resources */,
 				A0DEEA991CC9F8BD006516E3 /* Assets.xcassets in Resources */,
 			);
@@ -531,6 +540,7 @@
 				A060D3A41CD1D85B00B7D230 /* AppDelegate.m in Sources */,
 				A0ACB3901CD307830078715B /* SIMMainViewController.m in Sources */,
 				A0582BC11CD33DAA007109B5 /* UINavigationBar+BackgroundColor.m in Sources */,
+				A020DD0F1CE34AFD00642710 /* CAViewController.m in Sources */,
 				A0DEEA8E1CC9F8BD006516E3 /* main.m in Sources */,
 				A070649E1CD8439C00CCA264 /* CGViewController.m in Sources */,
 				A0ACB39C1CD33D630078715B /* UIImage+Tools.m in Sources */,
