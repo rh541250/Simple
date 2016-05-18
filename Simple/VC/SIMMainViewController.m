@@ -12,6 +12,7 @@
 #import "MasonryAnimateViewController.h"
 #import "CGViewController.h"
 #import "CAViewController.h"
+#import "CALayerViewController.h"
 
 #define NAVBAR_CHANGE_POINT 50
 
@@ -60,6 +61,11 @@ static  NSString *SIMTableViewCellIdentify = @"SIMTableViewCellIdentify";
     item = [SIMItem new];
     item.name = @"动画";
     item.VCName = @"CAViewController";
+    [dataArr addObject:item];
+    
+    item = [SIMItem new];
+    item.name = @"图层";
+    item.VCName = @"CALayerViewController";
     [dataArr addObject:item];
 }
 
