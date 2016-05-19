@@ -7,6 +7,9 @@
 //
 
 #import "CAViewController.h"
+#import "SpecialLayer.h"
+#import "CATextLayerLabel.h"
+#import "CAReplicatorView.h"
 
 @interface CAViewController ()
 {
@@ -19,9 +22,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self layoutViews];
+//    [self layoutViews];
 //    [self layoutLayers];
-//    [self layoutSepLayers];
+    [self layoutSepLayers];
 }
 
 - (void)layoutViews
@@ -74,7 +77,7 @@
 //    greenLayer.shadowPath = path;
 //    CGPathRelease(path);
     
-    //图片的拉伸过滤，会造成性能的消耗，但是有时候需要缩略图或者查看大图，就会缩放图片，这时候就会用到图片的拉伸过滤算法，（CALayer使用的是双线性过滤算法，还有三线性过滤算法，这两个算法适合保存图片的纹理和路径，还有最近取样算法，适合保存像素的差异性，常用在简单的直方图中）
+    //图片的拉伸过滤，会造成性能的消耗，但是有时候需要缩略图或者查看大图，就会缩放图片，这时候就会用到图片的拉伸过滤算法，（CALayer使用的是双线性过滤算法，其实三线性过滤算法比它好点，这两个算法适合保存图片的纹理和路径，还有最近取样算法，适合保存像素的差异性，常用在简单的直方图中）
 //    greenLayer.minificationFilter = kCAFilterTrilinear;//缩小的拉伸过滤算法(双线性过滤)
 //    greenLayer.magnificationFilter = kCAFilterTrilinear;//放大的拉伸过滤算法(双线性过滤)
 //    greenLayer.minificationFilter = kCAFilterNearest;
@@ -92,20 +95,12 @@
     //图层3D仿射变换，Transform3D
     CATransform3D transform = CATransform3DIdentity;
     transform.m34 = -1.0/500;
-    transform = CATransform3DRotate(transform, -M_PI_4, 0, 1, 0);
+//    transform = CATransform3DRotate(transform, -M_PI_4, 0, 1, 0);
     transform = CATransform3DRotate(transform, -M_PI_4, 1, 0, 0);
     greenLayer.transform = transform;
     
     //是否绘制图层背面（当图层做3D旋转时，可以设置成NO，禁止背面的绘制，提升性能）
 //    greenLayer.doubleSided = YES;
-    
-//    CATransform3D transform = CATransform3DMakeRotation(M_PI_4,0, 1, 0);
-//    greenLayer.transform = transform;
-
-//    CATransform3D transform = CATransform3DIdentity;
-//    transform.m34 = -1.0/500;
-//    transform = CATransform3DRotate(transform, -M_PI_4, 0, 1, 0);
-//    greenLayer.transform = transform;
     
 }
 
@@ -172,9 +167,10 @@
     [blueLayer display];
 }
 
+
 - (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx
 {
-    CGContextSetLineWidth(ctx, 10.0f);
+    CGContextSetLineWidth(ctx, 1.0f);
     CGContextSetStrokeColorWithColor(ctx, [UIColor redColor].CGColor);
     CGContextStrokeEllipseInRect(ctx, layer.bounds);
 }
@@ -184,62 +180,36 @@
 
 - (void)layoutSepLayers
 {
-    self.view.backgroundColor = [UIColor whiteColor];
-//    [self.view.layer addSublayer:[self createCAShapeLayer]];
-    [self.view.layer addSublayer:[self createCATextLayerWithRect:CGRectMake(50, 100, 100, 300)]];
+    self.view.backgroundColor = [UIColor grayColor];
+//    [self.view.layer addSublayer:[SpecialLayer createCAShapeLayer]];
+//    [self.view.layer addSublayer:[SpecialLayer createCATextLayerWithRect:CGRectMake(50, 100, 100, 300)]];
+    
+    //自定义UILabel的子类，实现使用CATextLayer和CoreText,提升性能
+//   CATextLayerLabel *lb = [[CATextLayerLabel alloc]initWithFrame:CGRectMake(100, 150, 200, 200)];
+//    lb.text = @"沙发打发打发打发点";
+//    lb.textColor = [UIColor redColor];
+//    lb.font = [UIFont systemFontOfSize:18];
+//    
+//    [self.view addSubview:lb];
+    
+//    [self.view.layer addSublayer:[SpecialLayer createCAGradientLayerWithRect:CGRectMake(50, 100, 100, 100)]];
+    
+//    [self.view.layer addSublayer:[SpecialLayer createCAReplicatorLayerWithRect:CGRectMake(0,100,300,500)]];
+    //自定义的CAReplicatorView,实现图片的倒影
+//    CAReplicatorView *view = [[CAReplicatorView alloc]initWithFrame:CGRectMake(100, 100, 100, 100)];
+//    view.backgroundColor = [UIColor whiteColor];
+//    UIImageView *im = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
+//    im.image = [UIImage imageNamed:@"1.jpg"];
+//    [view addSubview:im];
+//    
+//    [self.view addSubview:view];
+
+    [self.view.layer addSublayer:[SpecialLayer createCAEmitterLayerWithRect:CGRectMake(100,300,50,50)]];
 }
 
-- (CALayer *)createCAShapeLayer
-{
-    //画火柴人
-    UIBezierPath *path = [[UIBezierPath alloc]init];
-    [path moveToPoint:CGPointMake(175, 100)];
-    [path addArcWithCenter:CGPointMake(150, 100) radius:25 startAngle:0 endAngle:2*M_PI clockwise:YES];
-    [path moveToPoint:CGPointMake(150, 125)];
-    [path addLineToPoint:CGPointMake(150, 175)];
-    [path addLineToPoint:CGPointMake(125, 225)];
-    [path moveToPoint:CGPointMake(150, 175)];
-    [path addLineToPoint:CGPointMake(175, 225)];
-    [path moveToPoint:CGPointMake(100, 150)];
-    [path addLineToPoint:CGPointMake(200, 150)];
-    
-    
-    CAShapeLayer *layer = [CAShapeLayer layer];
-    layer.strokeColor = [UIColor redColor].CGColor;
-    layer.fillColor = [UIColor clearColor].CGColor;
-    layer.lineWidth = 5;
-    layer.lineJoin  = kCALineJoinRound;
-    layer.lineCap = kCALineCapRound;
-    layer.path = path.CGPath;
-    return layer;
-}
 
-- (CALayer *)createCATextLayerWithRect:(CGRect)rect
-{
-    CATextLayer *layer = [CATextLayer layer];
-    
-    layer.frame = rect;
-    layer.foregroundColor = [UIColor blackColor].CGColor;
-    layer.alignmentMode  = kCAAlignmentJustified;
-    layer.wrapped = YES;
-    
-    //解决文字像素化问题
-    layer.contentsScale = [UIScreen mainScreen].scale;
-    
-    UIFont *font = [UIFont systemFontOfSize:15.0];
-    CFStringRef fontName =(__bridge CFStringRef) font.fontName;
-    CGFontRef fontRef = CGFontCreateWithFontName(fontName);
-    layer.font = fontRef;
-    layer.fontSize = font.pointSize;
-    
-    CGFontRelease(fontRef);
-    
-    NSString *str = @"dsfasfasfasdff sdflfhaslkdfaklsd aldfaljfdklafl afklj;;,asdf laskdfjlkasjf ad";
-    layer.string = str;
-    
-    
-    return layer;
-}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
