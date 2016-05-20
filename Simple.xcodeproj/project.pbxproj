@@ -9,15 +9,13 @@
 /* Begin PBXBuildFile section */
 		5F372A6080684C389FF536E5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70D0FCADDEEAFDECA99C8BD1 /* libPods.a */; };
 		A020DD0F1CE34AFD00642710 /* CAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A020DD0E1CE34AFD00642710 /* CAViewController.m */; };
-		A0324DFB1CE9A7C200DF4671 /* CALayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0324DF91CE9A7C200DF4671 /* CALayerViewController.m */; };
-		A0324DFC1CE9A7C200DF4671 /* CALayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0324DFA1CE9A7C200DF4671 /* CALayerViewController.xib */; };
 		A0324DFE1CE9A8F700DF4671 /* 416.png in Resources */ = {isa = PBXBuildFile; fileRef = A0324DFD1CE9A8F700DF4671 /* 416.png */; };
-		A0324DFF1CEB20EF00DF4671 /* CALayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0324DF91CE9A7C200DF4671 /* CALayerViewController.m */; };
 		A0324E011CEC5F5300DF4671 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0324E001CEC5F5300DF4671 /* CoreText.framework */; };
 		A0324E051CEC693800DF4671 /* SpecialLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A0324E041CEC693800DF4671 /* SpecialLayer.m */; };
 		A0324E091CEC6B9000DF4671 /* CATextLayerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0324E081CEC6B9000DF4671 /* CATextLayerLabel.m */; };
 		A0324E151CEDC0FE00DF4671 /* CAReplicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0324E141CEDC0FE00DF4671 /* CAReplicatorView.m */; };
 		A0324E171CEDD97A00DF4671 /* 5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0324E161CEDD97A00DF4671 /* 5@2x.png */; };
+		A0324E1A1CEEBB9E00DF4671 /* CAAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0324E191CEEBB9E00DF4671 /* CAAnimationViewController.m */; };
 		A0582BC11CD33DAA007109B5 /* UINavigationBar+BackgroundColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A0582BC01CD33DAA007109B5 /* UINavigationBar+BackgroundColor.m */; };
 		A060D3A41CD1D85B00B7D230 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A060D3901CD1D85B00B7D230 /* AppDelegate.m */; };
 		A060D3A51CD1D85B00B7D230 /* SIMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A060D3941CD1D85B00B7D230 /* SIMNavigationController.m */; };
@@ -61,9 +59,6 @@
 		70D0FCADDEEAFDECA99C8BD1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A020DD0D1CE34AFD00642710 /* CAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAViewController.h; sourceTree = "<group>"; };
 		A020DD0E1CE34AFD00642710 /* CAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAViewController.m; sourceTree = "<group>"; };
-		A0324DF81CE9A7C200DF4671 /* CALayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CALayerViewController.h; sourceTree = "<group>"; };
-		A0324DF91CE9A7C200DF4671 /* CALayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CALayerViewController.m; sourceTree = "<group>"; };
-		A0324DFA1CE9A7C200DF4671 /* CALayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CALayerViewController.xib; sourceTree = "<group>"; };
 		A0324DFD1CE9A8F700DF4671 /* 416.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 416.png; sourceTree = "<group>"; };
 		A0324E001CEC5F5300DF4671 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		A0324E031CEC693800DF4671 /* SpecialLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialLayer.h; sourceTree = "<group>"; };
@@ -73,6 +68,8 @@
 		A0324E131CEDC0FE00DF4671 /* CAReplicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAReplicatorView.h; sourceTree = "<group>"; };
 		A0324E141CEDC0FE00DF4671 /* CAReplicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAReplicatorView.m; sourceTree = "<group>"; };
 		A0324E161CEDD97A00DF4671 /* 5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5@2x.png"; sourceTree = "<group>"; };
+		A0324E181CEEBB9E00DF4671 /* CAAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAAnimationViewController.h; sourceTree = "<group>"; };
+		A0324E191CEEBB9E00DF4671 /* CAAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAAnimationViewController.m; sourceTree = "<group>"; };
 		A0582BBF1CD33DAA007109B5 /* UINavigationBar+BackgroundColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+BackgroundColor.h"; sourceTree = "<group>"; };
 		A0582BC01CD33DAA007109B5 /* UINavigationBar+BackgroundColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+BackgroundColor.m"; sourceTree = "<group>"; };
 		A060D38F1CD1D85B00B7D230 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -268,9 +265,8 @@
 				A070649D1CD8439C00CCA264 /* CGViewController.m */,
 				A020DD0D1CE34AFD00642710 /* CAViewController.h */,
 				A020DD0E1CE34AFD00642710 /* CAViewController.m */,
-				A0324DF81CE9A7C200DF4671 /* CALayerViewController.h */,
-				A0324DF91CE9A7C200DF4671 /* CALayerViewController.m */,
-				A0324DFA1CE9A7C200DF4671 /* CALayerViewController.xib */,
+				A0324E181CEEBB9E00DF4671 /* CAAnimationViewController.h */,
+				A0324E191CEEBB9E00DF4671 /* CAAnimationViewController.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -512,7 +508,6 @@
 				A0DEEA9C1CC9F8BD006516E3 /* LaunchScreen.storyboard in Resources */,
 				A07064A31CD872BC00CCA264 /* 1.jpg in Resources */,
 				A0324E171CEDD97A00DF4671 /* 5@2x.png in Resources */,
-				A0324DFC1CE9A7C200DF4671 /* CALayerViewController.xib in Resources */,
 				A07064B61CDC736300CCA264 /* 4@2x.png in Resources */,
 				A060D3A81CD1D85B00B7D230 /* ViewController.xib in Resources */,
 				A0324DFE1CE9A8F700DF4671 /* 416.png in Resources */,
@@ -589,9 +584,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0324E1A1CEEBB9E00DF4671 /* CAAnimationViewController.m in Sources */,
 				A060D3A61CD1D85B00B7D230 /* MasonryAnimateViewController.m in Sources */,
 				A060D3A41CD1D85B00B7D230 /* AppDelegate.m in Sources */,
-				A0324DFB1CE9A7C200DF4671 /* CALayerViewController.m in Sources */,
 				A0324E091CEC6B9000DF4671 /* CATextLayerLabel.m in Sources */,
 				A0ACB3901CD307830078715B /* SIMMainViewController.m in Sources */,
 				A0324E151CEDC0FE00DF4671 /* CAReplicatorView.m in Sources */,
@@ -621,7 +616,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0324DFF1CEB20EF00DF4671 /* CALayerViewController.m in Sources */,
 				A0DEEAB21CC9F8BD006516E3 /* SimpleUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
