@@ -63,8 +63,13 @@ static  NSString *SIMTableViewCellIdentify = @"SIMTableViewCellIdentify";
     [dataArr addObject:item];
     
     item = [SIMItem new];
-    item.name = @"动画";
+    item.name = @"隐式动画";
     item.VCName = @"CAAnimationViewController";
+    [dataArr addObject:item];
+    
+    item = [SIMItem new];
+    item.name = @"显式动画";
+    item.VCName = @"CAShowAnimationViewController";
     [dataArr addObject:item];
 }
 

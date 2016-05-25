@@ -201,10 +201,9 @@
 //    UIImageView *im = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
 //    im.image = [UIImage imageNamed:@"1.jpg"];
 //    [view addSubview:im];
-//    
 //    [self.view addSubview:view];
 
-    [self.view.layer addSublayer:[SpecialLayer createCAEmitterLayerWithRect:CGRectMake(100,300,50,50)]];
+    [self.view.layer addSublayer:[SpecialLayer createCAEmitterLayerWithRect:CGRectMake(200,300,50,50)]];
 }
 
 

@@ -16,6 +16,7 @@
 		A0324E151CEDC0FE00DF4671 /* CAReplicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0324E141CEDC0FE00DF4671 /* CAReplicatorView.m */; };
 		A0324E171CEDD97A00DF4671 /* 5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A0324E161CEDD97A00DF4671 /* 5@2x.png */; };
 		A0324E1A1CEEBB9E00DF4671 /* CAAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0324E191CEEBB9E00DF4671 /* CAAnimationViewController.m */; };
+		A0324E311CF2CA6000DF4671 /* CAShowAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0324E301CF2CA6000DF4671 /* CAShowAnimationViewController.m */; };
 		A0582BC11CD33DAA007109B5 /* UINavigationBar+BackgroundColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A0582BC01CD33DAA007109B5 /* UINavigationBar+BackgroundColor.m */; };
 		A060D3A41CD1D85B00B7D230 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A060D3901CD1D85B00B7D230 /* AppDelegate.m */; };
 		A060D3A51CD1D85B00B7D230 /* SIMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A060D3941CD1D85B00B7D230 /* SIMNavigationController.m */; };
@@ -70,6 +71,8 @@
 		A0324E161CEDD97A00DF4671 /* 5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5@2x.png"; sourceTree = "<group>"; };
 		A0324E181CEEBB9E00DF4671 /* CAAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAAnimationViewController.h; sourceTree = "<group>"; };
 		A0324E191CEEBB9E00DF4671 /* CAAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAAnimationViewController.m; sourceTree = "<group>"; };
+		A0324E2F1CF2CA6000DF4671 /* CAShowAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAShowAnimationViewController.h; sourceTree = "<group>"; };
+		A0324E301CF2CA6000DF4671 /* CAShowAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAShowAnimationViewController.m; sourceTree = "<group>"; };
 		A0582BBF1CD33DAA007109B5 /* UINavigationBar+BackgroundColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+BackgroundColor.h"; sourceTree = "<group>"; };
 		A0582BC01CD33DAA007109B5 /* UINavigationBar+BackgroundColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+BackgroundColor.m"; sourceTree = "<group>"; };
 		A060D38F1CD1D85B00B7D230 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -267,6 +270,8 @@
 				A020DD0E1CE34AFD00642710 /* CAViewController.m */,
 				A0324E181CEEBB9E00DF4671 /* CAAnimationViewController.h */,
 				A0324E191CEEBB9E00DF4671 /* CAAnimationViewController.m */,
+				A0324E2F1CF2CA6000DF4671 /* CAShowAnimationViewController.h */,
+				A0324E301CF2CA6000DF4671 /* CAShowAnimationViewController.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -584,6 +589,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0324E311CF2CA6000DF4671 /* CAShowAnimationViewController.m in Sources */,
 				A0324E1A1CEEBB9E00DF4671 /* CAAnimationViewController.m in Sources */,
 				A060D3A61CD1D85B00B7D230 /* MasonryAnimateViewController.m in Sources */,
 				A060D3A41CD1D85B00B7D230 /* AppDelegate.m in Sources */,
@@ -739,9 +745,9 @@
 				GCC_PREFIX_HEADER = $SRCROOT/Simple/Public/Define/Simple.pch;
 				INFOPLIST_FILE = Simple/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ehsy.Simple;
+				PRODUCT_BUNDLE_IDENTIFIER = rh.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "51ce3d16-e15d-471c-8350-85ed04cb4672";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -755,9 +761,9 @@
 				GCC_PREFIX_HEADER = $SRCROOT/Simple/Public/Define/Simple.pch;
 				INFOPLIST_FILE = Simple/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ehsy.Simple;
+				PRODUCT_BUNDLE_IDENTIFIER = rh.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "51ce3d16-e15d-471c-8350-85ed04cb4672";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

@@ -40,7 +40,7 @@
     
     CAShapeLayer *layer = [CAShapeLayer layer];
     layer.strokeColor = [UIColor redColor].CGColor;
-    layer.fillColor = [UIColor blueColor].CGColor;
+    layer.fillColor = [UIColor clearColor].CGColor;
     layer.lineWidth = 5;
     layer.lineJoin  = kCALineJoinRound;
     layer.lineCap = kCALineCapRound;
@@ -128,11 +128,12 @@
     
     CAReplicatorLayer *layer = [CAReplicatorLayer layer];
     layer.frame = rect;
-    layer.instanceCount = 10;
+    layer.instanceCount = 15;
     
     CATransform3D transform = CATransform3DIdentity;
     transform = CATransform3DTranslate(transform, 0, 40, 0);
-    transform = CATransform3DRotate(transform, M_PI / 5.0, 0, 0, 1);
+    transform = CATransform3DRotate(transform, M_PI / 4.0, 0, 1, 1);
+    transform.m34 = -1.0/500;
     transform = CATransform3DTranslate(transform, 0, -40, 0);
     layer.instanceTransform = transform;
     
@@ -140,8 +141,8 @@
     layer.instanceGreenOffset = -0.1;
     
     CALayer *lay = [CALayer layer];
-    lay.frame = CGRectMake(20, 30, 40, 40);
-    lay.backgroundColor = [UIColor whiteColor].CGColor;
+    lay.frame = CGRectMake(20, 30, 30, 30);
+    lay.backgroundColor = [UIColor cyanColor].CGColor;
     [layer addSublayer:lay];
     
     return layer;
@@ -162,11 +163,11 @@
     cell.contents = (__bridge id)[UIImage imageNamed:@"5"].CGImage;
     cell.birthRate = 150;
     cell.lifetime = 5.0;
-    cell.color = [UIColor colorWithRed:1 green:0.5 blue:0.1 alpha:1.0].CGColor;
+    cell.color = [UIColor colorWithRed:0.5 green:1 blue:0.1 alpha:1.0].CGColor;
     cell.alphaSpeed = -0.4;
     cell.velocity = 50;
     cell.velocityRange = 50;
-    cell.emissionRange = M_PI * 2.0;
+    cell.emissionRange = M_PI/3.0 ;
     
     layer.emitterCells = @[cell];
     return layer;

@@ -32,11 +32,14 @@
     [self.view.layer addSublayer:layer];
     
     
-    CATransition *transition = [CATransition animation];
-    transition.type = kCATransitionReveal;
-    transition.subtype = kCATransitionFromLeft;
-    layer.actions = @{@"backgroundColor":transition};
-//
+//    add a custom transition
+    CATransition *transtion = [CATransition animation];
+    transtion.type = kCATransitionReveal;
+    transtion.subtype = kCATransitionFromLeft;
+    layer.actions = @{@"backgroundColor":transtion};
+    
+    
+    
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn setTitle:@"点击" forState:UIControlStateNormal];
     [btn setBackgroundColor:[UIColor cyanColor]];
@@ -48,41 +51,23 @@
 
 - (void)clickBtn
 {
-//    [CATransaction begin];    
-//    [CATransaction setAnimationDuration:1.0];
-    
-//    [CATransaction setCompletionBlock:^{
-    
-//        [CATransaction begin];
-//        [CATransaction setAnimationDuration:1.0];
-//        CGAffineTransform transform = layer.affineTransform;
-//        transform = CGAffineTransformRotate(transform, M_PI_2);
-//        layer.affineTransform =  transform;
-//        [CATransaction commit];
-//    }];
+    [CATransaction begin];    
+    [CATransaction setAnimationDuration:1.0];
+
+    [CATransaction setCompletionBlock:^{
+        [CATransaction begin];
+        [CATransaction setAnimationDuration:1.0];
+        layer.affineTransform =  CGAffineTransformRotate(layer.affineTransform, M_PI_2);
+        [CATransaction commit];
+    }];
     
     CGFloat red = arc4random() / (CGFloat)INT_MAX;
     CGFloat green = arc4random() / (CGFloat)INT_MAX;
     CGFloat blue = arc4random() / (CGFloat)INT_MAX;
     UIColor *color = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
-//    [CATransaction commit];
+    layer.backgroundColor = color.CGColor;
     
-    CABasicAnimation *ani = [CABasicAnimation animation];
-    ani.keyPath = @"backgroundColor";
-    ani.toValue = (__bridge id)color.CGColor;
-    ani.delegate = self;
-    [layer addAnimation:ani forKey:nil];
-}
-
-
-- (void)animationDidStop:(CABasicAnimation *)anim finished:(BOOL)flag
-{
-    [CATransaction begin];
-    [CATransaction setDisableActions:YES];
-    
-    layer.backgroundColor = (__bridge CGColorRef)anim.toValue;
     [CATransaction commit];
-    
 }
 
 //- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
