@@ -71,6 +71,16 @@ static  NSString *SIMTableViewCellIdentify = @"SIMTableViewCellIdentify";
     item.name = @"显式动画";
     item.VCName = @"CAShowAnimationViewController";
     [dataArr addObject:item];
+    
+    item = [SIMItem new];
+    item.name = @"instruments测试";
+    item.VCName = @"CAInstrumentsViewController";
+    [dataArr addObject:item];
+    
+    item = [SIMItem new];
+    item.name = @"CGView绘图";
+    item.VCName = @"CADrawViewController";
+    [dataArr addObject:item];
 }
 
 - (void)initViews
@@ -78,11 +88,13 @@ static  NSString *SIMTableViewCellIdentify = @"SIMTableViewCellIdentify";
 //    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor clearColor]];
     
     self.title = @"MainVC";
+    self.view.backgroundColor = [UIColor whiteColor];
     
     simTableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
     simTableView.delegate = self;
     simTableView.dataSource = self;
     simTableView.tableFooterView = [UIView new];
+    simTableView.backgroundColor = [UIColor whiteColor];
     simTableView.rowHeight = 44.0;
     [self.view addSubview:simTableView];
     
@@ -113,7 +125,9 @@ static  NSString *SIMTableViewCellIdentify = @"SIMTableViewCellIdentify";
         cell.backgroundColor = [UIColor whiteColor];
     }
     SIMItem *item = dataArr[indexPath.row];
+    cell.backgroundColor = [UIColor whiteColor];
     cell.textLabel.text = item.name;
+    cell.textLabel.backgroundColor = [UIColor whiteColor];
     return cell;
 }
 

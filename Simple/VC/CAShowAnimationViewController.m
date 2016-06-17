@@ -42,8 +42,8 @@
     
 //    [self layoutViews];
 //    [self layoutViewsForAnimation];
-    [self layoutUnrealProperty];
-//    [self layoutTransitionAnimation];
+//    [self layoutUnrealProperty];
+    [self layoutTransitionAnimation];
 //    [self openOrCloseDoor];
 //    [self openOrCloseDoorWithHand];
 }
@@ -222,7 +222,7 @@
 //    index = (index +1)%imgArr.count;
 //    im.image = imgArr[index];
 
-//      [UIView transitionWithView:im duration:1.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
+//      [UIView transitionWithView:im duration:1.0 options:UIViewAnimationOptionTransitionCurlUp animations:^{
 //            UIImage *currentImage = im.image;
 //            NSUInteger index = [imgArr indexOfObject:currentImage];
 //            index = (index +1)%imgArr.count;
@@ -298,8 +298,6 @@
     animation.keyPath = @"transform.rotation.y";
     animation.toValue = @(-M_PI_2);
     animation.duration = 1.0;
-//    animation.repeatCount = INFINITY;
-//    animation.autoreverses = YES;
     [layer addAnimation:animation forKey:nil];
 }
 - (void)pan:(UIPanGestureRecognizer *)pan
@@ -314,6 +312,29 @@
     [pan setTranslation:CGPointZero inView:self.view];
 }
 
+
+- (void)dsfasdfafd
+{
+    NSDictionary *schemeDic = @{@"home":@{@"controller":@"RootPageViewController"},
+                  @"product/category":@{@"controller":@"RootPageBrandSpecialViewController"},
+                  @"my":@{@"controller":@"MyCenterViewController"},
+                  @"product/list":@{@"controller":@"CategorysDetailRootViewController",@"model":@"CategorysDetailRootViewModel"},
+                  @"product/brand":@{@"controller":@"RootPageBrandSpecialViewController",@"model":@"RootPageBrandSpecialViewModel"}
+                  };
+    
+    NSDictionary *dic = @{
+                          @"my":@{@"controller":@"MyCenterViewController"},
+                          @"user/login":@{@"controller":@"LoginRootViewController"},
+                          @"user/register":@{@"controller":@"RegistRootViewController"},
+                          @"my/notice":@{@"controller":@"MessageCenterViewController"},
+                          @"my/account":@{@"controller":@"MySettingViewController"},
+                          @"my/address":@{@"controller":@"AddressListController"},
+                          @"my/invoice":@{@"controller":@"InvoceListController"},
+                          @"my/history":@{@"controller":@"MyFootController"},
+                          @"my/coupon":@{@"controller":@"CouponsController"},
+                          @"my/order":@{@"controller":@"AllOrdersController"},
+                          };
+}
 
 
 - (void)didReceiveMemoryWarning {

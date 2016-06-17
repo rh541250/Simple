@@ -10,5 +10,5 @@
 
 @interface CGView : UIView
 
-
+@property (nonatomic,strong)UIBezierPath *path;
 @end
