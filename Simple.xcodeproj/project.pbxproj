@@ -30,6 +30,8 @@
 		A07064A11CD8445600CCA264 /* CGView.m in Sources */ = {isa = PBXBuildFile; fileRef = A07064A01CD8445600CCA264 /* CGView.m */; };
 		A07064A31CD872BC00CCA264 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A07064A21CD872BC00CCA264 /* 1.jpg */; };
 		A07064B61CDC736300CCA264 /* 4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A07064B51CDC736300CCA264 /* 4@2x.png */; };
+		A08A2E9A1D1BC6F000ED4F65 /* CACustomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A08A2E991D1BC6F000ED4F65 /* CACustomViewController.m */; };
+		A08A2EC11D20F9A700ED4F65 /* UIViewController+AnimateAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = A08A2EC01D20F9A700ED4F65 /* UIViewController+AnimateAlertView.m */; };
 		A0ACB3901CD307830078715B /* SIMMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0ACB38F1CD307830078715B /* SIMMainViewController.m */; };
 		A0ACB3941CD30A050078715B /* SIMItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A0ACB3931CD30A050078715B /* SIMItem.m */; };
 		A0ACB39B1CD33D630078715B /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0ACB3971CD33D630078715B /* UIImage+Rotate.m */; };
@@ -101,6 +103,10 @@
 		A07064A01CD8445600CCA264 /* CGView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGView.m; sourceTree = "<group>"; };
 		A07064A21CD872BC00CCA264 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		A07064B51CDC736300CCA264 /* 4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4@2x.png"; sourceTree = "<group>"; };
+		A08A2E981D1BC6F000ED4F65 /* CACustomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CACustomViewController.h; sourceTree = "<group>"; };
+		A08A2E991D1BC6F000ED4F65 /* CACustomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CACustomViewController.m; sourceTree = "<group>"; };
+		A08A2EBF1D20F9A700ED4F65 /* UIViewController+AnimateAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+AnimateAlertView.h"; sourceTree = "<group>"; };
+		A08A2EC01D20F9A700ED4F65 /* UIViewController+AnimateAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+AnimateAlertView.m"; sourceTree = "<group>"; };
 		A0ACB38E1CD307830078715B /* SIMMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMMainViewController.h; sourceTree = "<group>"; };
 		A0ACB38F1CD307830078715B /* SIMMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMMainViewController.m; sourceTree = "<group>"; };
 		A0ACB3921CD30A050078715B /* SIMItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMItem.h; sourceTree = "<group>"; };
@@ -295,6 +301,8 @@
 				A0324E331CF6E0D600DF4671 /* CAInstrumentsViewController.m */,
 				A0324E3E1CFC4F7800DF4671 /* CADrawViewController.h */,
 				A0324E3F1CFC4F7800DF4671 /* CADrawViewController.m */,
+				A08A2E981D1BC6F000ED4F65 /* CACustomViewController.h */,
+				A08A2E991D1BC6F000ED4F65 /* CACustomViewController.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -318,6 +326,8 @@
 		A07064A41CD8751500CCA264 /* UIViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A08A2EBF1D20F9A700ED4F65 /* UIViewController+AnimateAlertView.h */,
+				A08A2EC01D20F9A700ED4F65 /* UIViewController+AnimateAlertView.m */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -619,12 +629,14 @@
 				A0324E091CEC6B9000DF4671 /* CATextLayerLabel.m in Sources */,
 				A0ACB3901CD307830078715B /* SIMMainViewController.m in Sources */,
 				A0324E151CEDC0FE00DF4671 /* CAReplicatorView.m in Sources */,
+				A08A2EC11D20F9A700ED4F65 /* UIViewController+AnimateAlertView.m in Sources */,
 				A0582BC11CD33DAA007109B5 /* UINavigationBar+BackgroundColor.m in Sources */,
 				A01BF6851D0EA62300C2E10E /* SIMNetworking.m in Sources */,
 				A020DD0F1CE34AFD00642710 /* CAViewController.m in Sources */,
 				A0DEEA8E1CC9F8BD006516E3 /* main.m in Sources */,
 				A0324E401CFC4F7800DF4671 /* CADrawViewController.m in Sources */,
 				A070649E1CD8439C00CCA264 /* CGViewController.m in Sources */,
+				A08A2E9A1D1BC6F000ED4F65 /* CACustomViewController.m in Sources */,
 				A0ACB39C1CD33D630078715B /* UIImage+Tools.m in Sources */,
 				A0ACB3941CD30A050078715B /* SIMItem.m in Sources */,
 				A0324E341CF6E0D600DF4671 /* CAInstrumentsViewController.m in Sources */,
@@ -771,7 +783,7 @@
 				GCC_PREFIX_HEADER = $SRCROOT/Simple/Public/Define/Simple.pch;
 				INFOPLIST_FILE = Simple/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = rh.test;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ehsy.testtesttest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -787,7 +799,7 @@
 				GCC_PREFIX_HEADER = $SRCROOT/Simple/Public/Define/Simple.pch;
 				INFOPLIST_FILE = Simple/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = rh.test;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ehsy.testtesttest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
