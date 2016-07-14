@@ -139,10 +139,10 @@ static char kBackView;
     CGContextSetRGBFillColor(ctx, 29/255.0, 190/255.0, 75/255.0, 1);
     CGContextFillPath(ctx);
     
-    CGContextMoveToPoint(ctx, 20, 70);
-    CGContextAddLineToPoint(ctx, 45, 120);
-    CGContextAddLineToPoint(ctx, 140,70);
-    CGContextSetLineWidth(ctx, 10);
+    CGContextMoveToPoint(ctx, 40, 80);
+    CGContextAddLineToPoint(ctx, 65, 110);
+    CGContextAddLineToPoint(ctx, 120,60);
+    CGContextSetLineWidth(ctx, 20);
     CGContextSetLineCap(ctx, kCGLineCapRound);
     CGContextSetLineJoin(ctx, kCGLineJoinRound);
     CGContextSetStrokeColorWithColor(ctx, [UIColor whiteColor].CGColor);

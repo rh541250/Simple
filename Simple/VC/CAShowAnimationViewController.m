@@ -250,7 +250,9 @@
         coverView.alpha = 0.0;
     } completion:^(BOOL finished) {
         [coverView removeFromSuperview];
+        
     }];
+    
 }
 
 //重复开门关门的动画

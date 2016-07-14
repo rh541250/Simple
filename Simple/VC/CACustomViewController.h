@@ -8,19 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-
-//extern NSString  *AnimationShow;
-//extern NSString  *AnimationHide;
-//
-//typedef NS_ENUM(NSUInteger,E_Direction){
-//    E_Direction_Top = 0,
-//    E_Direction_Bottom,
-//};
-
-
 @interface CACustomViewController : UIViewController
-//@property (nonatomic,strong)UIView *emailView;
-//@property (nonatomic,strong)UIView *backView;
 
 
 @end
