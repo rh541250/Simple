@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		2221621E1D7C015F0086FB51 /* NextWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2221621B1D7C015F0086FB51 /* NextWebViewController.m */; };
 		2221621F1D7C015F0086FB51 /* SIMWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2221621D1D7C015F0086FB51 /* SIMWebViewController.m */; };
+		5DED37ED1D7053DB00411321 /* KVOTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DED37EC1D7053DB00411321 /* KVOTarget.m */; };
+		5DED37F01D7055FB00411321 /* KVOObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DED37EF1D7055FB00411321 /* KVOObserver.m */; };
+		5DED37F31D70587800411321 /* KVOOtherTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DED37F21D70587800411321 /* KVOOtherTarget.m */; };
 		A01BF6851D0EA62300C2E10E /* SIMNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = A01BF6841D0EA62300C2E10E /* SIMNetworking.m */; };
 		A020DD0F1CE34AFD00642710 /* CAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A020DD0E1CE34AFD00642710 /* CAViewController.m */; };
 		A0324DFE1CE9A8F700DF4671 /* 416.png in Resources */ = {isa = PBXBuildFile; fileRef = A0324DFD1CE9A8F700DF4671 /* 416.png */; };
@@ -68,6 +71,12 @@
 		2221621C1D7C015F0086FB51 /* SIMWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMWebViewController.h; sourceTree = "<group>"; };
 		2221621D1D7C015F0086FB51 /* SIMWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMWebViewController.m; sourceTree = "<group>"; };
 		5561EBC4F90458BB6A11AEA3 /* Pods-Simple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Simple/Pods-Simple.debug.xcconfig"; sourceTree = "<group>"; };
+		5DED37EB1D7053DB00411321 /* KVOTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVOTarget.h; sourceTree = "<group>"; };
+		5DED37EC1D7053DB00411321 /* KVOTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVOTarget.m; sourceTree = "<group>"; };
+		5DED37EE1D7055FB00411321 /* KVOObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVOObserver.h; sourceTree = "<group>"; };
+		5DED37EF1D7055FB00411321 /* KVOObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVOObserver.m; sourceTree = "<group>"; };
+		5DED37F11D70587800411321 /* KVOOtherTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVOOtherTarget.h; sourceTree = "<group>"; };
+		5DED37F21D70587800411321 /* KVOOtherTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVOOtherTarget.m; sourceTree = "<group>"; };
 		A01BF6831D0EA62300C2E10E /* SIMNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMNetworking.h; sourceTree = "<group>"; };
 		A01BF6841D0EA62300C2E10E /* SIMNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMNetworking.m; sourceTree = "<group>"; };
 		A020DD0D1CE34AFD00642710 /* CAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAViewController.h; sourceTree = "<group>"; };
@@ -355,6 +364,12 @@
 			children = (
 				A0ACB3921CD30A050078715B /* SIMItem.h */,
 				A0ACB3931CD30A050078715B /* SIMItem.m */,
+				5DED37EB1D7053DB00411321 /* KVOTarget.h */,
+				5DED37EC1D7053DB00411321 /* KVOTarget.m */,
+				5DED37F11D70587800411321 /* KVOOtherTarget.h */,
+				5DED37F21D70587800411321 /* KVOOtherTarget.m */,
+				5DED37EE1D7055FB00411321 /* KVOObserver.h */,
+				5DED37EF1D7055FB00411321 /* KVOObserver.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -524,7 +539,7 @@
 				TargetAttributes = {
 					A0DEEA881CC9F8BD006516E3 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 74N47TZ9PY;
+						DevelopmentTeam = FMHDU5KDKN;
 					};
 					A0DEEAA11CC9F8BD006516E3 = {
 						CreatedOnToolsVersion = 7.3;
@@ -630,7 +645,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -653,8 +668,11 @@
 				A020DD0F1CE34AFD00642710 /* CAViewController.m in Sources */,
 				A0DEEA8E1CC9F8BD006516E3 /* main.m in Sources */,
 				A0324E401CFC4F7800DF4671 /* CADrawViewController.m in Sources */,
+				5DED37ED1D7053DB00411321 /* KVOTarget.m in Sources */,
+				5DED37F01D7055FB00411321 /* KVOObserver.m in Sources */,
 				A070649E1CD8439C00CCA264 /* CGViewController.m in Sources */,
 				2221621E1D7C015F0086FB51 /* NextWebViewController.m in Sources */,
+				5DED37F31D70587800411321 /* KVOOtherTarget.m in Sources */,
 				A08A2E9A1D1BC6F000ED4F65 /* CACustomViewController.m in Sources */,
 				2221621F1D7C015F0086FB51 /* SIMWebViewController.m in Sources */,
 				A0ACB39C1CD33D630078715B /* UIImage+Tools.m in Sources */,
