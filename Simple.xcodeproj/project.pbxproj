@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2221621E1D7C015F0086FB51 /* NextWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2221621B1D7C015F0086FB51 /* NextWebViewController.m */; };
+		2221621F1D7C015F0086FB51 /* SIMWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2221621D1D7C015F0086FB51 /* SIMWebViewController.m */; };
 		A01BF6851D0EA62300C2E10E /* SIMNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = A01BF6841D0EA62300C2E10E /* SIMNetworking.m */; };
 		A020DD0F1CE34AFD00642710 /* CAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A020DD0E1CE34AFD00642710 /* CAViewController.m */; };
 		A0324DFE1CE9A8F700DF4671 /* 416.png in Resources */ = {isa = PBXBuildFile; fileRef = A0324DFD1CE9A8F700DF4671 /* 416.png */; };
@@ -61,6 +63,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2221621A1D7C015F0086FB51 /* NextWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NextWebViewController.h; sourceTree = "<group>"; };
+		2221621B1D7C015F0086FB51 /* NextWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NextWebViewController.m; sourceTree = "<group>"; };
+		2221621C1D7C015F0086FB51 /* SIMWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMWebViewController.h; sourceTree = "<group>"; };
+		2221621D1D7C015F0086FB51 /* SIMWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMWebViewController.m; sourceTree = "<group>"; };
 		5561EBC4F90458BB6A11AEA3 /* Pods-Simple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Simple/Pods-Simple.debug.xcconfig"; sourceTree = "<group>"; };
 		A01BF6831D0EA62300C2E10E /* SIMNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMNetworking.h; sourceTree = "<group>"; };
 		A01BF6841D0EA62300C2E10E /* SIMNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMNetworking.m; sourceTree = "<group>"; };
@@ -163,6 +169,17 @@
 				FC50640EFBACB2F0D553934E /* libPods-Simple.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		222162191D7C015F0086FB51 /* WebVC */ = {
+			isa = PBXGroup;
+			children = (
+				2221621A1D7C015F0086FB51 /* NextWebViewController.h */,
+				2221621B1D7C015F0086FB51 /* NextWebViewController.m */,
+				2221621C1D7C015F0086FB51 /* SIMWebViewController.h */,
+				2221621D1D7C015F0086FB51 /* SIMWebViewController.m */,
+			);
+			path = WebVC;
 			sourceTree = "<group>";
 		};
 		A01BF6821D0EA5EE00C2E10E /* Networking */ = {
@@ -282,6 +299,7 @@
 		A060D39C1CD1D85B00B7D230 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				222162191D7C015F0086FB51 /* WebVC */,
 				A0ACB38E1CD307830078715B /* SIMMainViewController.h */,
 				A0ACB38F1CD307830078715B /* SIMMainViewController.m */,
 				A060D39D1CD1D85B00B7D230 /* MasonryAnimateViewController.h */,
@@ -636,7 +654,9 @@
 				A0DEEA8E1CC9F8BD006516E3 /* main.m in Sources */,
 				A0324E401CFC4F7800DF4671 /* CADrawViewController.m in Sources */,
 				A070649E1CD8439C00CCA264 /* CGViewController.m in Sources */,
+				2221621E1D7C015F0086FB51 /* NextWebViewController.m in Sources */,
 				A08A2E9A1D1BC6F000ED4F65 /* CACustomViewController.m in Sources */,
+				2221621F1D7C015F0086FB51 /* SIMWebViewController.m in Sources */,
 				A0ACB39C1CD33D630078715B /* UIImage+Tools.m in Sources */,
 				A0ACB3941CD30A050078715B /* SIMItem.m in Sources */,
 				A0324E341CF6E0D600DF4671 /* CAInstrumentsViewController.m in Sources */,
@@ -782,6 +802,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = $SRCROOT/Simple/Public/Define/Simple.pch;
 				INFOPLIST_FILE = Simple/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ehsy.testtesttest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -798,6 +819,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = $SRCROOT/Simple/Public/Define/Simple.pch;
 				INFOPLIST_FILE = Simple/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ehsy.testtesttest;
 				PRODUCT_NAME = "$(TARGET_NAME)";

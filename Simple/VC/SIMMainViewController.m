@@ -86,6 +86,12 @@ static  NSString *SIMTableViewCellIdentify = @"SIMTableViewCellIdentify";
     item.name = @"自定义动画";
     item.VCName = @"CACustomViewController";
     [dataArr addObject:item];
+    
+    item = [SIMItem new];
+    item.name = @"web视图";
+    item.VCName = @"SIMWebViewController";
+    [dataArr addObject:item];
+
 }
 
 - (void)initViews
