@@ -12,6 +12,7 @@
 #import "MasonryAnimateViewController.h"
 #import "CGViewController.h"
 #import "CAViewController.h"
+#import "UINavigationBar+Transform.h"
 
 #define NAVBAR_CHANGE_POINT 50
 
@@ -31,11 +32,6 @@ static  NSString *SIMTableViewCellIdentify = @"SIMTableViewCellIdentify";
     [super viewDidLoad];
     [self initData];
     [self initViews];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
 }
 
 - (void)initData
@@ -92,7 +88,30 @@ static  NSString *SIMTableViewCellIdentify = @"SIMTableViewCellIdentify";
     item.VCName = @"SIMWebViewController";
     [dataArr addObject:item];
 
+    item = [SIMItem new];
+    item.name = @"截屏视图";
+    item.VCName = @"SIMScreenShotViewController";
+    [dataArr addObject:item];
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self revertNavBarTranslate];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self revertNavBarTranslate];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [self revertNavBarTranslate];
+}
+
 
 - (void)initViews
 {
@@ -101,13 +120,15 @@ static  NSString *SIMTableViewCellIdentify = @"SIMTableViewCellIdentify";
     self.title = @"MainVC";
     self.view.backgroundColor = [UIColor whiteColor];
     
-    simTableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
+    simTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain];
     simTableView.delegate = self;
     simTableView.dataSource = self;
     simTableView.tableFooterView = [UIView new];
     simTableView.backgroundColor = [UIColor whiteColor];
     simTableView.rowHeight = 44.0;
     [self.view addSubview:simTableView];
+    
+    
     
     WS(ws);
     [simTableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -155,8 +176,8 @@ static  NSString *SIMTableViewCellIdentify = @"SIMTableViewCellIdentify";
 }
 
 #pragma - mark - scrollView delegate
-//- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-//{
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
 //    UIColor *color = [UIColor colorWithRed:0/255.0 green:175/255.0 blue:240/255.0 alpha:1];
 //    CGFloat offset = scrollView.contentOffset.y;
 //    if (offset > 0) {
@@ -165,7 +186,21 @@ static  NSString *SIMTableViewCellIdentify = @"SIMTableViewCellIdentify";
 //    }else{
 //        [self.navigationController.navigationBar lt_setBackgroundColor:[color colorWithAlphaComponent:0]];
 //    }
-//}
+    
+//    CGFloat contentOffY = scrollView.contentOffset.y;
+//    if (contentOffY < 64.0) {
+//        [self.navigationController.navigationBar setNavBarTranslateWithProgress:contentOffY/64];
+//    }else {
+//        [self.navigationController.navigationBar setNavBarTranslateWithProgress:1];
+//    }
+//    
+}
+
+- (void)revertNavBarTranslate
+{
+//    [simTableView setContentOffset:CGPointZero];
+//    [self.navigationController.navigationBar setNavBarTranslateWithProgress:0];
+}
 
 
 - (void)didReceiveMemoryWarning {

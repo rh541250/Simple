@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		2221621E1D7C015F0086FB51 /* NextWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2221621B1D7C015F0086FB51 /* NextWebViewController.m */; };
 		2221621F1D7C015F0086FB51 /* SIMWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2221621D1D7C015F0086FB51 /* SIMWebViewController.m */; };
+		5D2812231D8E911600FE542B /* UINavigationBar+Transform.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2812221D8E911600FE542B /* UINavigationBar+Transform.m */; };
+		5D7CE8F51D8F7C0800128381 /* SIMScreenShotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7CE8F41D8F7C0800128381 /* SIMScreenShotViewController.m */; };
+		5D8A4B541D90CF630084235F /* SIMScreenShotManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8A4B531D90CF630084235F /* SIMScreenShotManager.m */; };
 		5DED37ED1D7053DB00411321 /* KVOTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DED37EC1D7053DB00411321 /* KVOTarget.m */; };
 		5DED37F01D7055FB00411321 /* KVOObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DED37EF1D7055FB00411321 /* KVOObserver.m */; };
 		5DED37F31D70587800411321 /* KVOOtherTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DED37F21D70587800411321 /* KVOOtherTarget.m */; };
@@ -71,6 +74,12 @@
 		2221621C1D7C015F0086FB51 /* SIMWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMWebViewController.h; sourceTree = "<group>"; };
 		2221621D1D7C015F0086FB51 /* SIMWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMWebViewController.m; sourceTree = "<group>"; };
 		5561EBC4F90458BB6A11AEA3 /* Pods-Simple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Simple/Pods-Simple.debug.xcconfig"; sourceTree = "<group>"; };
+		5D2812211D8E911600FE542B /* UINavigationBar+Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Transform.h"; sourceTree = "<group>"; };
+		5D2812221D8E911600FE542B /* UINavigationBar+Transform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Transform.m"; sourceTree = "<group>"; };
+		5D7CE8F31D8F7C0800128381 /* SIMScreenShotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMScreenShotViewController.h; sourceTree = "<group>"; };
+		5D7CE8F41D8F7C0800128381 /* SIMScreenShotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMScreenShotViewController.m; sourceTree = "<group>"; };
+		5D8A4B521D90CF630084235F /* SIMScreenShotManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMScreenShotManager.h; sourceTree = "<group>"; };
+		5D8A4B531D90CF630084235F /* SIMScreenShotManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMScreenShotManager.m; sourceTree = "<group>"; };
 		5DED37EB1D7053DB00411321 /* KVOTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVOTarget.h; sourceTree = "<group>"; };
 		5DED37EC1D7053DB00411321 /* KVOTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVOTarget.m; sourceTree = "<group>"; };
 		5DED37EE1D7055FB00411321 /* KVOObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVOObserver.h; sourceTree = "<group>"; };
@@ -183,12 +192,23 @@
 		222162191D7C015F0086FB51 /* WebVC */ = {
 			isa = PBXGroup;
 			children = (
-				2221621A1D7C015F0086FB51 /* NextWebViewController.h */,
-				2221621B1D7C015F0086FB51 /* NextWebViewController.m */,
 				2221621C1D7C015F0086FB51 /* SIMWebViewController.h */,
 				2221621D1D7C015F0086FB51 /* SIMWebViewController.m */,
+				2221621A1D7C015F0086FB51 /* NextWebViewController.h */,
+				2221621B1D7C015F0086FB51 /* NextWebViewController.m */,
 			);
 			path = WebVC;
+			sourceTree = "<group>";
+		};
+		5D7CE8F21D8F7BC100128381 /* FeedbackVC */ = {
+			isa = PBXGroup;
+			children = (
+				5D7CE8F31D8F7C0800128381 /* SIMScreenShotViewController.h */,
+				5D7CE8F41D8F7C0800128381 /* SIMScreenShotViewController.m */,
+				5D8A4B521D90CF630084235F /* SIMScreenShotManager.h */,
+				5D8A4B531D90CF630084235F /* SIMScreenShotManager.m */,
+			);
+			path = FeedbackVC;
 			sourceTree = "<group>";
 		};
 		A01BF6821D0EA5EE00C2E10E /* Networking */ = {
@@ -308,6 +328,7 @@
 		A060D39C1CD1D85B00B7D230 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				5D7CE8F21D8F7BC100128381 /* FeedbackVC */,
 				222162191D7C015F0086FB51 /* WebVC */,
 				A0ACB38E1CD307830078715B /* SIMMainViewController.h */,
 				A0ACB38F1CD307830078715B /* SIMMainViewController.m */,
@@ -390,6 +411,8 @@
 			children = (
 				A0582BBF1CD33DAA007109B5 /* UINavigationBar+BackgroundColor.h */,
 				A0582BC01CD33DAA007109B5 /* UINavigationBar+BackgroundColor.m */,
+				5D2812211D8E911600FE542B /* UINavigationBar+Transform.h */,
+				5D2812221D8E911600FE542B /* UINavigationBar+Transform.m */,
 			);
 			path = UINavigationBar;
 			sourceTree = "<group>";
@@ -539,7 +562,7 @@
 				TargetAttributes = {
 					A0DEEA881CC9F8BD006516E3 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = FMHDU5KDKN;
+						DevelopmentTeam = 74N47TZ9PY;
 					};
 					A0DEEAA11CC9F8BD006516E3 = {
 						CreatedOnToolsVersion = 7.3;
@@ -656,6 +679,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0324E311CF2CA6000DF4671 /* CAShowAnimationViewController.m in Sources */,
+				5D8A4B541D90CF630084235F /* SIMScreenShotManager.m in Sources */,
 				A0324E1A1CEEBB9E00DF4671 /* CAAnimationViewController.m in Sources */,
 				A060D3A61CD1D85B00B7D230 /* MasonryAnimateViewController.m in Sources */,
 				A060D3A41CD1D85B00B7D230 /* AppDelegate.m in Sources */,
@@ -665,6 +689,7 @@
 				A08A2EC11D20F9A700ED4F65 /* UIViewController+AnimateAlertView.m in Sources */,
 				A0582BC11CD33DAA007109B5 /* UINavigationBar+BackgroundColor.m in Sources */,
 				A01BF6851D0EA62300C2E10E /* SIMNetworking.m in Sources */,
+				5D2812231D8E911600FE542B /* UINavigationBar+Transform.m in Sources */,
 				A020DD0F1CE34AFD00642710 /* CAViewController.m in Sources */,
 				A0DEEA8E1CC9F8BD006516E3 /* main.m in Sources */,
 				A0324E401CFC4F7800DF4671 /* CADrawViewController.m in Sources */,
@@ -672,6 +697,7 @@
 				5DED37F01D7055FB00411321 /* KVOObserver.m in Sources */,
 				A070649E1CD8439C00CCA264 /* CGViewController.m in Sources */,
 				2221621E1D7C015F0086FB51 /* NextWebViewController.m in Sources */,
+				5D7CE8F51D8F7C0800128381 /* SIMScreenShotViewController.m in Sources */,
 				5DED37F31D70587800411321 /* KVOOtherTarget.m in Sources */,
 				A08A2E9A1D1BC6F000ED4F65 /* CACustomViewController.m in Sources */,
 				2221621F1D7C015F0086FB51 /* SIMWebViewController.m in Sources */,
