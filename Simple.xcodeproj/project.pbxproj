@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2221621E1D7C015F0086FB51 /* NextWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2221621B1D7C015F0086FB51 /* NextWebViewController.m */; };
 		2221621F1D7C015F0086FB51 /* SIMWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2221621D1D7C015F0086FB51 /* SIMWebViewController.m */; };
+		22D5A4051D8AF3CB00EE01AC /* UINavigationBar+Transform.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D5A4041D8AF3CB00EE01AC /* UINavigationBar+Transform.m */; };
 		5DED37ED1D7053DB00411321 /* KVOTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DED37EC1D7053DB00411321 /* KVOTarget.m */; };
 		5DED37F01D7055FB00411321 /* KVOObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DED37EF1D7055FB00411321 /* KVOObserver.m */; };
 		5DED37F31D70587800411321 /* KVOOtherTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DED37F21D70587800411321 /* KVOOtherTarget.m */; };
@@ -70,6 +71,8 @@
 		2221621B1D7C015F0086FB51 /* NextWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NextWebViewController.m; sourceTree = "<group>"; };
 		2221621C1D7C015F0086FB51 /* SIMWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMWebViewController.h; sourceTree = "<group>"; };
 		2221621D1D7C015F0086FB51 /* SIMWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMWebViewController.m; sourceTree = "<group>"; };
+		22D5A4031D8AF3CB00EE01AC /* UINavigationBar+Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Transform.h"; sourceTree = "<group>"; };
+		22D5A4041D8AF3CB00EE01AC /* UINavigationBar+Transform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Transform.m"; sourceTree = "<group>"; };
 		5561EBC4F90458BB6A11AEA3 /* Pods-Simple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Simple/Pods-Simple.debug.xcconfig"; sourceTree = "<group>"; };
 		5DED37EB1D7053DB00411321 /* KVOTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVOTarget.h; sourceTree = "<group>"; };
 		5DED37EC1D7053DB00411321 /* KVOTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVOTarget.m; sourceTree = "<group>"; };
@@ -390,6 +393,8 @@
 			children = (
 				A0582BBF1CD33DAA007109B5 /* UINavigationBar+BackgroundColor.h */,
 				A0582BC01CD33DAA007109B5 /* UINavigationBar+BackgroundColor.m */,
+				22D5A4031D8AF3CB00EE01AC /* UINavigationBar+Transform.h */,
+				22D5A4041D8AF3CB00EE01AC /* UINavigationBar+Transform.m */,
 			);
 			path = UINavigationBar;
 			sourceTree = "<group>";
@@ -645,7 +650,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -665,6 +670,7 @@
 				A08A2EC11D20F9A700ED4F65 /* UIViewController+AnimateAlertView.m in Sources */,
 				A0582BC11CD33DAA007109B5 /* UINavigationBar+BackgroundColor.m in Sources */,
 				A01BF6851D0EA62300C2E10E /* SIMNetworking.m in Sources */,
+				22D5A4051D8AF3CB00EE01AC /* UINavigationBar+Transform.m in Sources */,
 				A020DD0F1CE34AFD00642710 /* CAViewController.m in Sources */,
 				A0DEEA8E1CC9F8BD006516E3 /* main.m in Sources */,
 				A0324E401CFC4F7800DF4671 /* CADrawViewController.m in Sources */,

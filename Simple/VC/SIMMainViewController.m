@@ -13,6 +13,8 @@
 #import "CGViewController.h"
 #import "CAViewController.h"
 
+#import "UINavigationBar+Transform.h"
+
 #define NAVBAR_CHANGE_POINT 50
 
 @interface SIMMainViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
@@ -31,11 +33,6 @@ static  NSString *SIMTableViewCellIdentify = @"SIMTableViewCellIdentify";
     [super viewDidLoad];
     [self initData];
     [self initViews];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
 }
 
 - (void)initData
@@ -91,6 +88,12 @@ static  NSString *SIMTableViewCellIdentify = @"SIMTableViewCellIdentify";
     item.name = @"web视图";
     item.VCName = @"SIMWebViewController";
     [dataArr addObject:item];
+    
+    item = [SIMItem new];
+    item.name = @"web视图";
+    item.VCName = @"SIMWebViewController";
+    [dataArr addObject:item];
+    
 
 }
 
@@ -115,6 +118,12 @@ static  NSString *SIMTableViewCellIdentify = @"SIMTableViewCellIdentify";
         make.top.equalTo(ws.view).with.offset(0);
         make.left.equalTo(ws.view).with.offset(0);
     }];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+//    [self.navigationController.navigationBar reset];
 }
 
 #pragma  - mark tableView datasource
@@ -155,8 +164,8 @@ static  NSString *SIMTableViewCellIdentify = @"SIMTableViewCellIdentify";
 }
 
 #pragma - mark - scrollView delegate
-//- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-//{
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
 //    UIColor *color = [UIColor colorWithRed:0/255.0 green:175/255.0 blue:240/255.0 alpha:1];
 //    CGFloat offset = scrollView.contentOffset.y;
 //    if (offset > 0) {
@@ -165,7 +174,14 @@ static  NSString *SIMTableViewCellIdentify = @"SIMTableViewCellIdentify";
 //    }else{
 //        [self.navigationController.navigationBar lt_setBackgroundColor:[color colorWithAlphaComponent:0]];
 //    }
-//}
+    
+//    CGFloat contentOffY = scrollView.contentOffset.y;
+//    if (contentOffY <= 0) {
+//        [self.navigationController.navigationBar setWNavBarHideWithProgress:(1+contentOffY/64)];
+//    }else{
+//        [self.navigationController.navigationBar setWNavBarHideWithProgress:1];
+//    }
+}
 
 
 - (void)didReceiveMemoryWarning {

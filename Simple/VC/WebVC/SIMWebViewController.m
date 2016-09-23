@@ -21,7 +21,18 @@
 @synthesize web = m_web;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self countss];
     [self layoutViews];
+}
+
+- (void)countss
+{
+    NSInteger a1 = 1<<3;
+    NSInteger a2 = 1 << 5;
+
+    NSInteger a3 = ~a1 & ~a2;
+    NSInteger a4 = a1 & a2;
+    NSLog(@"%ld--%ld",(long)a3,(long)a4);
 }
 
 - (void)layoutViews
