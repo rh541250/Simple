@@ -12,6 +12,7 @@
 #import "MasonryAnimateViewController.h"
 #import "CGViewController.h"
 #import "CAViewController.h"
+#import "UINavigationBar+Transform.h"
 
 #import "UINavigationBar+Transform.h"
 
@@ -90,7 +91,30 @@ static  NSString *SIMTableViewCellIdentify = @"SIMTableViewCellIdentify";
     [dataArr addObject:item];
     
 
+    item = [SIMItem new];
+    item.name = @"截屏视图";
+    item.VCName = @"SIMScreenShotViewController";
+    [dataArr addObject:item];
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self revertNavBarTranslate];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self revertNavBarTranslate];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [self revertNavBarTranslate];
+}
+
 
 - (void)initViews
 {
@@ -99,13 +123,15 @@ static  NSString *SIMTableViewCellIdentify = @"SIMTableViewCellIdentify";
     self.title = @"MainVC";
     self.view.backgroundColor = [UIColor whiteColor];
     
-    simTableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
+    simTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain];
     simTableView.delegate = self;
     simTableView.dataSource = self;
     simTableView.tableFooterView = [UIView new];
     simTableView.backgroundColor = [UIColor whiteColor];
     simTableView.rowHeight = 44.0;
     [self.view addSubview:simTableView];
+    
+    
     
     WS(ws);
     [simTableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -115,11 +141,6 @@ static  NSString *SIMTableViewCellIdentify = @"SIMTableViewCellIdentify";
     }];
 }
 
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-//    [self.navigationController.navigationBar reset];
-}
 
 #pragma  - mark tableView datasource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -176,6 +197,18 @@ static  NSString *SIMTableViewCellIdentify = @"SIMTableViewCellIdentify";
 //    }else{
 //        [self.navigationController.navigationBar setWNavBarHideWithProgress:1];
 //    }
+//    if (contentOffY < 64.0) {
+//        [self.navigationController.navigationBar setNavBarTranslateWithProgress:contentOffY/64];
+//    }else {
+//        [self.navigationController.navigationBar setNavBarTranslateWithProgress:1];
+//    }
+//    
+}
+
+- (void)revertNavBarTranslate
+{
+//    [simTableView setContentOffset:CGPointZero];
+//    [self.navigationController.navigationBar setNavBarTranslateWithProgress:0];
 }
 
 
