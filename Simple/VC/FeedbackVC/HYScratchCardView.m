@@ -121,17 +121,24 @@
 
 - (void)back
 {
-    if (self.arr.count > 0) {
+    if (self.arr.count > 1) {
         HYPathItem *pathItem = self.arr.lastObject;
-        CGPathRelease(pathItem.path);
         [self.arr removeLastObject];
+        CGPathRelease(pathItem.path);
         pathItem = self.arr.lastObject;
         if (pathItem) {
             self.shapeLayer.path = pathItem.path;
             CGPathRelease(self.path);
             self.path = CGPathCreateMutableCopy(pathItem.path);
         }
-    }
+    }else if(self.arr.count == 1){
+        HYPathItem *pathItem = self.arr.lastObject;
+        self.shapeLayer.path = nil;
+        CGPathRelease(self.path);
+        self.path = nil;
+        CGPathRelease(pathItem.path);
+        [self.arr removeLastObject];
+    }else{}
 }
 
 @end
