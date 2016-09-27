@@ -90,7 +90,6 @@ static  NSString *SIMTableViewCellIdentify = @"SIMTableViewCellIdentify";
     item.VCName = @"SIMWebViewController";
     [dataArr addObject:item];
     
-
     item = [SIMItem new];
     item.name = @"截屏视图";
     item.VCName = @"SIMScreenShotViewController";

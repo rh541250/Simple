@@ -10,11 +10,11 @@
 
 @implementation SIMScreenShotManager
 
-+(instancetype)sharedScreenShotManager
++(SIMScreenShotManager *)sharedScreenShotManager
 {
     static SIMScreenShotManager *manager = nil;
-    dispatch_once_t *onceToken;
-    dispatch_once(onceToken, ^{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
         manager = [[SIMScreenShotManager alloc]init];
     });
     return manager;
@@ -46,7 +46,7 @@
     //添加边框
     CALayer * layer = [imgvPhoto layer];
     layer.borderColor = [
-                         [UIColor whiteColor] CGColor];
+                         [UIColor grayColor] CGColor];
     layer.borderWidth = 5.0f;
     //添加四个边阴影
     imgvPhoto.layer.shadowColor = [UIColor blackColor].CGColor;

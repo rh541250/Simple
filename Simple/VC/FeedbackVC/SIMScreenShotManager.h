@@ -10,7 +10,7 @@
 
 @interface SIMScreenShotManager : NSObject
 
-+(instancetype)sharedScreenShotManager;
++(SIMScreenShotManager *)sharedScreenShotManager;
 
 - (void)handleScreenShot:(NSNotification *)notification;
 @end

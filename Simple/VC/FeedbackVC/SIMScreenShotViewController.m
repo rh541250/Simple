@@ -50,6 +50,10 @@
     [[SIMScreenShotManager sharedScreenShotManager] handleScreenShot:notification];
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:UIApplicationUserDidTakeScreenshotNotification object:nil];
+}
 
 
 @end

@@ -73,8 +73,6 @@
 		2221621B1D7C015F0086FB51 /* NextWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NextWebViewController.m; sourceTree = "<group>"; };
 		2221621C1D7C015F0086FB51 /* SIMWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMWebViewController.h; sourceTree = "<group>"; };
 		2221621D1D7C015F0086FB51 /* SIMWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMWebViewController.m; sourceTree = "<group>"; };
-		22D5A4031D8AF3CB00EE01AC /* UINavigationBar+Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Transform.h"; sourceTree = "<group>"; };
-		22D5A4041D8AF3CB00EE01AC /* UINavigationBar+Transform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Transform.m"; sourceTree = "<group>"; };
 		5561EBC4F90458BB6A11AEA3 /* Pods-Simple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Simple/Pods-Simple.debug.xcconfig"; sourceTree = "<group>"; };
 		5D2812211D8E911600FE542B /* UINavigationBar+Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Transform.h"; sourceTree = "<group>"; };
 		5D2812221D8E911600FE542B /* UINavigationBar+Transform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Transform.m"; sourceTree = "<group>"; };
