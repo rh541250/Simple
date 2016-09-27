@@ -35,12 +35,15 @@
     NSLog(@"检测到截屏");
     
     //人为截屏, 模拟用户截屏行为, 获取所截图片
-    UIImage *image_ = [self imageWithScreenshot];
-    
-    
+    UIImage *image = [self imageWithScreenshot];
+    [self createTipsViewWithImage:image];
+}
+
+- (void)createTipsViewWithImage:(UIImage *)image
+{
     UIWindow *window = [[UIApplication sharedApplication] keyWindow];
     //添加显示
-    UIImageView *imgvPhoto = [[UIImageView alloc]initWithImage:image_];
+    UIImageView *imgvPhoto = [[UIImageView alloc]initWithImage:image];
     imgvPhoto.frame = CGRectMake(window.frame.size.width/2, window.frame.size.height/2, window.frame.size.width/2, window.frame.size.height/2);
     
     //添加边框
