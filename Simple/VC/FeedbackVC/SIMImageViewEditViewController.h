@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SIMImageViewEditController : UIViewController
+@interface SIMImageViewEditViewController : UIViewController
 
 
 @end

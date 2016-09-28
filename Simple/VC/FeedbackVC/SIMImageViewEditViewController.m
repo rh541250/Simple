@@ -12,24 +12,25 @@
 #define kScreenWidth     [UIScreen mainScreen].bounds.size.width
 
 
-#import "SIMImageViewEditController.h"
+#import "SIMImageViewEditViewController.h"
 #import "HYScratchCardView.h"
+#import "SIMScreenShotManager.h"
 
-
-@interface SIMImageViewEditController ()
+@interface SIMImageViewEditViewController ()
 
 @property (nonatomic,strong)HYScratchCardView * hys;
 
 @end
 
-@implementation SIMImageViewEditController
+@implementation SIMImageViewEditViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    _hys = [[HYScratchCardView alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.view.bounds)/2-150, CGRectGetMaxY(self.view.bounds)/2-150, 300, 300)];
     
-    UIImage * image = [UIImage imageNamed:@"p2.jpg"];
+    self.view.backgroundColor = [UIColor whiteColor];
+
+    _hys = [[HYScratchCardView alloc]initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 108)];
+    UIImage * image = [[SIMScreenShotManager sharedScreenShotManager] screenShotImage];
     
     //顶图
     _hys.surfaceImage = image;
@@ -38,14 +39,35 @@
     
     [self.view addSubview:_hys];
     
-    UIButton *backBtn = [[UIButton alloc]initWithFrame:CGRectMake(20, 50,60, 30)];
-    backBtn.titleLabel.text = @"退后";
+    UIView *toolBar = [[UIView alloc]initWithFrame:CGRectMake(0, self.view.bounds.size.height - 44, self.view.bounds.size.width, 44)];
+    toolBar.backgroundColor = [UIColor colorWithRed:0/255.0 green:175/255.0 blue:240/255.0 alpha:1];
+    [self.view addSubview:toolBar];
+    
+    UIButton *backBtn = [[UIButton alloc]initWithFrame:CGRectMake(60, 7,60, 30)];
+    [backBtn setTitle:@"后退一步" forState:UIControlStateNormal];
     backBtn.backgroundColor = [UIColor redColor];
     [backBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [backBtn.titleLabel setFont:[UIFont systemFontOfSize:14.0]];
+    [backBtn.titleLabel setFont:[UIFont systemFontOfSize:13.0]];
     [backBtn addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:backBtn];
-
+    [toolBar addSubview:backBtn];
+    
+    UIButton *redLineButton = [[UIButton alloc]initWithFrame:CGRectMake(CGRectGetMaxX(backBtn.frame) + 20, 7,60, 30)];
+    [redLineButton setTitle:@"画红线" forState:UIControlStateNormal];
+    redLineButton.backgroundColor = [UIColor redColor];
+    [redLineButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [redLineButton.titleLabel setFont:[UIFont systemFontOfSize:13.0]];
+    [redLineButton addTarget:self action:@selector(toolButtonDidClick:) forControlEvents:UIControlEventTouchUpInside];
+    redLineButton.tag = SIMImageEditToolRedLine;
+    [toolBar addSubview:redLineButton];
+    
+    UIButton *masicButton = [[UIButton alloc]initWithFrame:CGRectMake(CGRectGetMaxX(redLineButton.frame) + 20, 7,60, 30)];
+    [masicButton setTitle:@"画马赛克" forState:UIControlStateNormal];
+    masicButton.backgroundColor = [UIColor redColor];
+    [masicButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [masicButton.titleLabel setFont:[UIFont systemFontOfSize:13.0]];
+    [masicButton addTarget:self action:@selector(toolButtonDidClick:) forControlEvents:UIControlEventTouchUpInside];
+    masicButton.tag = SIMImageEditToolMasic;
+    [toolBar addSubview:masicButton];
 }
 
 - (void)back:(UIButton *)btn
@@ -53,6 +75,10 @@
     [_hys back];
 }
 
+- (void)toolButtonDidClick:(UIButton *)btn
+{
+    [_hys setEditTool:btn.tag];
+}
 
 - (UIImage *)transToMosaicImage:(UIImage*)orginImage blockLevel:(NSUInteger)level
 {

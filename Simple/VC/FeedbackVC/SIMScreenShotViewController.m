@@ -8,6 +8,7 @@
 
 #import "SIMScreenShotViewController.h"
 #import "SIMScreenShotManager.h"
+#import "SIMImageViewEditViewController.h"
 
 @interface SIMScreenShotViewController ()
 {
@@ -28,7 +29,7 @@
 - (void)initUI
 {
     self.view.backgroundColor = [UIColor whiteColor];
-    backgroundImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"1.jpg"]];
+    backgroundImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"p2.jpg"]];
     backgroundImageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.view addSubview:backgroundImageView];
     
@@ -48,6 +49,10 @@
 - (void)screenShotDidTaken:(NSNotification *)notification
 {
     [[SIMScreenShotManager sharedScreenShotManager] handleScreenShot:notification];
+    [SIMScreenShotManager sharedScreenShotManager].pushToEditVCBlock = ^(){
+        SIMImageViewEditViewController *imageViewEditVC = [[SIMImageViewEditViewController alloc]init];
+        [self.navigationController pushViewController:imageViewEditVC animated:YES];
+    };
 }
 
 - (void)dealloc

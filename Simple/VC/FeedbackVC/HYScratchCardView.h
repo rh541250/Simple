@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger,SIMImageEditTool)
+{
+    SIMImageEditToolMasic   = 1000,
+    SIMImageEditToolRedLine,
+};
+
 @interface HYScratchCardView : UIView
 /**
  要刮的底图.
@@ -22,10 +28,14 @@
 
 - (void)back;
 
+- (void)setEditTool:(SIMImageEditTool)editTool;
+
 @end
 
 
 @interface HYPathItem : NSObject
 @property (nonatomic, assign) CGMutablePathRef path;
+
+@property (nonatomic, assign) SIMImageEditTool editTool;
 
 @end

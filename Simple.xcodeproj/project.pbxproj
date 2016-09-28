@@ -10,10 +10,11 @@
 		2221621E1D7C015F0086FB51 /* NextWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2221621B1D7C015F0086FB51 /* NextWebViewController.m */; };
 		2221621F1D7C015F0086FB51 /* SIMWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2221621D1D7C015F0086FB51 /* SIMWebViewController.m */; };
 		226CEFFF1D9AB36700FCCB63 /* HYScratchCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 226CEFFC1D9AB36700FCCB63 /* HYScratchCardView.m */; };
-		226CF0001D9AB36700FCCB63 /* SIMImageViewEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226CEFFE1D9AB36700FCCB63 /* SIMImageViewEditController.m */; };
+		226CF0001D9AB36700FCCB63 /* SIMImageViewEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226CEFFE1D9AB36700FCCB63 /* SIMImageViewEditViewController.m */; };
 		5D2812231D8E911600FE542B /* UINavigationBar+Transform.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2812221D8E911600FE542B /* UINavigationBar+Transform.m */; };
 		5D7CE8F51D8F7C0800128381 /* SIMScreenShotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7CE8F41D8F7C0800128381 /* SIMScreenShotViewController.m */; };
 		5D8A4B541D90CF630084235F /* SIMScreenShotManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8A4B531D90CF630084235F /* SIMScreenShotManager.m */; };
+		5D98528F1D9B539900A501B2 /* p2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5D98528E1D9B539900A501B2 /* p2.jpg */; };
 		5DED37ED1D7053DB00411321 /* KVOTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DED37EC1D7053DB00411321 /* KVOTarget.m */; };
 		5DED37F01D7055FB00411321 /* KVOObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DED37EF1D7055FB00411321 /* KVOObserver.m */; };
 		5DED37F31D70587800411321 /* KVOOtherTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DED37F21D70587800411321 /* KVOOtherTarget.m */; };
@@ -77,8 +78,8 @@
 		2221621D1D7C015F0086FB51 /* SIMWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMWebViewController.m; sourceTree = "<group>"; };
 		226CEFFB1D9AB36700FCCB63 /* HYScratchCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYScratchCardView.h; sourceTree = "<group>"; };
 		226CEFFC1D9AB36700FCCB63 /* HYScratchCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYScratchCardView.m; sourceTree = "<group>"; };
-		226CEFFD1D9AB36700FCCB63 /* SIMImageViewEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMImageViewEditController.h; sourceTree = "<group>"; };
-		226CEFFE1D9AB36700FCCB63 /* SIMImageViewEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMImageViewEditController.m; sourceTree = "<group>"; };
+		226CEFFD1D9AB36700FCCB63 /* SIMImageViewEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMImageViewEditViewController.h; sourceTree = "<group>"; };
+		226CEFFE1D9AB36700FCCB63 /* SIMImageViewEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMImageViewEditViewController.m; sourceTree = "<group>"; };
 		5561EBC4F90458BB6A11AEA3 /* Pods-Simple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Simple/Pods-Simple.debug.xcconfig"; sourceTree = "<group>"; };
 		5D2812211D8E911600FE542B /* UINavigationBar+Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Transform.h"; sourceTree = "<group>"; };
 		5D2812221D8E911600FE542B /* UINavigationBar+Transform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Transform.m"; sourceTree = "<group>"; };
@@ -86,6 +87,7 @@
 		5D7CE8F41D8F7C0800128381 /* SIMScreenShotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMScreenShotViewController.m; sourceTree = "<group>"; };
 		5D8A4B521D90CF630084235F /* SIMScreenShotManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMScreenShotManager.h; sourceTree = "<group>"; };
 		5D8A4B531D90CF630084235F /* SIMScreenShotManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMScreenShotManager.m; sourceTree = "<group>"; };
+		5D98528E1D9B539900A501B2 /* p2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = p2.jpg; sourceTree = "<group>"; };
 		5DED37EB1D7053DB00411321 /* KVOTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVOTarget.h; sourceTree = "<group>"; };
 		5DED37EC1D7053DB00411321 /* KVOTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVOTarget.m; sourceTree = "<group>"; };
 		5DED37EE1D7055FB00411321 /* KVOObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVOObserver.h; sourceTree = "<group>"; };
@@ -209,12 +211,12 @@
 		5D7CE8F21D8F7BC100128381 /* FeedbackVC */ = {
 			isa = PBXGroup;
 			children = (
-				5D7CE8F31D8F7C0800128381 /* SIMScreenShotViewController.h */,
-				5D7CE8F41D8F7C0800128381 /* SIMScreenShotViewController.m */,
 				5D8A4B521D90CF630084235F /* SIMScreenShotManager.h */,
 				5D8A4B531D90CF630084235F /* SIMScreenShotManager.m */,
-				226CEFFD1D9AB36700FCCB63 /* SIMImageViewEditController.h */,
-				226CEFFE1D9AB36700FCCB63 /* SIMImageViewEditController.m */,
+				5D7CE8F31D8F7C0800128381 /* SIMScreenShotViewController.h */,
+				5D7CE8F41D8F7C0800128381 /* SIMScreenShotViewController.m */,
+				226CEFFD1D9AB36700FCCB63 /* SIMImageViewEditViewController.h */,
+				226CEFFE1D9AB36700FCCB63 /* SIMImageViewEditViewController.m */,
 				226CEFFB1D9AB36700FCCB63 /* HYScratchCardView.h */,
 				226CEFFC1D9AB36700FCCB63 /* HYScratchCardView.m */,
 			);
@@ -327,6 +329,7 @@
 		A060D39B1CD1D85B00B7D230 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5D98528E1D9B539900A501B2 /* p2.jpg */,
 				A0324E161CEDD97A00DF4671 /* 5@2x.png */,
 				A0324DFD1CE9A8F700DF4671 /* 416.png */,
 				A07064B51CDC736300CCA264 /* 4@2x.png */,
@@ -616,6 +619,7 @@
 				A060D3A81CD1D85B00B7D230 /* ViewController.xib in Resources */,
 				A0324DFE1CE9A8F700DF4671 /* 416.png in Resources */,
 				A0DEEA991CC9F8BD006516E3 /* Assets.xcassets in Resources */,
+				5D98528F1D9B539900A501B2 /* p2.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -678,7 +682,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -695,7 +699,7 @@
 				A060D3A41CD1D85B00B7D230 /* AppDelegate.m in Sources */,
 				A0324E091CEC6B9000DF4671 /* CATextLayerLabel.m in Sources */,
 				A0ACB3901CD307830078715B /* SIMMainViewController.m in Sources */,
-				226CF0001D9AB36700FCCB63 /* SIMImageViewEditController.m in Sources */,
+				226CF0001D9AB36700FCCB63 /* SIMImageViewEditViewController.m in Sources */,
 				A0324E151CEDC0FE00DF4671 /* CAReplicatorView.m in Sources */,
 				A08A2EC11D20F9A700ED4F65 /* UIViewController+AnimateAlertView.m in Sources */,
 				A0582BC11CD33DAA007109B5 /* UINavigationBar+BackgroundColor.m in Sources */,
@@ -860,7 +864,7 @@
 				INFOPLIST_FILE = Simple/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ehsy.testtesttest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rh.Simple;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -877,7 +881,7 @@
 				INFOPLIST_FILE = Simple/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ehsy.testtesttest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rh.Simple;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

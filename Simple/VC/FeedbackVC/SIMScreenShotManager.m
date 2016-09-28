@@ -7,15 +7,23 @@
 //
 
 #import "SIMScreenShotManager.h"
+@interface SIMScreenShotManager ()
+{
+    BOOL m_isAlerting;//提示框正在显示
+    UIImage *m_screenShotImage;
+    UIView *m_containerView;
+}
+
+@end
 
 @implementation SIMScreenShotManager
 
-+(SIMScreenShotManager *)sharedScreenShotManager
++(instancetype)sharedScreenShotManager
 {
     static SIMScreenShotManager *manager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        manager = [[SIMScreenShotManager alloc]init];
+        manager = [[self alloc]init];
     });
     return manager;
 }
@@ -24,7 +32,6 @@
 {
     self = [super init];
     if (self) {
-        
     }
     return self;
 }
@@ -33,39 +40,15 @@
 - (void)handleScreenShot:(NSNotification *)notification
 {
     NSLog(@"检测到截屏");
-    
     //人为截屏, 模拟用户截屏行为, 获取所截图片
-    UIImage *image = [self imageWithScreenshot];
-    [self createTipsViewWithImage:image];
+    m_screenShotImage = [self imageWithScreenshot];
+    [self createTipsViewWithImage:m_screenShotImage];
 }
 
-- (void)createTipsViewWithImage:(UIImage *)image
+- (UIImage *)screenShotImage
 {
-    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-    //添加显示
-    UIImageView *imgvPhoto = [[UIImageView alloc]initWithImage:image];
-    imgvPhoto.frame = CGRectMake(window.frame.size.width/2, window.frame.size.height/2, window.frame.size.width/2, window.frame.size.height/2);
-    
-    //添加边框
-    CALayer * layer = [imgvPhoto layer];
-    layer.borderColor = [
-                         [UIColor grayColor] CGColor];
-    layer.borderWidth = 5.0f;
-    //添加四个边阴影
-    imgvPhoto.layer.shadowColor = [UIColor blackColor].CGColor;
-    imgvPhoto.layer.shadowOffset = CGSizeMake(0, 0);
-    imgvPhoto.layer.shadowOpacity = 0.5;
-    imgvPhoto.layer.shadowRadius = 10.0;
-    //添加两个边阴影
-    imgvPhoto.layer.shadowColor = [UIColor blackColor].CGColor;
-    imgvPhoto.layer.shadowOffset = CGSizeMake(4, 4);
-    imgvPhoto.layer.shadowOpacity = 0.5;
-    imgvPhoto.layer.shadowRadius = 2.0;
-    
-    [window addSubview:imgvPhoto];
+    return m_screenShotImage;
 }
-
-
 
 #pragma mark - private method
 /**
@@ -128,7 +111,49 @@
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    return UIImagePNGRepresentation(image);
+    return UIImageJPEGRepresentation(image,0.1);
+}
+
+
+- (void)createTipsViewWithImage:(UIImage *)image
+{
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    
+    m_containerView = [[UIView alloc]initWithFrame:CGRectMake(window.frame.size.width - 100, window.frame.size.height/2 - 90, 100, 180)];
+    m_containerView.layer.cornerRadius = 2.0;
+    m_containerView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.7];
+    
+    //添加显示
+    UIImageView *imgvPhoto = [[UIImageView alloc]initWithImage:image];
+    imgvPhoto.frame = CGRectMake(4, 4, 100 - 8, 100 - 8);
+    imgvPhoto.contentMode = UIViewContentModeScaleAspectFill;
+    imgvPhoto.clipsToBounds = YES;
+    [m_containerView addSubview:imgvPhoto];
+    
+    UIButton *adviceButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    adviceButton.frame = CGRectMake(4, CGRectGetMaxY(imgvPhoto.frame) + 4, 100 - 8, 40);
+    [adviceButton setTitle:@"咨询建议" forState:UIControlStateNormal];
+    [adviceButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    adviceButton.titleLabel.font = [UIFont systemFontOfSize:13.0];
+    [adviceButton addTarget:self action:@selector(pushToImageViewEdit:) forControlEvents:UIControlEventTouchUpInside];
+    [m_containerView addSubview:adviceButton];
+    
+    UIButton *shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    shareButton.frame = CGRectMake(4, CGRectGetMaxY(adviceButton.frame) + 4, 100 - 8, 40);
+    [shareButton setTitle:@"反馈" forState:UIControlStateNormal];
+    [shareButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    shareButton.titleLabel.font = [UIFont systemFontOfSize:13.0];
+    [m_containerView addSubview:shareButton];
+    
+    [window addSubview:m_containerView];
+}
+
+- (void)pushToImageViewEdit:(UIButton *)sender
+{
+    [m_containerView removeFromSuperview];
+    if (self.pushToEditVCBlock) {
+        self.pushToEditVCBlock();
+    }
 }
 
 @end
