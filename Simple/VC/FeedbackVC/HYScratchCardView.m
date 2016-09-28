@@ -11,6 +11,8 @@
 @interface HYScratchCardView ()
 {
     SIMImageEditTool m_editTool;
+    NSUInteger masicNum;
+    NSUInteger lineNum;
 }
 
 @property (nonatomic, strong) UIImageView *surfaceImageView;
@@ -27,7 +29,6 @@
 
 @property (nonatomic, strong) NSMutableArray *arr;
 
-
 @end
 
 @implementation HYScratchCardView
@@ -43,7 +44,9 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        m_editTool = SIMImageEditToolMasic;
+        m_editTool = SIMImageEditToolRedLine;
+        masicNum = 0;
+        lineNum = 0;
         //添加imageview（surfaceImageView）到self上
         self.surfaceImageView = [[UIImageView alloc]initWithFrame:self.bounds];
         [self addSubview:self.surfaceImageView];
@@ -70,7 +73,7 @@
         self.lineShapeLayer.lineCap = kCALineCapRound;
         self.lineShapeLayer.lineJoin = kCALineJoinRound;
         self.lineShapeLayer.lineWidth = 2.f;
-        self.lineShapeLayer.strokeColor = [UIColor blueColor].CGColor;
+        self.lineShapeLayer.strokeColor = [UIColor redColor].CGColor;
         self.lineShapeLayer.fillColor = nil;//此处设置颜色有异常效果，可以自己试试
         [self.layer addSublayer:self.lineShapeLayer];
         
@@ -84,17 +87,6 @@
 - (void)setEditTool:(SIMImageEditTool)editTool
 {
     m_editTool = editTool;
-//    switch (m_editTool) {
-//        case SIMImageEditToolMasic:
-//            [self.layer insertSublayer:self.shapeLayer above:self.lineShapeLayer];
-//            break;
-//        case SIMImageEditToolRedLine:
-//            [self.layer insertSublayer:self.lineShapeLayer above:self.shapeLayer];
-//            break;
-//        default:
-//            break;
-//    }
-    
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -141,10 +133,12 @@
         CGMutablePathRef path = CGPathCreateMutableCopy(self.path);
         [self addPathItem:path withTool:SIMImageEditToolMasic];
         CGPathRelease(path);
+        masicNum += 1;
     }else{
         CGMutablePathRef path = CGPathCreateMutableCopy(self.linePath);
         [self addPathItem:path withTool:SIMImageEditToolRedLine];
         CGPathRelease(path);
+        lineNum += 1;
     }
 }
 
@@ -174,18 +168,21 @@
 
 - (void)back
 {
-    if (self.arr.count > 1) {
+    if (self.arr.count > 0) {
         HYPathItem *pathItem = self.arr.lastObject;
         CGPathRelease(pathItem.path);
         pathItem.path = nil;
         if(pathItem.editTool == SIMImageEditToolMasic){
             CGPathRelease(self.path);
             self.path = nil;
+            masicNum -= 1;
         }else{
             CGPathRelease(self.linePath);
             self.linePath = nil;
+            lineNum -= 1;
         }
         [self.arr removeLastObject];
+        NSLog(@"%lu",(unsigned long)self.arr.count);
         pathItem = self.arr.lastObject;
         if (pathItem.editTool == SIMImageEditToolMasic) {
             self.path = CGPathCreateMutableCopy(pathItem.path);
@@ -194,22 +191,20 @@
             self.linePath = CGPathCreateMutableCopy(pathItem.path);
             self.lineShapeLayer.path = self.linePath;
         }
-    }else if(self.arr.count == 1){
-        HYPathItem *pathItem = self.arr.lastObject;
-        CGPathRelease(pathItem.path);
-        pathItem.path = nil;
         
-        CGPathRelease(self.path);
-        self.path = nil;
-        self.path = CGPathCreateMutable();
-        CGPathRelease(self.linePath);
-        self.linePath = nil;
-        self.linePath = CGPathCreateMutable();
-        self.shapeLayer.path = nil;
-        self.lineShapeLayer.path = nil;
-        [self.arr removeLastObject];
-
-    }else{}
+        if (0 == lineNum) {
+            CGPathRelease(self.linePath);
+            self.linePath = nil;
+            self.linePath = CGPathCreateMutable();
+            self.lineShapeLayer.path = self.linePath;
+        }
+        if (0 == masicNum) {
+            CGPathRelease(self.path);
+            self.path = nil;
+            self.path = CGPathCreateMutable();
+            self.shapeLayer.path = self.path;
+        }
+    }
 }
 
 @end
