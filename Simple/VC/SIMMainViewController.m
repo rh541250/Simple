@@ -94,6 +94,12 @@ static  NSString *SIMTableViewCellIdentify = @"SIMTableViewCellIdentify";
     item.name = @"截屏视图";
     item.VCName = @"SIMScreenShotViewController";
     [dataArr addObject:item];
+    
+    
+    item = [SIMItem new];
+    item.name = @"Mask层测试";
+    item.VCName = @"CATestViewController";
+    [dataArr addObject:item];
 }
 
 - (void)viewWillAppear:(BOOL)animated
