@@ -65,7 +65,7 @@
         self.shapeLayer.strokeColor = [UIColor blueColor].CGColor;
         self.shapeLayer.fillColor = nil;//此处设置颜色有异常效果，可以自己试试
         
-//        [self.layer addSublayer:self.shapeLayer];
+        //        [self.layer addSublayer:self.shapeLayer];
         self.imageLayer.mask = self.shapeLayer;
         
         self.lineShapeLayer = [CAShapeLayer layer];

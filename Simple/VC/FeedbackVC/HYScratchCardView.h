@@ -12,6 +12,7 @@ typedef NS_ENUM(NSUInteger,SIMImageEditTool)
 {
     SIMImageEditToolMasic   = 1000,
     SIMImageEditToolRedLine,
+    SIMImageEditToolEraser
 };
 
 @interface HYScratchCardView : UIView
@@ -23,7 +24,6 @@ typedef NS_ENUM(NSUInteger,SIMImageEditTool)
  涂层图片.
  */
 @property (nonatomic, strong) UIImage *surfaceImage;
-
 
 
 - (void)back;

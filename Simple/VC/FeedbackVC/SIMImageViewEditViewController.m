@@ -43,7 +43,7 @@
     toolBar.backgroundColor = [UIColor colorWithRed:0/255.0 green:175/255.0 blue:240/255.0 alpha:1];
     [self.view addSubview:toolBar];
     
-    UIButton *backBtn = [[UIButton alloc]initWithFrame:CGRectMake(60, 7,60, 30)];
+    UIButton *backBtn = [[UIButton alloc]initWithFrame:CGRectMake(20, 7,60, 30)];
     [backBtn setTitle:@"后退一步" forState:UIControlStateNormal];
     backBtn.backgroundColor = [UIColor redColor];
     [backBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -51,7 +51,16 @@
     [backBtn addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
     [toolBar addSubview:backBtn];
     
-    UIButton *redLineButton = [[UIButton alloc]initWithFrame:CGRectMake(CGRectGetMaxX(backBtn.frame) + 20, 7,60, 30)];
+    UIButton *eraserBtn = [[UIButton alloc]initWithFrame:CGRectMake(CGRectGetMaxX(backBtn.frame) + 20, 7,60, 30)];
+    [eraserBtn setTitle:@"橡皮擦" forState:UIControlStateNormal];
+    eraserBtn.backgroundColor = [UIColor redColor];
+    [eraserBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [eraserBtn.titleLabel setFont:[UIFont systemFontOfSize:13.0]];
+    [eraserBtn addTarget:self action:@selector(eraserSwitch) forControlEvents:UIControlEventTouchUpInside];
+    eraserBtn.tag = SIMImageEditToolEraser;
+    [toolBar addSubview:eraserBtn];
+    
+    UIButton *redLineButton = [[UIButton alloc]initWithFrame:CGRectMake(CGRectGetMaxX(eraserBtn.frame) + 20, 7,60, 30)];
     [redLineButton setTitle:@"画红线" forState:UIControlStateNormal];
     redLineButton.backgroundColor = [UIColor redColor];
     [redLineButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -78,6 +87,11 @@
 - (void)toolButtonDidClick:(UIButton *)btn
 {
     [_hys setEditTool:btn.tag];
+}
+
+- (void)eraserSwitch
+{
+
 }
 
 - (UIImage *)transToMosaicImage:(UIImage*)orginImage blockLevel:(NSUInteger)level
