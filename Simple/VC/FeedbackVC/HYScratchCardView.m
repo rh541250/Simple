@@ -181,29 +181,43 @@
             self.linePath = nil;
             lineNum -= 1;
         }
-        [self.arr removeLastObject];
-        NSLog(@"%lu",(unsigned long)self.arr.count);
-        pathItem = self.arr.lastObject;
-        if (pathItem.editTool == SIMImageEditToolMasic) {
-            self.path = CGPathCreateMutableCopy(pathItem.path);
-            self.shapeLayer.path = self.path;
+        HYPathItem *tempItem = nil;
+        for (NSInteger i = self.arr.count - 1; i >= 0; i--) {
+            if((pathItem.editTool == SIMImageEditToolRedLine && lineNum == 0) || (pathItem.editTool == SIMImageEditToolMasic && masicNum == 0)){
+                break;
+            }
+            
+            tempItem = self.arr[i];
+            if (tempItem.editTool == pathItem.editTool && tempItem != pathItem) {
+                break;
+            }
+        }
+        if (tempItem) {
+            if (tempItem.editTool == SIMImageEditToolMasic) {
+                self.path = CGPathCreateMutableCopy(tempItem.path);
+                self.shapeLayer.path = self.path;
+            }else if(tempItem.editTool == SIMImageEditToolRedLine){
+                self.linePath = CGPathCreateMutableCopy(tempItem.path);
+                self.lineShapeLayer.path = self.linePath;
+            }else{
+                
+            }
         }else{
-            self.linePath = CGPathCreateMutableCopy(pathItem.path);
-            self.lineShapeLayer.path = self.linePath;
+            if (0 == lineNum && pathItem.editTool == SIMImageEditToolRedLine) {
+                CGPathRelease(self.linePath);
+                self.linePath = nil;
+                self.linePath = CGPathCreateMutable();
+                self.lineShapeLayer.path = self.linePath;
+            }
+            if (0 == masicNum && pathItem.editTool == SIMImageEditToolMasic) {
+                CGPathRelease(self.path);
+                self.path = nil;
+                self.path = CGPathCreateMutable();
+                self.shapeLayer.path = self.path;
+            }
         }
+        [self.arr removeLastObject];
         
-        if (0 == lineNum) {
-            CGPathRelease(self.linePath);
-            self.linePath = nil;
-            self.linePath = CGPathCreateMutable();
-            self.lineShapeLayer.path = self.linePath;
-        }
-        if (0 == masicNum) {
-            CGPathRelease(self.path);
-            self.path = nil;
-            self.path = CGPathCreateMutable();
-            self.shapeLayer.path = self.path;
-        }
     }
 }
 
