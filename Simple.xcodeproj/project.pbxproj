@@ -11,6 +11,8 @@
 		2221621F1D7C015F0086FB51 /* SIMWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2221621D1D7C015F0086FB51 /* SIMWebViewController.m */; };
 		226CEFFF1D9AB36700FCCB63 /* SIMEditImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 226CEFFC1D9AB36700FCCB63 /* SIMEditImageView.m */; };
 		226CF0001D9AB36700FCCB63 /* SIMImageViewEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226CEFFE1D9AB36700FCCB63 /* SIMImageViewEditViewController.m */; };
+		4BF26CBD1DAF9476003DB868 /* HYScratchCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF26CBA1DAF9476003DB868 /* HYScratchCardView.m */; };
+		4BF26CBE1DAF9476003DB868 /* PaintingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF26CBC1DAF9476003DB868 /* PaintingView.m */; };
 		5D2812231D8E911600FE542B /* UINavigationBar+Transform.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2812221D8E911600FE542B /* UINavigationBar+Transform.m */; };
 		5D7CE8F51D8F7C0800128381 /* SIMScreenShotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7CE8F41D8F7C0800128381 /* SIMScreenShotViewController.m */; };
 		5D8A4B541D90CF630084235F /* SIMScreenShotManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8A4B531D90CF630084235F /* SIMScreenShotManager.m */; };
@@ -80,6 +82,10 @@
 		226CEFFC1D9AB36700FCCB63 /* SIMEditImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMEditImageView.m; sourceTree = "<group>"; };
 		226CEFFD1D9AB36700FCCB63 /* SIMImageViewEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMImageViewEditViewController.h; sourceTree = "<group>"; };
 		226CEFFE1D9AB36700FCCB63 /* SIMImageViewEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMImageViewEditViewController.m; sourceTree = "<group>"; };
+		4BF26CB91DAF9476003DB868 /* HYScratchCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYScratchCardView.h; sourceTree = "<group>"; };
+		4BF26CBA1DAF9476003DB868 /* HYScratchCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYScratchCardView.m; sourceTree = "<group>"; };
+		4BF26CBB1DAF9476003DB868 /* PaintingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaintingView.h; sourceTree = "<group>"; };
+		4BF26CBC1DAF9476003DB868 /* PaintingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaintingView.m; sourceTree = "<group>"; };
 		5561EBC4F90458BB6A11AEA3 /* Pods-Simple.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Simple/Pods-Simple.debug.xcconfig"; sourceTree = "<group>"; };
 		5D2812211D8E911600FE542B /* UINavigationBar+Transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Transform.h"; sourceTree = "<group>"; };
 		5D2812221D8E911600FE542B /* UINavigationBar+Transform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Transform.m"; sourceTree = "<group>"; };
@@ -219,6 +225,10 @@
 				226CEFFE1D9AB36700FCCB63 /* SIMImageViewEditViewController.m */,
 				226CEFFB1D9AB36700FCCB63 /* SIMEditImageView.h */,
 				226CEFFC1D9AB36700FCCB63 /* SIMEditImageView.m */,
+				4BF26CB91DAF9476003DB868 /* HYScratchCardView.h */,
+				4BF26CBA1DAF9476003DB868 /* HYScratchCardView.m */,
+				4BF26CBB1DAF9476003DB868 /* PaintingView.h */,
+				4BF26CBC1DAF9476003DB868 /* PaintingView.m */,
 			);
 			path = FeedbackVC;
 			sourceTree = "<group>";
@@ -704,6 +714,7 @@
 				A08A2EC11D20F9A700ED4F65 /* UIViewController+AnimateAlertView.m in Sources */,
 				A0582BC11CD33DAA007109B5 /* UINavigationBar+BackgroundColor.m in Sources */,
 				A01BF6851D0EA62300C2E10E /* SIMNetworking.m in Sources */,
+				4BF26CBE1DAF9476003DB868 /* PaintingView.m in Sources */,
 				5D2812231D8E911600FE542B /* UINavigationBar+Transform.m in Sources */,
 				226CEFFF1D9AB36700FCCB63 /* SIMEditImageView.m in Sources */,
 				A020DD0F1CE34AFD00642710 /* CAViewController.m in Sources */,
@@ -722,6 +733,7 @@
 				A0324E341CF6E0D600DF4671 /* CAInstrumentsViewController.m in Sources */,
 				A07064A11CD8445600CCA264 /* CGView.m in Sources */,
 				A0324E051CEC693800DF4671 /* SpecialLayer.m in Sources */,
+				4BF26CBD1DAF9476003DB868 /* HYScratchCardView.m in Sources */,
 				A060D3A51CD1D85B00B7D230 /* SIMNavigationController.m in Sources */,
 				A0ACB39B1CD33D630078715B /* UIImage+Rotate.m in Sources */,
 				A060D3A71CD1D85B00B7D230 /* ViewController.m in Sources */,
