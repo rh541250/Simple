@@ -11,11 +11,9 @@
 typedef NS_ENUM(NSUInteger,SIMImageEditTool)
 {
     SIMImageEditToolMasic   = 1000,
-    SIMImageEditToolRedLine,
-    SIMImageEditToolEraser
 };
 
-@interface HYScratchCardView : UIView
+@interface SIMEditImageView : UIView
 /**
  要刮的底图.
  */
@@ -28,14 +26,9 @@ typedef NS_ENUM(NSUInteger,SIMImageEditTool)
 
 - (void)back;
 
-- (void)setEditTool:(SIMImageEditTool)editTool;
-
 @end
 
 
 @interface HYPathItem : NSObject
 @property (nonatomic, assign) CGMutablePathRef path;
-
-@property (nonatomic, assign) SIMImageEditTool editTool;
-
 @end

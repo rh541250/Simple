@@ -13,12 +13,12 @@
 
 
 #import "SIMImageViewEditViewController.h"
-#import "HYScratchCardView.h"
+#import "SIMEditImageView.h"
 #import "SIMScreenShotManager.h"
 
 @interface SIMImageViewEditViewController ()
 
-@property (nonatomic,strong)HYScratchCardView * hys;
+@property (nonatomic,strong)SIMEditImageView * hys;
 
 @end
 
@@ -29,7 +29,7 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
 
-    _hys = [[HYScratchCardView alloc]initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 108)];
+    _hys = [[SIMEditImageView alloc]initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 108)];
     UIImage * image = [[SIMScreenShotManager sharedScreenShotManager] screenShotImage];
     
     //顶图
@@ -51,22 +51,13 @@
     [backBtn addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
     [toolBar addSubview:backBtn];
     
-    UIButton *eraserBtn = [[UIButton alloc]initWithFrame:CGRectMake(CGRectGetMaxX(backBtn.frame) + 20, 7,60, 30)];
-    [eraserBtn setTitle:@"橡皮擦" forState:UIControlStateNormal];
-    eraserBtn.backgroundColor = [UIColor redColor];
-    [eraserBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [eraserBtn.titleLabel setFont:[UIFont systemFontOfSize:13.0]];
-    [eraserBtn addTarget:self action:@selector(eraserSwitch) forControlEvents:UIControlEventTouchUpInside];
-    eraserBtn.tag = SIMImageEditToolEraser;
-    [toolBar addSubview:eraserBtn];
-    
-    UIButton *redLineButton = [[UIButton alloc]initWithFrame:CGRectMake(CGRectGetMaxX(eraserBtn.frame) + 20, 7,60, 30)];
+    UIButton *redLineButton = [[UIButton alloc]initWithFrame:CGRectMake(CGRectGetMaxX(backBtn.frame) + 20, 7,60, 30)];
     [redLineButton setTitle:@"画红线" forState:UIControlStateNormal];
     redLineButton.backgroundColor = [UIColor redColor];
     [redLineButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [redLineButton.titleLabel setFont:[UIFont systemFontOfSize:13.0]];
     [redLineButton addTarget:self action:@selector(toolButtonDidClick:) forControlEvents:UIControlEventTouchUpInside];
-    redLineButton.tag = SIMImageEditToolRedLine;
+//    redLineButton.tag = SIMImageEditToolRedLine;
     [toolBar addSubview:redLineButton];
     
     UIButton *masicButton = [[UIButton alloc]initWithFrame:CGRectMake(CGRectGetMaxX(redLineButton.frame) + 20, 7,60, 30)];
@@ -75,7 +66,7 @@
     [masicButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [masicButton.titleLabel setFont:[UIFont systemFontOfSize:13.0]];
     [masicButton addTarget:self action:@selector(toolButtonDidClick:) forControlEvents:UIControlEventTouchUpInside];
-    masicButton.tag = SIMImageEditToolMasic;
+//    masicButton.tag = SIMImageEditToolMasic;
     [toolBar addSubview:masicButton];
 }
 
@@ -86,12 +77,7 @@
 
 - (void)toolButtonDidClick:(UIButton *)btn
 {
-    [_hys setEditTool:btn.tag];
-}
-
-- (void)eraserSwitch
-{
-
+//    [_hys setEditTool:btn.tag];
 }
 
 - (UIImage *)transToMosaicImage:(UIImage*)orginImage blockLevel:(NSUInteger)level
