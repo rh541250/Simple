@@ -56,7 +56,9 @@
     redLineButton.backgroundColor = [UIColor redColor];
     [redLineButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [redLineButton.titleLabel setFont:[UIFont systemFontOfSize:13.0]];
-    [redLineButton addTarget:self action:@selector(toolButtonDidClick:) forControlEvents:UIControlEventTouchUpInside];
+    [redLineButton addTarget:self action:@selector(toolButtonDidClick:)
+            forControlEvents:UIControlEventTouchUpInside];
+    redLineButton.tag = SIMImageEditToolLine;
 //    redLineButton.tag = SIMImageEditToolRedLine;
     [toolBar addSubview:redLineButton];
     
@@ -66,18 +68,19 @@
     [masicButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [masicButton.titleLabel setFont:[UIFont systemFontOfSize:13.0]];
     [masicButton addTarget:self action:@selector(toolButtonDidClick:) forControlEvents:UIControlEventTouchUpInside];
-//    masicButton.tag = SIMImageEditToolMasic;
+    masicButton.tag = SIMImageEditToolMasic;
+
     [toolBar addSubview:masicButton];
 }
 
 - (void)back:(UIButton *)btn
 {
-    [_hys back];
+    [_hys touchBack];
 }
 
 - (void)toolButtonDidClick:(UIButton *)btn
 {
-//    [_hys setEditTool:btn.tag];
+    _hys.simImageEditTool = btn.tag;
 }
 
 - (UIImage *)transToMosaicImage:(UIImage*)orginImage blockLevel:(NSUInteger)level

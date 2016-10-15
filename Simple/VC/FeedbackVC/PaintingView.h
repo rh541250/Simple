@@ -8,23 +8,28 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSString *const SIMEditTouchEndNotification;
+
 @interface PaintingView : UIView
 
 @property (nonatomic) UIColor *strokeColor;
 @property (nonatomic, getter=isErasing) BOOL erasing;
 
 @property (nonatomic) CGFloat lineWidth;
+@property (nonatomic,strong)NSMutableArray *arr;
+
 
 - (void)back;
 
 
-- (void)eraserTouchBeginWithPoint:(CGPoint)point;
+- (void)touchBeginWithPoint:(CGPoint)point;
 
-- (void)eraserTouchMoveWithPoint:(CGPoint)point;
+- (void)touchMoveWithPoint:(CGPoint)point;
 
+- (void)addOffscreenImageToArr;
 @end
 
 
-@interface CAImageItem : NSObject
+@interface SIMEditImageItem : NSObject
 @property (nonatomic,assign)CGImageRef cgimage;
 @end

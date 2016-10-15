@@ -15,7 +15,6 @@
 @property (nonatomic) CGPoint lastLocation;
 
 @property (nonatomic,assign)CGMutablePathRef path;
-@property (nonatomic,strong)NSMutableArray *arr;
 
 @property (nonatomic,assign)BOOL backMode;
 @end
@@ -24,15 +23,13 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    if (self.offscreenContext != NULL) {
-        CGContextRelease(self.offscreenContext);
-    }
     self.backgroundColor = [UIColor clearColor];
     
     [self initOffscreenContext];
     self.strokeColor = [UIColor redColor];
-    
     self.lineWidth = 2.0;
+    
+    self.arr = [NSMutableArray array];
 }
 
 - (void)initOffscreenContext
@@ -59,22 +56,31 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     NSAssert(self.offscreenContext != NULL, @"nil");
-    [self eraserTouchBeginWithPoint:[[touches anyObject] locationInView:self]];
+    [self touchBeginWithPoint:[[touches anyObject] locationInView:self]];
 }
 
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self eraserTouchMoveWithPoint:[[touches anyObject] locationInView:self]];
+    [self touchMoveWithPoint:[[touches anyObject] locationInView:self]];
 }
 
-- (void)eraserTouchBeginWithPoint:(CGPoint)point
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-//    self.lastLocation = point;
+    [self lineTouchEnd];
+}
+
+- (void)lineTouchEnd
+{
+    [[NSNotificationCenter defaultCenter]postNotificationName:SIMEditTouchEndNotification object:nil];
+}
+
+- (void)touchBeginWithPoint:(CGPoint)point
+{
     _backMode = NO;
     _path = CGPathCreateMutable();
     CGPathMoveToPoint(_path, NULL, point.x, point.y);
 }
 
-- (void)eraserTouchMoveWithPoint:(CGPoint)point
+- (void)touchMoveWithPoint:(CGPoint)point
 {
     UIColor *strokeColor = self.strokeColor ?: [UIColor redColor];
     
@@ -97,17 +103,16 @@
     [self setNeedsDisplay];
 }
 
-- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+- (void)addOffscreenImageToArr
 {
     CGImageRef offscreenImage = CGBitmapContextCreateImage(self.offscreenContext);
-    CAImageItem *item = [CAImageItem new];
+    SIMEditImageItem *item = [SIMEditImageItem new];
     item.cgimage = offscreenImage;
     [self.arr addObject:item];
     
     CGPathRelease(_path);
     _path = NULL;
 }
-
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -120,7 +125,7 @@
         CGImageRelease(offscreenImage);
     }else{
         if (self.arr.count > 0) {
-            CAImageItem *item = self.arr.lastObject;
+            SIMEditImageItem *item = self.arr.lastObject;
             CGImageRelease(item.cgimage);
             item.cgimage = NULL;
             [self.arr removeLastObject];
@@ -145,6 +150,6 @@
 
 @end
 
-@implementation CAImageItem
+@implementation SIMEditImageItem
 
 @end

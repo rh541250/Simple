@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+extern NSString *const SIMEditTouchEndNotification;
 
 typedef NS_ENUM(NSUInteger,SIMImageEditTool)
 {
     SIMImageEditToolMasic   = 1000,
+    SIMImageEditToolLine,
 };
 
 @interface SIMEditImageView : UIView
@@ -23,12 +25,16 @@ typedef NS_ENUM(NSUInteger,SIMImageEditTool)
  */
 @property (nonatomic, strong) UIImage *surfaceImage;
 
+@property (nonatomic)SIMImageEditTool simImageEditTool;
 
-- (void)back;
+- (void)touchBack;
+
+- (void)touchEnd;
 
 @end
 
 
-@interface HYPathItem : NSObject
+@interface SIMEditPathItem : NSObject
 @property (nonatomic, assign) CGMutablePathRef path;
+
 @end

@@ -7,11 +7,13 @@
 //
 
 #import "SIMEditImageView.h"
+#import "PaintingView.h"
+
+NSString * const SIMEditTouchEndNotification = @"SIMEditTouchEndNotificationKey";
 
 @interface SIMEditImageView ()
 {
     SIMImageEditTool m_editTool;
-    NSUInteger masicNum;
 }
 
 @property (nonatomic, strong) UIImageView *surfaceImageView;
@@ -21,6 +23,8 @@
 @property (nonatomic, strong) CAShapeLayer *shapeLayer;
 
 @property (nonatomic, assign) CGMutablePathRef path;
+
+@property (nonatomic, strong) PaintingView *paintView;
 
 @property (nonatomic, strong) NSMutableArray *arr;
 
@@ -33,13 +37,13 @@
     if (self.path) {
         CGPathRelease(self.path);
     }
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:SIMEditTouchEndNotification object:nil];
 }
 
 -(instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        masicNum = 0;
         //添加imageview（surfaceImageView）到self上
         self.surfaceImageView = [[UIImageView alloc]initWithFrame:self.bounds];
         [self addSubview:self.surfaceImageView];
@@ -60,10 +64,37 @@
         
         self.imageLayer.mask = self.shapeLayer;
         
+        self.paintView = [[PaintingView alloc]initWithFrame:self.bounds];
+        self.paintView.backgroundColor = [UIColor clearColor];
+        [self addSubview:self.paintView];
+        
+        self.simImageEditTool = SIMImageEditToolLine;
+        
         self.path = CGPathCreateMutable();
         self.arr = [NSMutableArray array];
+        
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(touchEnd) name:SIMEditTouchEndNotification object:nil];
     }
     return self;
+}
+
+- (void)setSimImageEditTool:(SIMImageEditTool)simImageEditTool
+{
+    _simImageEditTool = simImageEditTool;
+    switch (_simImageEditTool) {
+        case SIMImageEditToolLine:
+            self.paintView.userInteractionEnabled = YES;
+            self.paintView.erasing = NO;
+            self.paintView.lineWidth = 2.0;
+            break;
+        case SIMImageEditToolMasic:
+            self.paintView.userInteractionEnabled = NO;
+            self.paintView.erasing = YES;
+            self.paintView.lineWidth = 10.0;
+            break;
+        default:
+            break;
+    }
 }
 
 
@@ -76,6 +107,8 @@
     CGMutablePathRef path = CGPathCreateMutableCopy(self.path);
     self.shapeLayer.path = path;
     CGPathRelease(path);
+
+    [self.paintView touchBeginWithPoint:point];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
@@ -87,21 +120,49 @@
     CGMutablePathRef path = CGPathCreateMutableCopy(self.path);
     self.shapeLayer.path = path;
     CGPathRelease(path);
+    
+    [self.paintView touchMoveWithPoint:point];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [super touchesEnded:touches withEvent:event];
-    CGMutablePathRef path = CGPathCreateMutableCopy(self.path);
-    [self addPathItem:path];
-    masicNum += 1;
+    [self masicTouchEnd];
 }
 
-- (void)addPathItem:(CGMutablePathRef)path
+- (void)masicTouchEnd
 {
-    HYPathItem *pathItem = [[HYPathItem alloc]init];
+    [[NSNotificationCenter defaultCenter]postNotificationName:SIMEditTouchEndNotification object:nil];
+}
+
+- (void)addPathItem
+{
+    CGMutablePathRef path = CGPathCreateMutableCopy(self.path);
+    SIMEditPathItem *pathItem = [[SIMEditPathItem alloc]init];
     pathItem.path = path;
     [self.arr addObject:pathItem];
+}
+
+- (void)touchEnd
+{
+    switch (_simImageEditTool) {
+        case SIMImageEditToolLine:
+            [self.paintView addOffscreenImageToArr];
+            [self addPathItem];
+            break;
+        case SIMImageEditToolMasic:
+            [self.paintView addOffscreenImageToArr];
+            [self addPathItem];
+            break;
+        default:
+            break;
+        }
+}
+
+- (void)touchBack
+{
+    [self back];
+    [self.paintView back];
 }
 
 
@@ -122,12 +183,25 @@
 - (void)back
 {
     if(self.arr.count > 0){
-        
+        SIMEditPathItem *item = self.arr.lastObject;
+        CGPathRelease(item.path);
+        [self.arr removeLastObject];
+        if (self.arr.count > 0) {
+            item = self.arr.lastObject;
+            self.shapeLayer.path = item.path;
+        }else{
+            CGPathRelease(self.path);
+            self.path = CGPathCreateMutable();
+            self.shapeLayer.path = self.path;
+        }
     }
 }
 
 @end
 
-@implementation HYPathItem
+@implementation SIMEditPathItem
 
 @end
+
+
+
