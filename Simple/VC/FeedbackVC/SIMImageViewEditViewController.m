@@ -43,7 +43,15 @@
     toolBar.backgroundColor = [UIColor colorWithRed:0/255.0 green:175/255.0 blue:240/255.0 alpha:1];
     [self.view addSubview:toolBar];
     
-    UIButton *backBtn = [[UIButton alloc]initWithFrame:CGRectMake(20, 7,60, 30)];
+    UIButton *clearBtn = [[UIButton alloc]initWithFrame:CGRectMake(20, 7,60, 30)];
+    [clearBtn setTitle:@"清空" forState:UIControlStateNormal];
+    clearBtn.backgroundColor = [UIColor redColor];
+    [clearBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [clearBtn.titleLabel setFont:[UIFont systemFontOfSize:13.0]];
+    [clearBtn addTarget:self action:@selector(clear:) forControlEvents:UIControlEventTouchUpInside];
+    [toolBar addSubview:clearBtn];
+    
+    UIButton *backBtn = [[UIButton alloc]initWithFrame:CGRectMake(CGRectGetMaxX(clearBtn.frame) +20, 7,60, 30)];
     [backBtn setTitle:@"后退一步" forState:UIControlStateNormal];
     backBtn.backgroundColor = [UIColor redColor];
     [backBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -59,7 +67,6 @@
     [redLineButton addTarget:self action:@selector(toolButtonDidClick:)
             forControlEvents:UIControlEventTouchUpInside];
     redLineButton.tag = SIMImageEditToolLine;
-//    redLineButton.tag = SIMImageEditToolRedLine;
     [toolBar addSubview:redLineButton];
     
     UIButton *masicButton = [[UIButton alloc]initWithFrame:CGRectMake(CGRectGetMaxX(redLineButton.frame) + 20, 7,60, 30)];
@@ -69,13 +76,17 @@
     [masicButton.titleLabel setFont:[UIFont systemFontOfSize:13.0]];
     [masicButton addTarget:self action:@selector(toolButtonDidClick:) forControlEvents:UIControlEventTouchUpInside];
     masicButton.tag = SIMImageEditToolMasic;
-
     [toolBar addSubview:masicButton];
 }
 
 - (void)back:(UIButton *)btn
 {
     [_hys touchBack];
+}
+
+- (void)clear:(UIButton *)btn
+{
+    [_hys touchClear];
 }
 
 - (void)toolButtonDidClick:(UIButton *)btn

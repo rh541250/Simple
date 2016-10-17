@@ -8,6 +8,22 @@
 
 #import "SIMWebViewController.h"
 #import "NextWebViewController.h"
+#import <JavaScriptCore/JavaScriptCore.h>
+
+@protocol TestJSObjectProtocol <JSExport>
+
+//此处我们测试几种参数的情况
+-(void)TestNOParameter;
+-(void)TestOneParameter:(NSString *)message;
+-(void)TestTowParameter:(NSString *)message1 SecondParameter:(NSString *)message2;
+
+@end
+
+@interface TestJSObject : NSObject<TestJSObjectProtocol>
+
+@end
+
+
 @interface SIMWebViewController ()<UIWebViewDelegate>
 {
     
@@ -41,7 +57,8 @@
     m_web.delegate = self;
     
     [self.view addSubview:m_web];
-    [self loadMyWebView];
+//    [self loadMyWebView];
+    [self loadLocalHtml];
     
     [self clearWebViewBackground:m_web];
 }
@@ -83,6 +100,18 @@
     
 }
 
+- (void)loadLocalHtml
+{
+    NSString *path = [[NSBundle mainBundle] bundlePath];
+    NSURL *baseURL = [NSURL fileURLWithPath:path];
+    NSString * htmlPath = [[NSBundle mainBundle] pathForResource:@"1"
+                                                          ofType:@"html"];
+    NSString * htmlCont = [NSString stringWithContentsOfFile:htmlPath
+                                                    encoding:NSUTF8StringEncoding
+                                                       error:nil];
+    [m_web loadHTMLString:htmlCont baseURL:baseURL];
+}
+
 #pragma mark - web delegate
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
@@ -93,24 +122,69 @@
     //为空，第一次加载本页面
     if ([urlStr isEqualToString:@"about:blank"]) {
         return YES;
+    }else if([@"ios" isEqualToString:request.URL.scheme]){
+        NSRange range = [urlStr rangeOfString:@":"];
+        NSString *method = [urlStr substringFromIndex:range.location + 1];
+        SEL selector = NSSelectorFromString(method);
+        if([self respondsToSelector:selector]){
+            [self performSelector:selector];
+        }
+        return NO;
     }
     
     //设置点击后的视图控制器
-    NextWebViewController *nextVc=[[NextWebViewController alloc] init];
-    nextVc.originUrl=urlStr; //设置请求连接
-    //跳转到点击后的控制器并加载webview
-    [self.navigationController pushViewController:nextVc animated:YES];
+//    NextWebViewController *nextVc=[[NextWebViewController alloc] init];
+//    nextVc.originUrl=urlStr; //设置请求连接
+//    //跳转到点击后的控制器并加载webview
+//    [self.navigationController pushViewController:nextVc animated:YES];
     
-    return  NO;
+    return  YES;
+}
+
+- (void)shareToTest
+{
+    NSLog(@"调用OC");
 }
 
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
-    NSInteger height = [[webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight;"] intValue];
-    NSString* javascript = [NSString stringWithFormat:@"window.scrollBy(0, %ld);", (long)height];
-    [webView stringByEvaluatingJavaScriptFromString:javascript];
-
+//    NSInteger height = [[webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight;"] intValue];
+//    NSString* javascript = [NSString stringWithFormat:@"window.scrollBy(0, %ld);", (long)height];
+//    [webView stringByEvaluatingJavaScriptFromString:javascript];
+    
+//    //首先创建JSContext 对象（此处通过当前webView的键获取到jscontext）
+//    JSContext *context=[webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+//    context[@"test1"] = ^(){
+//        NSArray *args = [JSContext currentArguments];
+//        for (id obj in args) {
+//            NSLog(@"%@",obj);
+//        }
+//    };
+//    
+//    NSString *jsFunctStr=@"test1('参数1')";
+//    [context evaluateScript:jsFunctStr];
+//    
+//    //二个参数
+//    NSString *jsFunctStr1=@"test1('参数a','参数b')";
+//    [context evaluateScript:jsFunctStr1];
+    
+    //首先创建JSContext 对象（此处通过当前webView的键获取到jscontext）
+    JSContext *context=[webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+    
+    //第二种情况，js是通过对象调用的，我们假设js里面有一个对象 testobject 在调用方法
+    //首先创建我们新建类的对象，将他赋值给js的对象
+    
+    TestJSObject *testJO=[TestJSObject new];
+    context[@"testobject"]=testJO;
+    
+    //同样我们也用刚才的方式模拟一下js调用方法
+    NSString *jsStr1=@"testobject.TestNOParameter()";
+    [context evaluateScript:jsStr1];
+    NSString *jsStr2=@"testobject.TestOneParameter('参数1')";
+    [context evaluateScript:jsStr2];
+    NSString *jsStr3=@"testobject.TestTowParameterSecondParameter('参数A','参数B')";
+    [context evaluateScript:jsStr3];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
@@ -127,6 +201,25 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+@end
+
+
+@implementation TestJSObject
+
+//一下方法都是只是打了个log 等会看log 以及参数能对上就说明js调用了此处的iOS 原生方法
+-(void)TestNOParameter
+{
+    NSLog(@"this is ios TestNOParameter");
+}
+-(void)TestOneParameter:(NSString *)message
+{
+    NSLog(@"this is ios TestOneParameter=%@",message);
+}
+-(void)TestTowParameter:(NSString *)message1 SecondParameter:(NSString *)message2
+{
+    NSLog(@"this is ios TestTowParameter=%@  Second=%@",message1,message2);
 }
 
 @end

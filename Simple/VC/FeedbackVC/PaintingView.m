@@ -148,6 +148,21 @@
     [self setNeedsDisplay];
 }
 
+- (void)clear
+{
+    if (self.arr.count == 0) {
+        return;
+    }
+    for (SIMEditImageItem *item in self.arr) {
+        CGImageRelease(item.cgimage);
+        item.cgimage = NULL;
+    }
+    [self.arr removeAllObjects];
+    _backMode = NO;
+    [self initOffscreenContext];
+    [self setNeedsDisplay];
+}
+
 @end
 
 @implementation SIMEditImageItem

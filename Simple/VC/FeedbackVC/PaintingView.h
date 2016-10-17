@@ -21,6 +21,7 @@ extern NSString *const SIMEditTouchEndNotification;
 
 - (void)back;
 
+- (void)clear;
 
 - (void)touchBeginWithPoint:(CGPoint)point;
 

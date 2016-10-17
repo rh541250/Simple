@@ -8,7 +8,7 @@
 
 #import "NextWebViewController.h"
 
-@interface NextWebViewController ()
+@interface NextWebViewController ()<UIWebViewDelegate>
 {
     UIWebView *_webView;
 }
@@ -18,13 +18,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [super viewDidLoad];
     //设置title
     self.title=@"原文";
     
     
     _webView=[[UIWebView alloc] init];
     _webView.frame=[[UIScreen mainScreen] bounds];
+    _webView.delegate =self;
     
     [self.view addSubview:_webView];
     
@@ -34,6 +34,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    NSLog(@"---%@",request.URL.absoluteString);
+    return YES;
+}
+
 
 /*
 #pragma mark - Navigation

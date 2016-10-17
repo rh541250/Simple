@@ -31,6 +31,8 @@ typedef NS_ENUM(NSUInteger,SIMImageEditTool)
 
 - (void)touchEnd;
 
+- (void)touchClear;
+
 @end
 
 

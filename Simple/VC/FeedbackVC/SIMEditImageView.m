@@ -135,14 +135,6 @@ NSString * const SIMEditTouchEndNotification = @"SIMEditTouchEndNotificationKey"
     [[NSNotificationCenter defaultCenter]postNotificationName:SIMEditTouchEndNotification object:nil];
 }
 
-- (void)addPathItem
-{
-    CGMutablePathRef path = CGPathCreateMutableCopy(self.path);
-    SIMEditPathItem *pathItem = [[SIMEditPathItem alloc]init];
-    pathItem.path = path;
-    [self.arr addObject:pathItem];
-}
-
 - (void)touchEnd
 {
     switch (_simImageEditTool) {
@@ -165,19 +157,18 @@ NSString * const SIMEditTouchEndNotification = @"SIMEditTouchEndNotificationKey"
     [self.paintView back];
 }
 
-
-- (void)setImage:(UIImage *)image
+- (void)touchClear
 {
-    //底图
-    _image = image;
-    self.imageLayer.contents = (id)image.CGImage;
+    [self clear];
+    [self.paintView clear];
 }
 
-- (void)setSurfaceImage:(UIImage *)surfaceImage
+- (void)addPathItem
 {
-    //顶图
-    _surfaceImage = surfaceImage;
-    self.surfaceImageView.image = surfaceImage;
+    CGMutablePathRef path = CGPathCreateMutableCopy(self.path);
+    SIMEditPathItem *pathItem = [[SIMEditPathItem alloc]init];
+    pathItem.path = path;
+    [self.arr addObject:pathItem];
 }
 
 - (void)back
@@ -195,6 +186,37 @@ NSString * const SIMEditTouchEndNotification = @"SIMEditTouchEndNotificationKey"
             self.shapeLayer.path = self.path;
         }
     }
+}
+
+- (void)clear
+{
+    if (self.arr.count == 0) {
+        return;
+    }
+    for (SIMEditPathItem *item in self.arr) {
+        CGPathRelease(item.path);
+        item.path = NULL;
+    }
+    [self.arr removeAllObjects];
+    
+    CGPathRelease(self.path);
+    self.path = NULL;
+    self.path = CGPathCreateMutable();
+    self.shapeLayer.path = self.path;
+}
+
+- (void)setImage:(UIImage *)image
+{
+    //底图
+    _image = image;
+    self.imageLayer.contents = (id)image.CGImage;
+}
+
+- (void)setSurfaceImage:(UIImage *)surfaceImage
+{
+    //顶图
+    _surfaceImage = surfaceImage;
+    self.surfaceImageView.image = surfaceImage;
 }
 
 @end
