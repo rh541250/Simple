@@ -9,12 +9,16 @@
 #import <UIKit/UIKit.h>
 extern NSString *const SIMEditTouchEndNotification;
 
+/**
+ * 绘图工具枚举
+ */
 typedef NS_ENUM(NSUInteger,SIMImageEditTool)
 {
-    SIMImageEditToolMasic   = 1000,
-    SIMImageEditToolLine,
+    SIMImageEditToolMasic   = 1000,//画马赛克
+    SIMImageEditToolLine,          //画路径
 };
 
+@class SIMEditToolTypeItem;
 @interface SIMEditImageView : UIView
 /**
  要刮的底图.
@@ -25,18 +29,25 @@ typedef NS_ENUM(NSUInteger,SIMImageEditTool)
  */
 @property (nonatomic, strong) UIImage *surfaceImage;
 
-@property (nonatomic)SIMImageEditTool simImageEditTool;
+/**
+ * 当前选定的绘图工具
+ */
+@property (nonatomic, assign)SIMImageEditTool currentEditTool;
 
 - (void)touchBack;
-
-- (void)touchEnd;
 
 - (void)touchClear;
 
 @end
 
 
+@interface SIMEditToolTypeItem : NSObject
+@property (nonatomic)SIMImageEditTool toolType;
+@end
+
 @interface SIMEditPathItem : NSObject
 @property (nonatomic, assign) CGMutablePathRef path;
 
 @end
+
+

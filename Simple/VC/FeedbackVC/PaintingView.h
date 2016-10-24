@@ -12,12 +12,7 @@ extern NSString *const SIMEditTouchEndNotification;
 
 @interface PaintingView : UIView
 
-@property (nonatomic) UIColor *strokeColor;
 @property (nonatomic, getter=isErasing) BOOL erasing;
-
-@property (nonatomic) CGFloat lineWidth;
-@property (nonatomic,strong)NSMutableArray *arr;
-
 
 - (void)back;
 
@@ -28,9 +23,12 @@ extern NSString *const SIMEditTouchEndNotification;
 - (void)touchMoveWithPoint:(CGPoint)point;
 
 - (void)addOffscreenImageToArr;
+
 @end
 
 
 @interface SIMEditImageItem : NSObject
 @property (nonatomic,assign)CGImageRef cgimage;
+@property (nonatomic,assign)CGMutablePathRef path;
+@property (nonatomic,assign)CGBlendMode blendMode;
 @end

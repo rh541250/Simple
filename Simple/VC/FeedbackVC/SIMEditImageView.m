@@ -28,6 +28,8 @@ NSString * const SIMEditTouchEndNotification = @"SIMEditTouchEndNotificationKey"
 
 @property (nonatomic, strong) NSMutableArray *arr;
 
+@property (nonatomic, strong) NSMutableArray *toolTypeArr;
+
 @end
 
 @implementation SIMEditImageView
@@ -68,35 +70,33 @@ NSString * const SIMEditTouchEndNotification = @"SIMEditTouchEndNotificationKey"
         self.paintView.backgroundColor = [UIColor clearColor];
         [self addSubview:self.paintView];
         
-        self.simImageEditTool = SIMImageEditToolLine;
+        self.currentEditTool = SIMImageEditToolLine;
         
         self.path = CGPathCreateMutable();
         self.arr = [NSMutableArray array];
+        self.toolTypeArr = [NSMutableArray array];
         
         [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(touchEnd) name:SIMEditTouchEndNotification object:nil];
     }
     return self;
 }
 
-- (void)setSimImageEditTool:(SIMImageEditTool)simImageEditTool
+- (void)setCurrentEditTool:(SIMImageEditTool)currentEditTool
 {
-    _simImageEditTool = simImageEditTool;
-    switch (_simImageEditTool) {
+    _currentEditTool = currentEditTool;
+    switch (_currentEditTool) {
         case SIMImageEditToolLine:
             self.paintView.userInteractionEnabled = YES;
             self.paintView.erasing = NO;
-            self.paintView.lineWidth = 2.0;
             break;
         case SIMImageEditToolMasic:
             self.paintView.userInteractionEnabled = NO;
             self.paintView.erasing = YES;
-            self.paintView.lineWidth = 10.0;
             break;
         default:
             break;
     }
 }
-
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -137,15 +137,24 @@ NSString * const SIMEditTouchEndNotification = @"SIMEditTouchEndNotificationKey"
 
 - (void)touchEnd
 {
-    switch (_simImageEditTool) {
+    switch (_currentEditTool) {
         case SIMImageEditToolLine:
+        {
+            SIMEditToolTypeItem *item = [[SIMEditToolTypeItem alloc]init];
+            item.toolType = SIMImageEditToolLine;
+            [self.toolTypeArr addObject:item];
             [self.paintView addOffscreenImageToArr];
-            [self addPathItem];
             break;
+        }
         case SIMImageEditToolMasic:
+        {
+            SIMEditToolTypeItem *item = [[SIMEditToolTypeItem alloc]init];
+            item.toolType = SIMImageEditToolMasic;
+            [self.toolTypeArr addObject:item];
             [self.paintView addOffscreenImageToArr];
             [self addPathItem];
             break;
+        }
         default:
             break;
         }
@@ -153,8 +162,16 @@ NSString * const SIMEditTouchEndNotification = @"SIMEditTouchEndNotificationKey"
 
 - (void)touchBack
 {
-    [self back];
-    [self.paintView back];
+    if (self.toolTypeArr.count > 0) {
+        SIMEditToolTypeItem *item = self.toolTypeArr.lastObject;
+        if (item.toolType == SIMImageEditToolLine) {
+            [self.paintView back];
+        }else{
+            [self back];
+            [self.paintView back];
+        }
+        [self.toolTypeArr removeLastObject];
+    }
 }
 
 - (void)touchClear
@@ -179,7 +196,9 @@ NSString * const SIMEditTouchEndNotification = @"SIMEditTouchEndNotificationKey"
         [self.arr removeLastObject];
         if (self.arr.count > 0) {
             item = self.arr.lastObject;
-            self.shapeLayer.path = item.path;
+            CGPathRelease(self.path);
+            self.path = CGPathCreateMutableCopy(item.path);
+            self.shapeLayer.path = self.path;
         }else{
             CGPathRelease(self.path);
             self.path = CGPathCreateMutable();
@@ -200,7 +219,6 @@ NSString * const SIMEditTouchEndNotification = @"SIMEditTouchEndNotificationKey"
     [self.arr removeAllObjects];
     
     CGPathRelease(self.path);
-    self.path = NULL;
     self.path = CGPathCreateMutable();
     self.shapeLayer.path = self.path;
 }
@@ -218,6 +236,10 @@ NSString * const SIMEditTouchEndNotification = @"SIMEditTouchEndNotificationKey"
     _surfaceImage = surfaceImage;
     self.surfaceImageView.image = surfaceImage;
 }
+
+@end
+
+@implementation SIMEditToolTypeItem
 
 @end
 

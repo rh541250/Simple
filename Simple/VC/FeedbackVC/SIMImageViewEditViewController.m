@@ -91,7 +91,7 @@
 
 - (void)toolButtonDidClick:(UIButton *)btn
 {
-    _hys.simImageEditTool = btn.tag;
+    _hys.currentEditTool = btn.tag;
 }
 
 - (UIImage *)transToMosaicImage:(UIImage*)orginImage blockLevel:(NSUInteger)level
