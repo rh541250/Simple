@@ -5,21 +5,21 @@
 //  Created by ZJF on 16/8/16.
 //  Copyright © 2016年 ZJF. All rights reserved.
 //
-#define kBitsPerComponent (8)
-#define kBitsPerPixel (32)
-#define kPixelChannelCount (4)
 
 #define kScreenWidth     [UIScreen mainScreen].bounds.size.width
 
+static CGFloat SIMImageEditToolBarHeight = 44.0;
 
 #import "SIMImageViewEditViewController.h"
 #import "SIMEditImageView.h"
+#import "SIMEditImageToolView.h"
 #import "SIMScreenShotManager.h"
+#import "UIImage+mosaic.h"
 
 @interface SIMImageViewEditViewController ()
-
-@property (nonatomic,strong)SIMEditImageView * hys;
-
+{
+    SIMEditImageView *m_editImageView;
+}
 @end
 
 @implementation SIMImageViewEditViewController
@@ -29,15 +29,8 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
 
-    _hys = [[SIMEditImageView alloc]initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 108)];
-    UIImage * image = [[SIMScreenShotManager sharedScreenShotManager] screenShotImage];
-    
-    //顶图
-    _hys.surfaceImage = image;
-    //低图
-    _hys.image = [self transToMosaicImage:image blockLevel:kScreenWidth/20];
-    
-    [self.view addSubview:_hys];
+    [self createImageEditImageView];
+    [self createImageEditToolBar];
     
     UIView *toolBar = [[UIView alloc]initWithFrame:CGRectMake(0, self.view.bounds.size.height - 44, self.view.bounds.size.width, 44)];
     toolBar.backgroundColor = [UIColor colorWithRed:0/255.0 green:175/255.0 blue:240/255.0 alpha:1];
@@ -79,110 +72,78 @@
     [toolBar addSubview:masicButton];
 }
 
+- (void)createImageEditImageView
+{
+    m_editImageView = [[SIMEditImageView alloc]initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64 - SIMImageEditToolBarHeight)];
+    UIImage * image = [[SIMScreenShotManager sharedScreenShotManager] screenShotImage];
+    
+    //顶部原始图
+    m_editImageView.surfaceImage = image;
+    //马赛克图
+    m_editImageView.image = [UIImage transToMosaicImage:image blockLevel:kScreenWidth/20];
+    [self.view addSubview:m_editImageView];
+}
+
+- (void)createImageEditToolBar
+{
+    NSMutableArray *modelsArr = [NSMutableArray arrayWithCapacity:toolsNum];
+    for (int i = 0 ; i < toolsNum; i++) {
+        static SIMEditImageToolType toolType = 0;
+        static NSString *toolTitle = nil;
+        static NSString *toolImageName = nil;
+        if (i == 0)
+        {
+            toolType = SIMEditImageToolTypeClear;
+            toolTitle = @"全部清除";
+            toolImageName = @"edit_image_tool_clear";
+        }
+        else if(i == 1)
+        {
+            toolType = SIMEditImageToolTypeBack;
+            toolTitle = @"后退一步";
+            toolImageName = @"edit_image_tool_back";
+        }
+        else if(i == 2)
+        {
+            toolType = SIMEditImageToolTypeLine;
+            toolTitle = @"圈出问题";
+            toolImageName = @"edit_image_tool_line";
+        }
+        else if(i == 3)
+        {
+            toolType = SIMEditImageToolTypeMosaic;
+            toolTitle = @"马赛克";
+            toolImageName = @"edit_image_tool_mosaic";
+        }
+        else
+        {}
+        
+        SIMEditImageToolModel *model = [[SIMEditImageToolModel alloc]initWithToolType:toolType toolTitle:toolTitle andToolImageName:toolImageName];
+        [modelsArr addObject:model];
+    }
+    
+    
+    SIMEditImageToolView *toolView = [[SIMEditImageToolView alloc]initWithToolModels:modelsArr];
+//    SIMEditImageToolView *toolView = [[SIMEditImageToolView alloc]initWithFrame:CGRectMake(0, self.view.bounds.size.height - 44, self.view.bounds.size.width, 44)];
+    toolView.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:toolView];
+}
+
+
 - (void)back:(UIButton *)btn
 {
-    [_hys touchBack];
+//    [_hys touchBack];
 }
 
 - (void)clear:(UIButton *)btn
 {
-    [_hys touchClear];
+//    [_hys touchClear];
 }
 
 - (void)toolButtonDidClick:(UIButton *)btn
 {
-    _hys.currentEditTool = btn.tag;
+//    _hys.currentEditTool = btn.tag;
 }
-
-- (UIImage *)transToMosaicImage:(UIImage*)orginImage blockLevel:(NSUInteger)level
-{
-    //获取BitmapData
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    CGImageRef imgRef = orginImage.CGImage;
-    CGFloat width = CGImageGetWidth(imgRef);
-    CGFloat height = CGImageGetHeight(imgRef);
-    CGContextRef context = CGBitmapContextCreate (nil,
-                                                  width,
-                                                  height,
-                                                  kBitsPerComponent,        //每个颜色值8bit
-                                                  width*kPixelChannelCount, //每一行的像素点占用的字节数，每个像素点的ARGB四个通道各占8个bit
-                                                  colorSpace,
-                                                  kCGImageAlphaPremultipliedLast);
-    CGContextDrawImage(context, CGRectMake(0, 0, width, height), imgRef);
-    unsigned char *bitmapData = CGBitmapContextGetData (context);
-    
-    //这里把BitmapData进行马赛克转换,就是用一个点的颜色填充一个level*level的正方形
-    unsigned char pixel[kPixelChannelCount] = {0};
-    NSUInteger index,preIndex;
-    for (NSUInteger i = 0; i < height - 1 ; i++) {
-        for (NSUInteger j = 0; j < width - 1; j++) {
-            index = i * width + j;
-            if (i % level == 0) {
-                if (j % level == 0) {
-                    memcpy(pixel, bitmapData + kPixelChannelCount*index, kPixelChannelCount);
-                }else{
-                    memcpy(bitmapData + kPixelChannelCount*index, pixel, kPixelChannelCount);
-                }
-            } else {
-                preIndex = (i-1)*width +j;
-                memcpy(bitmapData + kPixelChannelCount*index, bitmapData + kPixelChannelCount*preIndex, kPixelChannelCount);
-            }
-        }
-    }
-    
-    NSInteger dataLength = width*height* kPixelChannelCount;
-    CGDataProviderRef provider = CGDataProviderCreateWithData(NULL, bitmapData, dataLength, NULL);
-    //创建要输出的图像
-    CGImageRef mosaicImageRef = CGImageCreate(width, height,
-                                              kBitsPerComponent,
-                                              kBitsPerPixel,
-                                              width*kPixelChannelCount ,
-                                              colorSpace,
-                                             kCGBitmapByteOrderDefault,
-                                              provider,
-                                              NULL, NO,
-                                              kCGRenderingIntentDefault);
-    CGContextRef outputContext = CGBitmapContextCreate(nil,
-                                                       width,
-                                                       height,
-                                                       kBitsPerComponent,
-                                                       width*kPixelChannelCount,
-                                                       colorSpace,
-                                                       kCGImageAlphaPremultipliedLast);
-    CGContextDrawImage(outputContext, CGRectMake(0.0f, 0.0f, width, height), mosaicImageRef);
-    CGImageRef resultImageRef = CGBitmapContextCreateImage(outputContext);
-    UIImage *resultImage = nil;
-    if([UIImage respondsToSelector:@selector(imageWithCGImage:scale:orientation:)]) {
-        float scale = [[UIScreen mainScreen] scale];
-        resultImage = [UIImage imageWithCGImage:resultImageRef scale:scale orientation:UIImageOrientationUp];
-    } else {
-        resultImage = [UIImage imageWithCGImage:resultImageRef];
-    }
-    //释放
-    if(resultImageRef){
-        CFRelease(resultImageRef);
-    }
-    if(mosaicImageRef){
-        CFRelease(mosaicImageRef);
-    }
-    if(colorSpace){
-        CGColorSpaceRelease(colorSpace);
-    }
-    if(provider){
-        CGDataProviderRelease(provider);
-    }
-    if(context){
-        CGContextRelease(context);
-    }
-    if(outputContext){
-        CGContextRelease(outputContext);
-    }
-    return resultImage ;
-    
-}
-
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

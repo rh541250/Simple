@@ -11,6 +11,4 @@
 @implementation SIMMasicImageView
 
 
-
-
 @end
