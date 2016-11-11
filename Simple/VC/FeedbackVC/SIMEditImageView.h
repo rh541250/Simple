@@ -19,6 +19,7 @@ typedef NS_ENUM(NSUInteger,SIMImageEditTool)
 };
 
 @class SIMEditToolTypeItem;
+typedef void(^EditBlock)(BOOL);
 @interface SIMEditImageView : UIView
 /**
  要刮的底图.
@@ -33,6 +34,8 @@ typedef NS_ENUM(NSUInteger,SIMImageEditTool)
  * 当前选定的绘图工具
  */
 @property (nonatomic, assign)SIMImageEditTool currentEditTool;
+
+@property (nonatomic,   copy)EditBlock editBlock;
 
 - (void)touchBack;
 

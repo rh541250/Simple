@@ -8,16 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-//总共多少个工具
-NSUInteger toolsNum = 4;
 
-@interface SIMEditImageToolView : UIView
-
-@property (nonatomic,readonly)NSArray *toolArr;
-
-- (instancetype)initWithToolModels:(NSArray *)modelsArr;
-
-@end
 
 typedef NS_ENUM(NSUInteger,SIMEditImageToolType)
 {
@@ -27,17 +18,26 @@ typedef NS_ENUM(NSUInteger,SIMEditImageToolType)
     SIMEditImageToolTypeMosaic = 3,
 };
 
-@interface SIMEditImageToolModel : NSObject
+@protocol SIMEditImageToolProtocol <NSObject>
 
-@property (nonatomic,assign)SIMEditImageToolType toolType;
-@property (nonatomic,  copy)NSString *toolTitle;
-@property (nonatomic,  copy)NSString *toolImageName;
+//清空所有操作，回到最初的状态
+- (void)touchClear;
+//后退一步
+- (void)touchBack;
+//选择编辑工具
+- (void)exchangeEditToolToType:(SIMEditImageToolType)simEditImageToolType;
 
-- (instancetype)initWithToolType:(SIMEditImageToolType)toolType toolTitle:(NSString *)toolTitle andToolImageName:(NSString *)toolImageName;
+@end
+
+@interface SIMEditImageToolView : UIView
+@property (nonatomic,weak)id<SIMEditImageToolProtocol>delegate;
+//后退一步和清空按钮是否可用
+- (void)backBtnShouldBeUseable:(BOOL)need;
 
 @end
 
 @interface SIMEditImageToolButton : UIButton
-
+@property (nonatomic,assign)SIMEditImageToolType toolType;
+- (instancetype)initWithDic:(NSDictionary *)dictionary;
 
 @end

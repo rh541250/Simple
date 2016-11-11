@@ -8,15 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^PushToEditVCBlock)(void);
+typedef void(^PushToEditVCBlock)(UIImage *);
 
-@interface SIMScreenShotManager : NSObject
+@interface SIMScreenShotTool : NSObject
+@property (nonatomic,strong)UIImage *screenShotImage;
 @property (nonatomic,copy)PushToEditVCBlock pushToEditVCBlock;
 
-+(SIMScreenShotManager *)sharedScreenShotManager;
-
+//处理截屏通知
 - (void)handleScreenShot:(NSNotification *)notification;
-
-- (UIImage *)screenShotImage;
 
 @end

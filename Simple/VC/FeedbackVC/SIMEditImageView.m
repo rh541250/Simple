@@ -137,6 +137,10 @@ NSString * const SIMEditTouchEndNotification = @"SIMEditTouchEndNotificationKey"
 
 - (void)touchEnd
 {
+    if (self.toolTypeArr.count == 0 && self.editBlock)
+    {
+        self.editBlock(YES);
+    }
     switch (_currentEditTool) {
         case SIMImageEditToolLine:
         {
@@ -162,15 +166,24 @@ NSString * const SIMEditTouchEndNotification = @"SIMEditTouchEndNotificationKey"
 
 - (void)touchBack
 {
-    if (self.toolTypeArr.count > 0) {
+    if (self.toolTypeArr.count > 0)
+    {
         SIMEditToolTypeItem *item = self.toolTypeArr.lastObject;
-        if (item.toolType == SIMImageEditToolLine) {
+        if (item.toolType == SIMImageEditToolLine)
+        {
             [self.paintView back];
-        }else{
+        }
+        else
+        {
             [self back];
             [self.paintView back];
         }
         [self.toolTypeArr removeLastObject];
+        
+        if (self.toolTypeArr.count == 0 && self.editBlock)
+        {
+            self.editBlock(NO);
+        }
     }
 }
 
@@ -178,6 +191,10 @@ NSString * const SIMEditTouchEndNotification = @"SIMEditTouchEndNotificationKey"
 {
     [self clear];
     [self.paintView clear];
+    if (self.editBlock)
+    {
+        self.editBlock(NO);
+    }
 }
 
 - (void)addPathItem

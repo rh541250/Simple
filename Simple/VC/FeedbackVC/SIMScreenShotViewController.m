@@ -7,13 +7,12 @@
 //
 
 #import "SIMScreenShotViewController.h"
-#import "SIMScreenShotManager.h"
+#import "SIMScreenShotTool.h"
 #import "SIMImageViewEditViewController.h"
 
 @interface SIMScreenShotViewController ()
 {
     UIImageView *backgroundImageView;
-    SIMScreenShotManager *screenShotManager;
 }
 @end
 
@@ -48,10 +47,14 @@
 
 - (void)screenShotDidTaken:(NSNotification *)notification
 {
-    [[SIMScreenShotManager sharedScreenShotManager] handleScreenShot:notification];
-    [SIMScreenShotManager sharedScreenShotManager].pushToEditVCBlock = ^(){
-        SIMImageViewEditViewController *imageViewEditVC = [[SIMImageViewEditViewController alloc]init];
-        [self.navigationController pushViewController:imageViewEditVC animated:YES];
+    SIMScreenShotTool *screenShotManager = [[SIMScreenShotTool alloc]init];
+
+    [screenShotManager handleScreenShot:notification];
+    __weak typeof(self) weakSelf = self;
+    screenShotManager.pushToEditVCBlock = ^(UIImage *image){
+        SIMImageViewEditViewController *imageViewEditVC = [[SIMImageViewEditViewController alloc] initWithImage:image];
+        //TODO:处理跳转
+        [weakSelf.navigationController pushViewController:imageViewEditVC animated:YES];
     };
 }
 
@@ -59,6 +62,5 @@
 {
     [[NSNotificationCenter defaultCenter]removeObserver:self name:UIApplicationUserDidTakeScreenshotNotification object:nil];
 }
-
 
 @end
