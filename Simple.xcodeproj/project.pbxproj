@@ -33,6 +33,8 @@
 		4B9FEE371DC3286900494C3B /* editImage_mosaic_normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B9FEE231DC3286900494C3B /* editImage_mosaic_normal@3x.png */; };
 		4B9FEE381DC3286900494C3B /* editImage_mosaic_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B9FEE241DC3286900494C3B /* editImage_mosaic_selected@2x.png */; };
 		4B9FEE391DC3286900494C3B /* editImage_mosaic_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B9FEE251DC3286900494C3B /* editImage_mosaic_selected@3x.png */; };
+		4BB231AC1DDAAFAB00F6ED0C /* TagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB231A91DDAAFAB00F6ED0C /* TagViewController.m */; };
+		4BB231AD1DDAAFAB00F6ED0C /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BB231AB1DDAAFAB00F6ED0C /* TestViewController.m */; };
 		4BF26CBE1DAF9476003DB868 /* PaintingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF26CBC1DAF9476003DB868 /* PaintingView.m */; };
 		4BF26CE41DB47070003DB868 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF26CE31DB47070003DB868 /* JavaScriptCore.framework */; };
 		4BF26CE81DB47954003DB868 /* 1.html in Resources */ = {isa = PBXBuildFile; fileRef = 4BF26CE71DB47954003DB868 /* 1.html */; };
@@ -130,6 +132,11 @@
 		4B9FEE231DC3286900494C3B /* editImage_mosaic_normal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "editImage_mosaic_normal@3x.png"; sourceTree = "<group>"; };
 		4B9FEE241DC3286900494C3B /* editImage_mosaic_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "editImage_mosaic_selected@2x.png"; sourceTree = "<group>"; };
 		4B9FEE251DC3286900494C3B /* editImage_mosaic_selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "editImage_mosaic_selected@3x.png"; sourceTree = "<group>"; };
+		4BB231A81DDAAFAB00F6ED0C /* TagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagViewController.h; sourceTree = "<group>"; };
+		4BB231A91DDAAFAB00F6ED0C /* TagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagViewController.m; sourceTree = "<group>"; };
+		4BB231AA1DDAAFAB00F6ED0C /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		4BB231AB1DDAAFAB00F6ED0C /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		4BBFAEC41DE3DC0600646A0B /* SIMImageEditDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMImageEditDefine.h; sourceTree = "<group>"; };
 		4BF26CBB1DAF9476003DB868 /* PaintingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaintingView.h; sourceTree = "<group>"; };
 		4BF26CBC1DAF9476003DB868 /* PaintingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaintingView.m; sourceTree = "<group>"; };
 		4BF26CE31DB47070003DB868 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -313,6 +320,7 @@
 				4B3DB3411DBDE51000ADD9C8 /* SIMMasicImageView.m */,
 				4BF26CBB1DAF9476003DB868 /* PaintingView.h */,
 				4BF26CBC1DAF9476003DB868 /* PaintingView.m */,
+				4BBFAEC41DE3DC0600646A0B /* SIMImageEditDefine.h */,
 			);
 			path = FeedbackVC;
 			sourceTree = "<group>";
@@ -458,6 +466,10 @@
 				A0324E3F1CFC4F7800DF4671 /* CADrawViewController.m */,
 				A08A2E981D1BC6F000ED4F65 /* CACustomViewController.h */,
 				A08A2E991D1BC6F000ED4F65 /* CACustomViewController.m */,
+				4BB231AA1DDAAFAB00F6ED0C /* TestViewController.h */,
+				4BB231AB1DDAAFAB00F6ED0C /* TestViewController.m */,
+				4BB231A81DDAAFAB00F6ED0C /* TagViewController.h */,
+				4BB231A91DDAAFAB00F6ED0C /* TagViewController.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -836,6 +848,8 @@
 				2221621F1D7C015F0086FB51 /* SIMWebViewController.m in Sources */,
 				A0ACB39C1CD33D630078715B /* UIImage+Tools.m in Sources */,
 				A0ACB3941CD30A050078715B /* SIMItem.m in Sources */,
+				4BB231AC1DDAAFAB00F6ED0C /* TagViewController.m in Sources */,
+				4BB231AD1DDAAFAB00F6ED0C /* TestViewController.m in Sources */,
 				A0324E341CF6E0D600DF4671 /* CAInstrumentsViewController.m in Sources */,
 				4B3DB3421DBDE51000ADD9C8 /* SIMMasicImageView.m in Sources */,
 				A07064A11CD8445600CCA264 /* CGView.m in Sources */,

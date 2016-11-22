@@ -7,16 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-
-
-typedef NS_ENUM(NSUInteger,SIMEditImageToolType)
-{
-    SIMEditImageToolTypeClear  = 0,
-    SIMEditImageToolTypeBack   = 1,
-    SIMEditImageToolTypeLine   = 2,
-    SIMEditImageToolTypeMosaic = 3,
-};
+#import "SIMImageEditDefine.h"
 
 @protocol SIMEditImageToolProtocol <NSObject>
 

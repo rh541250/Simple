@@ -13,6 +13,7 @@
 @interface SIMScreenShotViewController ()
 {
     UIImageView *backgroundImageView;
+    SIMScreenShotTool *m_screenShotTool;
 }
 @end
 
@@ -32,7 +33,6 @@
     backgroundImageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.view addSubview:backgroundImageView];
     
-    
     WS(ws);
     [backgroundImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.equalTo(ws.view).offset(0);
@@ -47,14 +47,14 @@
 
 - (void)screenShotDidTaken:(NSNotification *)notification
 {
-    SIMScreenShotTool *screenShotManager = [[SIMScreenShotTool alloc]init];
+    m_screenShotTool = [[SIMScreenShotTool alloc]init];
 
-    [screenShotManager handleScreenShot:notification];
-    __weak typeof(self) weakSelf = self;
-    screenShotManager.pushToEditVCBlock = ^(UIImage *image){
+    [m_screenShotTool handleScreenShot:notification];
+    WS(ws);
+    m_screenShotTool.pushToEditVCBlock = ^(UIImage *image){
         SIMImageViewEditViewController *imageViewEditVC = [[SIMImageViewEditViewController alloc] initWithImage:image];
         //TODO:处理跳转
-        [weakSelf.navigationController pushViewController:imageViewEditVC animated:YES];
+        [ws.navigationController pushViewController:imageViewEditVC animated:YES];
     };
 }
 

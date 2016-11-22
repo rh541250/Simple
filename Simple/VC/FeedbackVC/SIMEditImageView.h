@@ -7,16 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-extern NSString *const SIMEditTouchEndNotification;
+#import "SIMImageEditDefine.h"
 
-/**
- * 绘图工具枚举
- */
-typedef NS_ENUM(NSUInteger,SIMImageEditTool)
-{
-    SIMImageEditToolMasic   = 1000,//画马赛克
-    SIMImageEditToolLine,          //画路径
-};
+extern NSString *const SIMEditTouchEndNotification;
 
 @class SIMEditToolTypeItem;
 typedef void(^EditBlock)(BOOL);
@@ -33,7 +26,7 @@ typedef void(^EditBlock)(BOOL);
 /**
  * 当前选定的绘图工具
  */
-@property (nonatomic, assign)SIMImageEditTool currentEditTool;
+@property (nonatomic, assign)SIMEditImageToolType currentEditTool;
 
 @property (nonatomic,   copy)EditBlock editBlock;
 
@@ -45,7 +38,7 @@ typedef void(^EditBlock)(BOOL);
 
 
 @interface SIMEditToolTypeItem : NSObject
-@property (nonatomic)SIMImageEditTool toolType;
+@property (nonatomic)SIMEditImageToolType toolType;
 @end
 
 @interface SIMEditPathItem : NSObject

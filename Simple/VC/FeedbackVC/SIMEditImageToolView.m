@@ -21,8 +21,11 @@ static NSString *const SIMEditToolHightlightedImageKey = @"hightlightedImage";
 static NSString *const SIMEditToolDisableImageKey      = @"disableImage";
 static NSString *const SIMEditToolSelectedImageKey     = @"selectedImage";
 
-static NSString *const SIMEditToolUserInteractionEnabledKey = @"userInteractionEnabled";
-static NSString *const SIMEditToolSelectedKey               = @"toolSelected";
+static NSString *const SIMEditToolEnabledKey           = @"enabled";
+static NSString *const SIMEditToolSelectedKey          = @"toolSelected";
+
+static CGFloat SIMEditToolButtonImageWidth = 17.0;
+
 
 @interface SIMEditImageToolView()
 {
@@ -46,12 +49,15 @@ static NSString *const SIMEditToolSelectedKey               = @"toolSelected";
 
 - (void)createToolViewsWithModels
 {
+    self.backgroundColor = [UIColor blackColor];
     m_editToolBtns = [self getToolButtons];
     CGFloat buttonWidth = self.frame.size.width / 4.0;
     for (int i = 0; i < m_editToolBtns.count; i++)
     {
         SIMEditImageToolButton *btn = m_editToolBtns[i];
         btn.frame = CGRectMake(i * buttonWidth, 0, buttonWidth,self.frame.size.height);
+        [btn setImageEdgeInsets:UIEdgeInsetsMake(6, (btn.frame.size.width - SIMEditToolButtonImageWidth)/2.0, 0, 0)];
+        [btn setTitleEdgeInsets:UIEdgeInsetsMake(6+SIMEditToolButtonImageWidth/2.0 + 15.0, 6.0, 0, 0)];
         [self addSubview:btn];
         [btn addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -78,11 +84,11 @@ static NSString *const SIMEditToolSelectedKey               = @"toolSelected";
                  SIMEditToolTypeKey:@"0",
                  SIMEditToolTitleKey:@"全部清除",
                  SIMEditToolNomalImageKey:@"editImage_clear_normal",
-                 SIMEditToolHightlightedImageKey:@"editImage_clear_highlighted",
+                SIMEditToolHightlightedImageKey:@"editImage_clear_highlighted",
                  SIMEditToolDisableImageKey:@"editImage_clear_disabled",
                  SIMEditToolSelectedImageKey:@"",
                  SIMEditToolSpicalToolKey:@"1",
-                 SIMEditToolUserInteractionEnabledKey:@"0",
+                 SIMEditToolEnabledKey:@"0",
                  SIMEditToolSelectedKey:@"0",
                  },
              @{
@@ -93,7 +99,7 @@ static NSString *const SIMEditToolSelectedKey               = @"toolSelected";
                  SIMEditToolDisableImageKey:@"editImage_back_disabled",
                  SIMEditToolSelectedImageKey:@"",
                  SIMEditToolSpicalToolKey:@"1",
-                 SIMEditToolUserInteractionEnabledKey:@"0",
+                 SIMEditToolEnabledKey:@"0",
                  SIMEditToolSelectedKey:@"0",
                  },
              @{
@@ -104,7 +110,7 @@ static NSString *const SIMEditToolSelectedKey               = @"toolSelected";
                  SIMEditToolDisableImageKey:@"",
                  SIMEditToolSelectedImageKey:@"editImage_brush_selected",
                  SIMEditToolSpicalToolKey:@"0",
-                 SIMEditToolUserInteractionEnabledKey:@"1",
+                 SIMEditToolEnabledKey:@"1",
                  SIMEditToolSelectedKey:@"1",
                  },
              @{
@@ -115,7 +121,7 @@ static NSString *const SIMEditToolSelectedKey               = @"toolSelected";
                  SIMEditToolDisableImageKey:@"",
                  SIMEditToolSelectedImageKey:@"editImage_mosaic_selected",
                  SIMEditToolSpicalToolKey:@"0",
-                 SIMEditToolUserInteractionEnabledKey:@"1",
+                 SIMEditToolEnabledKey:@"1",
                  SIMEditToolSelectedKey:@"0",
                  },
              ];
@@ -174,7 +180,7 @@ static NSString *const SIMEditToolSelectedKey               = @"toolSelected";
     {
         if (btn.toolType == SIMEditImageToolTypeClear || SIMEditImageToolTypeBack == btn.toolType)
         {
-            btn.userInteractionEnabled = need;
+            btn.enabled = need;
         }
     }
 }
@@ -196,18 +202,15 @@ static NSString *const SIMEditToolSelectedKey               = @"toolSelected";
     if (self = [super init])
     {
         m_toolType = [[dictionary objectForKey:SIMEditToolTypeKey] integerValue];
-        BOOL userInteractionEnabled = [[dictionary objectForKey:SIMEditToolUserInteractionEnabledKey] boolValue];
-        self.userInteractionEnabled = userInteractionEnabled;
-        
-        BOOL selected = [[dictionary objectForKey:SIMEditToolSelectedKey] boolValue];
-        self.selected = selected;
+        self.enabled = [[dictionary objectForKey:SIMEditToolEnabledKey] boolValue];
+        self.selected = [[dictionary objectForKey:SIMEditToolSelectedKey] boolValue];
         
         [self setTitle:[dictionary objectForKey:SIMEditToolTitleKey] forState:UIControlStateNormal];
         [self setTitleColor:ColorFromRGB(0xf3f3f3) forState:UIControlStateNormal];
         [self setImage:[UIImage imageNamed:[dictionary objectForKey:SIMEditToolNomalImageKey]] forState:UIControlStateNormal];
         if (YES == [[dictionary objectForKey:SIMEditToolSpicalToolKey] boolValue])
         {
-            [self setTitleColor:ColorFromRGB(0x666) forState:UIControlStateDisabled];
+            [self setTitleColor:ColorFromRGB(0x666666) forState:UIControlStateDisabled];
             [self setTitleColor:ColorFromRGB(0xd1d1d1) forState:UIControlStateHighlighted];
             [self setImage:[UIImage imageNamed:[dictionary objectForKey:SIMEditToolDisableImageKey]] forState:UIControlStateDisabled];
             [self setImage:[UIImage imageNamed:[dictionary objectForKey:SIMEditToolHightlightedImageKey]] forState:UIControlStateHighlighted];
@@ -217,6 +220,9 @@ static NSString *const SIMEditToolSelectedKey               = @"toolSelected";
             [self setTitleColor:ColorFromRGB(0x43b149) forState:UIControlStateSelected];
             [self setImage:[UIImage imageNamed:[dictionary objectForKey:SIMEditToolSelectedImageKey]] forState:UIControlStateSelected];
         }
+        [self setContentVerticalAlignment:UIControlContentVerticalAlignmentTop];
+        [self setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+        
         [self.titleLabel setFont:[UIFont systemFontOfSize:13.0]];
     }
     return self;

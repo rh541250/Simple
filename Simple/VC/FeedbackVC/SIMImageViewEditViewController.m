@@ -5,18 +5,17 @@
 //  Created by ZJF on 16/8/16.
 //  Copyright © 2016年 ZJF. All rights reserved.
 //
-
-static CGFloat SIMImageEditToolBarHeight = 50.0;
-
 #import "SIMImageViewEditViewController.h"
 #import "SIMEditImageView.h"
 #import "SIMEditImageToolView.h"
 #import "SIMScreenShotTool.h"
 
+static CGFloat SIMImageEditToolBarHeight = 50.0;
+
 @interface SIMImageViewEditViewController ()<SIMEditImageToolProtocol>
 {
-    UIImage *m_image;
-    SIMEditImageView *m_editImageView;
+    UIImage              *m_image;
+    SIMEditImageView     *m_editImageView;
     SIMEditImageToolView *m_editImageToolView;
 }
 @end
@@ -56,9 +55,8 @@ static CGFloat SIMImageEditToolBarHeight = 50.0;
     [self.view addSubview:m_editImageToolView];
     
     __weak typeof(m_editImageToolView) weakToolView = m_editImageToolView;
-    
-    m_editImageView.editBlock = ^(BOOL need){
-        [weakToolView backBtnShouldBeUseable:need];
+    m_editImageView.editBlock = ^(BOOL isNeed){
+        [weakToolView backBtnShouldBeUseable:isNeed];
     };
 }
 
@@ -75,7 +73,7 @@ static CGFloat SIMImageEditToolBarHeight = 50.0;
 
 - (void)exchangeEditToolToType:(SIMEditImageToolType)simEditImageToolType
 {
-//    m_editImageView = btn.tag;
+    m_editImageView.currentEditTool = simEditImageToolType;;
 }
 
 - (void)didReceiveMemoryWarning {

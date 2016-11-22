@@ -94,6 +94,16 @@ static  NSString *SIMTableViewCellIdentify = @"SIMTableViewCellIdentify";
     item.name = @"截屏视图";
     item.VCName = @"SIMScreenShotViewController";
     [dataArr addObject:item];
+    
+    item = [SIMItem new];
+    item.name = @"TestViewController";
+    item.VCName = @"TestViewController";
+    [dataArr addObject:item];
+    
+    item = [SIMItem new];
+    item.name = @"tagViewController";
+    item.VCName = @"TagViewController";
+    [dataArr addObject:item];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -139,7 +149,6 @@ static  NSString *SIMTableViewCellIdentify = @"SIMTableViewCellIdentify";
         make.left.equalTo(ws.view).with.offset(0);
     }];
 }
-
 
 #pragma  - mark tableView datasource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

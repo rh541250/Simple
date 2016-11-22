@@ -13,7 +13,7 @@ NSString * const SIMEditTouchEndNotification = @"SIMEditTouchEndNotificationKey"
 
 @interface SIMEditImageView ()
 {
-    SIMImageEditTool m_editTool;
+    SIMEditImageToolType m_editTool;
 }
 
 @property (nonatomic, strong) UIImageView *surfaceImageView;
@@ -46,10 +46,11 @@ NSString * const SIMEditTouchEndNotification = @"SIMEditTouchEndNotificationKey"
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.backgroundColor = [UIColor blackColor];
+
         //添加imageview（surfaceImageView）到self上
         self.surfaceImageView = [[UIImageView alloc]initWithFrame:self.bounds];
         [self addSubview:self.surfaceImageView];
-        self.backgroundColor = [UIColor lightGrayColor];
         self.surfaceImageView.contentMode = UIViewContentModeScaleAspectFit;
         //添加layer（imageLayer）到self上
         self.imageLayer = [CALayer layer];
@@ -70,7 +71,7 @@ NSString * const SIMEditTouchEndNotification = @"SIMEditTouchEndNotificationKey"
         self.paintView.backgroundColor = [UIColor clearColor];
         [self addSubview:self.paintView];
         
-        self.currentEditTool = SIMImageEditToolLine;
+        self.currentEditTool = SIMEditImageToolTypeLine;
         
         self.path = CGPathCreateMutable();
         self.arr = [NSMutableArray array];
@@ -81,15 +82,15 @@ NSString * const SIMEditTouchEndNotification = @"SIMEditTouchEndNotificationKey"
     return self;
 }
 
-- (void)setCurrentEditTool:(SIMImageEditTool)currentEditTool
+- (void)setCurrentEditTool:(SIMEditImageToolType)currentEditTool
 {
     _currentEditTool = currentEditTool;
     switch (_currentEditTool) {
-        case SIMImageEditToolLine:
+        case SIMEditImageToolTypeLine:
             self.paintView.userInteractionEnabled = YES;
             self.paintView.erasing = NO;
             break;
-        case SIMImageEditToolMasic:
+        case SIMEditImageToolTypeMosaic:
             self.paintView.userInteractionEnabled = NO;
             self.paintView.erasing = YES;
             break;
@@ -142,18 +143,18 @@ NSString * const SIMEditTouchEndNotification = @"SIMEditTouchEndNotificationKey"
         self.editBlock(YES);
     }
     switch (_currentEditTool) {
-        case SIMImageEditToolLine:
+        case SIMEditImageToolTypeLine:
         {
             SIMEditToolTypeItem *item = [[SIMEditToolTypeItem alloc]init];
-            item.toolType = SIMImageEditToolLine;
+            item.toolType = SIMEditImageToolTypeLine;
             [self.toolTypeArr addObject:item];
             [self.paintView addOffscreenImageToArr];
             break;
         }
-        case SIMImageEditToolMasic:
+        case SIMEditImageToolTypeMosaic:
         {
             SIMEditToolTypeItem *item = [[SIMEditToolTypeItem alloc]init];
-            item.toolType = SIMImageEditToolMasic;
+            item.toolType = SIMEditImageToolTypeMosaic;
             [self.toolTypeArr addObject:item];
             [self.paintView addOffscreenImageToArr];
             [self addPathItem];
@@ -169,7 +170,7 @@ NSString * const SIMEditTouchEndNotification = @"SIMEditTouchEndNotificationKey"
     if (self.toolTypeArr.count > 0)
     {
         SIMEditToolTypeItem *item = self.toolTypeArr.lastObject;
-        if (item.toolType == SIMImageEditToolLine)
+        if (item.toolType == SIMEditImageToolTypeLine)
         {
             [self.paintView back];
         }
@@ -191,6 +192,7 @@ NSString * const SIMEditTouchEndNotification = @"SIMEditTouchEndNotificationKey"
 {
     [self clear];
     [self.paintView clear];
+    [self.toolTypeArr removeAllObjects];
     if (self.editBlock)
     {
         self.editBlock(NO);
