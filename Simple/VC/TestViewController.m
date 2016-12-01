@@ -7,6 +7,7 @@
 //
 
 #import "TestViewController.h"
+#import "AppDelegate.h"
 
 static NSInteger sectionTag = 10001;
 
@@ -26,7 +27,7 @@ static NSInteger sectionTag = 10001;
 
 @end
 
-@interface TestViewController ()
+@interface TestViewController ()<UIAlertViewDelegate,UIActionSheetDelegate,UITextFieldDelegate>
 {
     NSMutableArray *dataArr;
     NSMutableArray *rowOfSectionArr;
@@ -223,6 +224,7 @@ static NSInteger sectionTag = 10001;
             cell.nameLB.font = [UIFont systemFontOfSize:14.0];
             cell.nameLB.text = pm.placeName;
             [cell.contentView addSubview:cell.nameLB];
+            
             return cell;
         }
     }
@@ -238,8 +240,8 @@ static NSInteger sectionTag = 10001;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"12345");
 }
+
 
 @end
 

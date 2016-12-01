@@ -7,11 +7,7 @@
 //
 
 #import "SIMScreenShotTool.h"
-
-typedef NS_ENUM(NSUInteger,SIMViewTag)
-{
-    SIMViewTagOverLayer = 998,
-};
+#import "SIMImageEditDefine.h"
 
 @interface SIMScreenShotTool ()
 {

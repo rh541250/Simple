@@ -21,4 +21,10 @@ typedef NS_ENUM(NSUInteger,SIMEditImageToolType)
     SIMEditImageToolTypeMosaic = 3,
 };
 
+typedef NS_ENUM(NSUInteger,SIMViewTag)
+{
+    SIMViewTagOverLayer = 998,
+    SIMViewTagQuestionViewTag = 1001,
+};
+
 #endif /* SIMImageEditDefine_h */
