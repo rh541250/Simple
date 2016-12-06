@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "SIMNavigationController.h"
 #import "SIMMainViewController.h"
+#import <JPEngine.h>
 @interface AppDelegate ()
 
 @end
@@ -16,8 +17,24 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
     // Override point for customization after application launch.
+    [JPEngine startEngine];
+    NSString *jsSourcePath = [[NSBundle mainBundle] pathForResource:@"jspatch" ofType:@"js"];
+    NSString *jsString = [NSString stringWithContentsOfFile:jsSourcePath encoding:NSUTF8StringEncoding error:nil];
+    
+    jsString = @"defineClass(\"JSPatchViewController\",{\
+                tableView_didSelectRowAtIndexPath: function(tableView,indexPath){\
+                    var row = indexPath.row();\
+                    if (self.dataSource().length > row){\
+                        var ctrl = CGViewController.alloc().init();\
+                        self.navigationController().pushViewController(ctrl);\
+                    }\
+                  }\
+               })";
+    [JPEngine evaluateScript:jsString];
+    
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
     SIMNavigationController *nav = [[SIMNavigationController alloc]initWithRootViewController:[[SIMMainViewController alloc]init]];
@@ -27,6 +44,7 @@
     
     return YES;
 }
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

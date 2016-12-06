@@ -12,6 +12,9 @@
 		226CEFFF1D9AB36700FCCB63 /* SIMEditImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 226CEFFC1D9AB36700FCCB63 /* SIMEditImageView.m */; };
 		226CF0001D9AB36700FCCB63 /* SIMImageViewEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226CEFFE1D9AB36700FCCB63 /* SIMImageViewEditViewController.m */; };
 		4B3DB3421DBDE51000ADD9C8 /* SIMMasicImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B3DB3411DBDE51000ADD9C8 /* SIMMasicImageView.m */; };
+		4B7F45D71DEFFA18003C3BE5 /* JSPatchTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7F45D61DEFFA18003C3BE5 /* JSPatchTestViewController.m */; };
+		4B7F46141DF4FD51003C3BE5 /* jspatch.js in Resources */ = {isa = PBXBuildFile; fileRef = 4B7F46131DF4FD51003C3BE5 /* jspatch.js */; };
+		4B7F463B1DF562D3003C3BE5 /* SIMScreenShotOverLayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7F463A1DF562D3003C3BE5 /* SIMScreenShotOverLayView.m */; };
 		4B9FEE0D1DC2F84800494C3B /* SIMEditImageToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B9FEE0C1DC2F84800494C3B /* SIMEditImageToolView.m */; };
 		4B9FEE261DC3286900494C3B /* editImage_back_disabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B9FEE121DC3286900494C3B /* editImage_back_disabled@2x.png */; };
 		4B9FEE271DC3286900494C3B /* editImage_back_disabled@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B9FEE131DC3286900494C3B /* editImage_back_disabled@3x.png */; };
@@ -110,6 +113,20 @@
 		226CEFFE1D9AB36700FCCB63 /* SIMImageViewEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMImageViewEditViewController.m; sourceTree = "<group>"; };
 		4B3DB3401DBDE51000ADD9C8 /* SIMMasicImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMMasicImageView.h; sourceTree = "<group>"; };
 		4B3DB3411DBDE51000ADD9C8 /* SIMMasicImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMMasicImageView.m; sourceTree = "<group>"; };
+		4B7F45D51DEFFA18003C3BE5 /* JSPatchTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSPatchTestViewController.h; sourceTree = "<group>"; };
+		4B7F45D61DEFFA18003C3BE5 /* JSPatchTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSPatchTestViewController.m; sourceTree = "<group>"; };
+		4B7F45FE1DF4F7FB003C3BE5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4B7F46001DF4F7FB003C3BE5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4B7F46011DF4F7FB003C3BE5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4B7F46031DF4F7FB003C3BE5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		4B7F46041DF4F7FB003C3BE5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4B7F46071DF4F7FB003C3BE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4B7F46091DF4F7FB003C3BE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4B7F460C1DF4F7FB003C3BE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4B7F460E1DF4F7FB003C3BE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4B7F46131DF4FD51003C3BE5 /* jspatch.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jspatch.js; sourceTree = "<group>"; };
+		4B7F46391DF562D3003C3BE5 /* SIMScreenShotOverLayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMScreenShotOverLayView.h; sourceTree = "<group>"; };
+		4B7F463A1DF562D3003C3BE5 /* SIMScreenShotOverLayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMScreenShotOverLayView.m; sourceTree = "<group>"; };
 		4B9FEE0B1DC2F84800494C3B /* SIMEditImageToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMEditImageToolView.h; sourceTree = "<group>"; };
 		4B9FEE0C1DC2F84800494C3B /* SIMEditImageToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMEditImageToolView.m; sourceTree = "<group>"; };
 		4B9FEE121DC3286900494C3B /* editImage_back_disabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "editImage_back_disabled@2x.png"; sourceTree = "<group>"; };
@@ -275,6 +292,30 @@
 			path = WebVC;
 			sourceTree = "<group>";
 		};
+		4B7F45FC1DF4F7FB003C3BE5 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				4B7F46001DF4F7FB003C3BE5 /* AppDelegate.h */,
+				4B7F46011DF4F7FB003C3BE5 /* AppDelegate.m */,
+				4B7F46031DF4F7FB003C3BE5 /* ViewController.h */,
+				4B7F46041DF4F7FB003C3BE5 /* ViewController.m */,
+				4B7F46061DF4F7FB003C3BE5 /* Main.storyboard */,
+				4B7F46091DF4F7FB003C3BE5 /* Assets.xcassets */,
+				4B7F460B1DF4F7FB003C3BE5 /* LaunchScreen.storyboard */,
+				4B7F460E1DF4F7FB003C3BE5 /* Info.plist */,
+				4B7F45FD1DF4F7FB003C3BE5 /* Supporting Files */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		4B7F45FD1DF4F7FB003C3BE5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4B7F45FE1DF4F7FB003C3BE5 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		4B9FEE111DC3285300494C3B /* images */ = {
 			isa = PBXGroup;
 			children = (
@@ -308,14 +349,16 @@
 				4B9FEE111DC3285300494C3B /* images */,
 				5D8A4B521D90CF630084235F /* SIMScreenShotTool.h */,
 				5D8A4B531D90CF630084235F /* SIMScreenShotTool.m */,
+				4B7F46391DF562D3003C3BE5 /* SIMScreenShotOverLayView.h */,
+				4B7F463A1DF562D3003C3BE5 /* SIMScreenShotOverLayView.m */,
 				5D7CE8F31D8F7C0800128381 /* SIMScreenShotViewController.h */,
 				5D7CE8F41D8F7C0800128381 /* SIMScreenShotViewController.m */,
 				226CEFFD1D9AB36700FCCB63 /* SIMImageViewEditViewController.h */,
 				226CEFFE1D9AB36700FCCB63 /* SIMImageViewEditViewController.m */,
-				226CEFFB1D9AB36700FCCB63 /* SIMEditImageView.h */,
-				226CEFFC1D9AB36700FCCB63 /* SIMEditImageView.m */,
 				4B9FEE0B1DC2F84800494C3B /* SIMEditImageToolView.h */,
 				4B9FEE0C1DC2F84800494C3B /* SIMEditImageToolView.m */,
+				226CEFFB1D9AB36700FCCB63 /* SIMEditImageView.h */,
+				226CEFFC1D9AB36700FCCB63 /* SIMEditImageView.m */,
 				4B3DB3401DBDE51000ADD9C8 /* SIMMasicImageView.h */,
 				4B3DB3411DBDE51000ADD9C8 /* SIMMasicImageView.m */,
 				4BF26CBB1DAF9476003DB868 /* PaintingView.h */,
@@ -470,6 +513,8 @@
 				4BB231AB1DDAAFAB00F6ED0C /* TestViewController.m */,
 				4BB231A81DDAAFAB00F6ED0C /* TagViewController.h */,
 				4BB231A91DDAAFAB00F6ED0C /* TagViewController.m */,
+				4B7F45D51DEFFA18003C3BE5 /* JSPatchTestViewController.h */,
+				4B7F45D61DEFFA18003C3BE5 /* JSPatchTestViewController.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -542,6 +587,7 @@
 				A0DEEA8B1CC9F8BD006516E3 /* Simple */,
 				A0DEEAA51CC9F8BD006516E3 /* SimpleTests */,
 				A0DEEAB01CC9F8BD006516E3 /* SimpleUITests */,
+				4B7F45FC1DF4F7FB003C3BE5 /* Test */,
 				A0DEEA8A1CC9F8BD006516E3 /* Products */,
 				0A21C36B3403764DC63885B9 /* Frameworks */,
 				C267A4D43C2FF87DC8742FED /* Pods */,
@@ -580,6 +626,7 @@
 				A0DEEA9A1CC9F8BD006516E3 /* LaunchScreen.storyboard */,
 				A0DEEA9D1CC9F8BD006516E3 /* Info.plist */,
 				A0DEEA8D1CC9F8BD006516E3 /* main.m */,
+				4B7F46131DF4FD51003C3BE5 /* jspatch.js */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -720,6 +767,7 @@
 			files = (
 				4B9FEE371DC3286900494C3B /* editImage_mosaic_normal@3x.png in Resources */,
 				A0DEEA9C1CC9F8BD006516E3 /* LaunchScreen.storyboard in Resources */,
+				4B7F46141DF4FD51003C3BE5 /* jspatch.js in Resources */,
 				4B9FEE381DC3286900494C3B /* editImage_mosaic_selected@2x.png in Resources */,
 				4B9FEE341DC3286900494C3B /* editImage_clear_normal@2x.png in Resources */,
 				4B9FEE331DC3286900494C3B /* editImage_clear_highlighted@3x.png in Resources */,
@@ -820,8 +868,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0324E311CF2CA6000DF4671 /* CAShowAnimationViewController.m in Sources */,
+				4B7F463B1DF562D3003C3BE5 /* SIMScreenShotOverLayView.m in Sources */,
 				5D8A4B541D90CF630084235F /* SIMScreenShotTool.m in Sources */,
 				A0324E1A1CEEBB9E00DF4671 /* CAAnimationViewController.m in Sources */,
+				4B7F45D71DEFFA18003C3BE5 /* JSPatchTestViewController.m in Sources */,
 				A060D3A61CD1D85B00B7D230 /* MasonryAnimateViewController.m in Sources */,
 				A060D3A41CD1D85B00B7D230 /* AppDelegate.m in Sources */,
 				A0324E091CEC6B9000DF4671 /* CATextLayerLabel.m in Sources */,
@@ -892,6 +942,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4B7F46061DF4F7FB003C3BE5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4B7F46071DF4F7FB003C3BE5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4B7F460B1DF4F7FB003C3BE5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4B7F460C1DF4F7FB003C3BE5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		A0DEEA9A1CC9F8BD006516E3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

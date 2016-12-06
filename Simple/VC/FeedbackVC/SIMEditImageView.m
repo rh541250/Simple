@@ -7,9 +7,8 @@
 //
 
 #import "SIMEditImageView.h"
+#import "SIMMasicImageView.h"
 #import "PaintingView.h"
-
-NSString * const SIMEditTouchEndNotification = @"SIMEditTouchEndNotificationKey";
 
 @interface SIMEditImageView ()
 {
@@ -55,7 +54,7 @@ NSString * const SIMEditTouchEndNotification = @"SIMEditTouchEndNotificationKey"
         //添加layer（imageLayer）到self上
         self.imageLayer = [CALayer layer];
         self.imageLayer.frame = self.bounds;
-        [self.layer addSublayer:self.imageLayer];
+        [self.surfaceImageView.layer addSublayer:self.imageLayer];
         
         self.shapeLayer = [CAShapeLayer layer];
         self.shapeLayer.frame = self.bounds;

@@ -84,7 +84,7 @@ static CGFloat SIMEditToolButtonImageWidth = 17.0;
                  SIMEditToolTypeKey:@"0",
                  SIMEditToolTitleKey:@"全部清除",
                  SIMEditToolNomalImageKey:@"editImage_clear_normal",
-                SIMEditToolHightlightedImageKey:@"editImage_clear_highlighted",
+                 SIMEditToolHightlightedImageKey:@"editImage_clear_highlighted",
                  SIMEditToolDisableImageKey:@"editImage_clear_disabled",
                  SIMEditToolSelectedImageKey:@"",
                  SIMEditToolSpicalToolKey:@"1",

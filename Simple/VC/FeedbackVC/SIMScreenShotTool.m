@@ -8,35 +8,90 @@
 
 #import "SIMScreenShotTool.h"
 #import "SIMImageEditDefine.h"
+#import "SIMScreenShotOverLayView.h"
+#import "SIMImageViewEditViewController.h"
 
-@interface SIMScreenShotTool ()
+@interface SIMScreenShotTool ()<SIMScreenShotOperationProtocol>
 {
     UIImage *m_screenShotImage;
+    __weak UIViewController *m_weakViewController;
 }
 
 @end
 
 @implementation SIMScreenShotTool
-@synthesize screenShotImage = m_screenShotImage;
-- (void)handleScreenShot:(NSNotification *)notification
++ (instancetype)handleScreenShotWithViewController:(UIViewController *)vc
 {
-    NSLog(@"检测到截屏");
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        m_screenShotImage = [self imageFromScreenshot];
-//        dispatch_async(dispatch_get_main_queue(), ^{
-        [self createOverlayerViewWithImage:m_screenShotImage];
-//        });
-//    });
+    SIMScreenShotTool *m_screenShotTool = [[SIMScreenShotTool alloc]initWithViewController:vc];
+    return m_screenShotTool;
 }
 
-#pragma mark - private method
+- (instancetype)initWithViewController:(UIViewController *)vc
+{
+    self = [super init];
+    if (self)
+    {
+        m_weakViewController = vc;
+        [self handleScreenShotWithViewController];
+    }
+    return self;
+}
+
+- (void)handleScreenShotWithViewController
+{
+    NSLog(@"检测到截屏");
+    m_screenShotImage = [SIMScreenShotTool imageFromScreenshot];
+    if (m_screenShotImage)
+    {
+        [self addOverLayView];
+    }
+}
+
+#pragma mark - overLayView
+- (void)addOverLayView
+{
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    SIMScreenShotOverLayView *overLayView = [[SIMScreenShotOverLayView alloc]initWithScreenShotImage:m_screenShotImage];
+    overLayView.frame = CGRectMake(window.frame.size.width - 100, window.frame.size.height/2 - 90, 100, 180);
+    overLayView.delegate = self;
+    overLayView.tag = SIMViewTagOverLayerTag;
+    [window addSubview:overLayView];
+}
+
+- (void)removeOverLayerView
+{
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    UIView *overLayerView = [window viewWithTag:SIMViewTagOverLayerTag];
+    [overLayerView removeFromSuperview];
+}
+
+- (void)dealloc
+{
+    [self removeOverLayerView];
+}
+
+#pragma mark - overlayView delegate
+- (void)screenShotShouldFeedback
+{
+    [self removeOverLayerView];
+    if (nil != m_weakViewController)
+    {
+        SIMImageViewEditViewController *imageViewEditVC = [[SIMImageViewEditViewController alloc] initWithImage:m_screenShotImage];
+        [m_weakViewController.navigationController pushViewController:imageViewEditVC animated:YES];
+    }
+}
+
+- (void)screenShotShouldShare
+{
+    [self removeOverLayerView];
+}
 
 /**
  *  截取当前屏幕
  *
  *  @return UIImage
  */
-- (UIImage *)imageFromScreenshot
++ (UIImage *)imageFromScreenshot
 {
     CGSize imageSize = CGSizeZero;
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
@@ -82,63 +137,6 @@
     
     NSData *imageData = UIImageJPEGRepresentation(image,0.1);
     return [UIImage imageWithData:imageData];
-}
-
-
-- (void)createOverlayerViewWithImage:(UIImage *)image
-{
-    [self removeOverLayerView];
-
-    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-    UIView *overLayerView = [[UIView alloc]initWithFrame:CGRectMake(window.frame.size.width - 100, window.frame.size.height/2 - 90, 100, 180)];
-    overLayerView.layer.cornerRadius = 2.0;
-    overLayerView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.7];
-    
-    //截图imageView
-    UIImageView *photoImageView = [[UIImageView alloc]initWithImage:image];
-    photoImageView.frame = CGRectMake(4, 4, 100 - 8, 100 - 8);
-    photoImageView.contentMode = UIViewContentModeScaleAspectFill;
-    photoImageView.clipsToBounds = YES;
-    [overLayerView addSubview:photoImageView];
-    
-    UIButton *adviceButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    adviceButton.frame = CGRectMake(4, CGRectGetMaxY(photoImageView.frame) + 4, 100 - 8, 40);
-    [adviceButton setTitle:@"咨询建议" forState:UIControlStateNormal];
-    [adviceButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    adviceButton.titleLabel.font = [UIFont systemFontOfSize:13.0];
-    [adviceButton addTarget:self action:@selector(pushToImageViewEdit:) forControlEvents:UIControlEventTouchUpInside];
-    [overLayerView addSubview:adviceButton];
-    
-    UIButton *shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    shareButton.frame = CGRectMake(4, CGRectGetMaxY(adviceButton.frame) + 4, 100 - 8, 40);
-    [shareButton setTitle:@"反馈" forState:UIControlStateNormal];
-    [shareButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    shareButton.titleLabel.font = [UIFont systemFontOfSize:13.0];
-    [overLayerView addSubview:shareButton];
-    
-    overLayerView.tag = SIMViewTagOverLayer;
-    [window addSubview:overLayerView];
-}
-
-- (void)pushToImageViewEdit:(UIButton *)sender
-{
-    [self removeOverLayerView];
-    if(self.pushToEditVCBlock && nil != m_screenShotImage)
-    {
-        self.pushToEditVCBlock(m_screenShotImage);
-    }
-}
-
-- (void)dealloc
-{
-    [self removeOverLayerView];
-}
-
-- (void)removeOverLayerView
-{
-    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-    UIView *overLayerView = [window viewWithTag:SIMViewTagOverLayer];
-    [overLayerView removeFromSuperview];
 }
 
 @end

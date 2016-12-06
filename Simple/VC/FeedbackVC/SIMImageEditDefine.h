@@ -10,6 +10,8 @@
 #define SIMImageEditDefine_h
 
 
+static NSString * const SIMEditTouchEndNotification = @"SIMEditTouchEndNotificationKey";
+
 /**
  * 绘图工具枚举
  */
@@ -23,7 +25,7 @@ typedef NS_ENUM(NSUInteger,SIMEditImageToolType)
 
 typedef NS_ENUM(NSUInteger,SIMViewTag)
 {
-    SIMViewTagOverLayer = 998,
+    SIMViewTagOverLayerTag = 998,
     SIMViewTagQuestionViewTag = 1001,
 };
 

@@ -8,7 +8,6 @@
 #import "SIMImageViewEditViewController.h"
 #import "SIMEditImageView.h"
 #import "SIMEditImageToolView.h"
-#import "SIMScreenShotTool.h"
 
 static CGFloat SIMImageEditToolBarHeight = 50.0;
 
@@ -38,7 +37,7 @@ static CGFloat SIMImageEditToolBarHeight = 50.0;
     self.view.backgroundColor = [UIColor whiteColor];
 
     [self initViews];
-    [self setNavigationItem];
+    [self initNavigationItem];
 }
 
 - (void)initViews
@@ -61,7 +60,7 @@ static CGFloat SIMImageEditToolBarHeight = 50.0;
     };
 }
 
-- (void)setNavigationItem
+- (void)initNavigationItem
 {
     UILabel *leftLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 50, 30)];
     leftLabel.text = @"取消";
@@ -71,14 +70,14 @@ static CGFloat SIMImageEditToolBarHeight = 50.0;
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithCustomView:leftLabel];
     self.navigationItem.leftBarButtonItem = leftItem;
     
-    UIButton *rightButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 50, 150)];
+    UIButton *rightButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 150, 30)];
     [rightButton setTitle:@"下一步：描述问题" forState:UIControlStateNormal];
     rightButton.titleLabel.font = [UIFont systemFontOfSize:16.0];
     [rightButton.titleLabel setTextColor:[UIColor whiteColor]];
     [rightButton addTarget:self action:@selector(toQuestionDescribe:) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithCustomView:rightButton];
-    self.navigationItem.leftBarButtonItem = rightItem;
+    self.navigationItem.rightBarButtonItem = rightItem;
 }
 
 #pragma mark - SIMEditImageToolProtocol

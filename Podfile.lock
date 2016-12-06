@@ -14,19 +14,24 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - JSPatch (1.1):
+    - JSPatch/Core (= 1.1)
+  - JSPatch/Core (1.1)
   - Masonry (1.0.2)
   - WebViewJavascriptBridge (5.0.5)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
+  - JSPatch (~> 1.1)
   - Masonry (~> 1.0.1)
   - WebViewJavascriptBridge (~> 5.0)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  JSPatch: ade285ad1d8f06146ed6054a39cef87509453299
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   WebViewJavascriptBridge: a4d502315f1b8d9a51cd6a9174147ed567ec3bc5
 
-PODFILE CHECKSUM: a6d2de29c6416a63608bdcfbacd511fc462cfcdb
+PODFILE CHECKSUM: 756a663428479caee587df9eb5534ee0a2322d6e
 
 COCOAPODS: 1.0.1

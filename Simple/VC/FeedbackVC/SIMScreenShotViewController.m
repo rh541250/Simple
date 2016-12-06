@@ -47,15 +47,7 @@
 
 - (void)screenShotDidTaken:(NSNotification *)notification
 {
-    m_screenShotTool = [[SIMScreenShotTool alloc]init];
-
-    [m_screenShotTool handleScreenShot:notification];
-    WS(ws);
-    m_screenShotTool.pushToEditVCBlock = ^(UIImage *image){
-        SIMImageViewEditViewController *imageViewEditVC = [[SIMImageViewEditViewController alloc] initWithImage:image];
-        //TODO:处理跳转
-        [ws.navigationController pushViewController:imageViewEditVC animated:YES];
-    };
+    m_screenShotTool = [SIMScreenShotTool handleScreenShotWithViewController:self];
 }
 
 - (void)dealloc

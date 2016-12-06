@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-extern NSString *const SIMEditTouchEndNotification;
+#import "SIMImageEditDefine.h"
 
 @interface PaintingView : UIView
 

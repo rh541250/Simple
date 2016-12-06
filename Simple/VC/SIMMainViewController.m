@@ -104,6 +104,11 @@ static  NSString *SIMTableViewCellIdentify = @"SIMTableViewCellIdentify";
     item.name = @"tagViewController";
     item.VCName = @"TagViewController";
     [dataArr addObject:item];
+
+    item = [SIMItem new];
+    item.name = @"JSPatch测试";
+    item.VCName = @"JSPatchTestViewController";
+    [dataArr addObject:item];
 }
 
 - (void)viewWillAppear:(BOOL)animated

@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SIMImageEditDefine.h"
 
-extern NSString *const SIMEditTouchEndNotification;
-
 @class SIMEditToolTypeItem;
 typedef void(^EditBlock)(BOOL);
 @interface SIMEditImageView : UIView
