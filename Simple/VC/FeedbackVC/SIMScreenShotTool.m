@@ -10,13 +10,15 @@
 #import "SIMImageEditDefine.h"
 #import "SIMScreenShotOverLayView.h"
 #import "SIMImageViewEditViewController.h"
+#import <libkern/OSAtomic.h>
 
 @interface SIMScreenShotTool ()<SIMScreenShotOperationProtocol>
 {
     UIImage *m_screenShotImage;
     __weak UIViewController *m_weakViewController;
+    UIWindow *m_window;
+    dispatch_source_t m_timer;
 }
-
 @end
 
 @implementation SIMScreenShotTool
@@ -44,36 +46,59 @@
     if (m_screenShotImage)
     {
         [self addOverLayView];
+        [self startTimer];
     }
 }
 
 #pragma mark - overLayView
 - (void)addOverLayView
 {
-    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    m_window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    UIButton *coverBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    coverBtn.frame = m_window.bounds;
+    coverBtn.backgroundColor = [UIColor clearColor];
+    [coverBtn addTarget:self action:@selector(removeCustomWindow) forControlEvents:UIControlEventTouchUpInside];
+    [m_window addSubview:coverBtn];
+    
     SIMScreenShotOverLayView *overLayView = [[SIMScreenShotOverLayView alloc]initWithScreenShotImage:m_screenShotImage];
-    overLayView.frame = CGRectMake(window.frame.size.width - 100, window.frame.size.height/2 - 90, 100, 180);
+    overLayView.frame = CGRectMake(m_window.frame.size.width - 100, m_window.frame.size.height/2 - 90, 100, 180);
     overLayView.delegate = self;
     overLayView.tag = SIMViewTagOverLayerTag;
-    [window addSubview:overLayView];
+    [m_window addSubview:overLayView];
+    [m_window makeKeyAndVisible];
 }
 
-- (void)removeOverLayerView
+- (void)startTimer
 {
-    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-    UIView *overLayerView = [window viewWithTag:SIMViewTagOverLayerTag];
-    [overLayerView removeFromSuperview];
+    __block int32_t timeOutCount = 5;
+    m_timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
+    
+    dispatch_source_set_timer(m_timer, DISPATCH_TIME_NOW, 1ull * NSEC_PER_SEC, 0);
+    dispatch_source_set_event_handler(m_timer, ^{
+        OSAtomicDecrement32(&timeOutCount);
+        if (timeOutCount == 0)
+        {
+            dispatch_source_cancel(m_timer);
+        }
+    });
+    
+    dispatch_source_set_cancel_handler(m_timer, ^{
+        [self removeCustomWindow];
+    });
+    
+    dispatch_resume(m_timer);
 }
 
-- (void)dealloc
+- (void)removeCustomWindow
 {
-    [self removeOverLayerView];
+    [m_window resignKeyWindow];
+    m_window = nil;
 }
 
 #pragma mark - overlayView delegate
 - (void)screenShotShouldFeedback
 {
-    [self removeOverLayerView];
+    [self removeCustomWindow];
     if (nil != m_weakViewController)
     {
         SIMImageViewEditViewController *imageViewEditVC = [[SIMImageViewEditViewController alloc] initWithImage:m_screenShotImage];
@@ -83,7 +108,16 @@
 
 - (void)screenShotShouldShare
 {
-    [self removeOverLayerView];
+    [self removeCustomWindow];
+    
+    if (nil != m_screenShotImage)
+    {
+        UIImage *shareImage = [SIMScreenShotTool imageForShare:m_screenShotImage];
+        if (self.setImageBlock)
+        {
+            self.setImageBlock(shareImage);
+        }
+    }
 }
 
 /**
@@ -137,6 +171,21 @@
     
     NSData *imageData = UIImageJPEGRepresentation(image,0.1);
     return [UIImage imageWithData:imageData];
+}
+
++ (UIImage *)imageForShare:(UIImage *)image
+{
+    CGFloat scale = [UIScreen mainScreen].scale;
+    UIImage *bgImage = [UIImage imageNamed:@"share_bg"];
+    CGSize sz = CGSizeMake(bgImage.size.width * scale, bgImage.size.height *scale);
+    
+    UIGraphicsBeginImageContextWithOptions(sz, NO, 0);
+    [bgImage drawInRect:CGRectMake(0, 0, sz.width,sz.height)];
+    
+    [image drawInRect:CGRectMake(20*scale,0, sz.width - (20+18)*scale, sz.height - 100*scale)];
+    UIImage *resultImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return resultImage;
 }
 
 @end

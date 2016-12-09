@@ -25,3 +25,12 @@
 + (UIImage *)transToMosaicImage:(UIImage*)originImage blockLevel:(NSUInteger)level;
 
 @end
+
+@interface UIView (snapshot)
+
+/**
+ * 从当前的UIView中获取image，类似于截屏
+ */
+- (UIImage *)snapshot;
+
+@end

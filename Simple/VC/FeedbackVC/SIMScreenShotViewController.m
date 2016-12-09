@@ -12,7 +12,7 @@
 
 @interface SIMScreenShotViewController ()
 {
-    UIImageView *backgroundImageView;
+    UIImageView *m_backgroundImageView;
     SIMScreenShotTool *m_screenShotTool;
 }
 @end
@@ -29,14 +29,15 @@
 - (void)initUI
 {
     self.view.backgroundColor = [UIColor whiteColor];
-    backgroundImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"p2.jpg"]];
-    backgroundImageView.contentMode = UIViewContentModeScaleAspectFit;
-    [self.view addSubview:backgroundImageView];
+    m_backgroundImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"p2.jpg"]];
+    m_backgroundImageView.contentMode = UIViewContentModeScaleAspectFit;
+    [self.view addSubview:m_backgroundImageView];
     
     WS(ws);
-    [backgroundImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.equalTo(ws.view).offset(0);
-        make.size.mas_equalTo(ws.view.bounds.size);
+    [m_backgroundImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.width.equalTo(ws.view).offset(0);
+        make.top.equalTo(ws.view).offset(64);
+        make.height.equalTo(ws.view).offset(-64);
     }];
 }
 
@@ -48,6 +49,10 @@
 - (void)screenShotDidTaken:(NSNotification *)notification
 {
     m_screenShotTool = [SIMScreenShotTool handleScreenShotWithViewController:self];
+    __weak typeof(m_backgroundImageView)weakBackgroundImageView = m_backgroundImageView;
+    m_screenShotTool.setImageBlock = ^(UIImage *image){
+        weakBackgroundImageView.image = image;
+    };
 }
 
 - (void)dealloc

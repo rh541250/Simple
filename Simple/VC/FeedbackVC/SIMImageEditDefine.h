@@ -9,7 +9,7 @@
 #ifndef SIMImageEditDefine_h
 #define SIMImageEditDefine_h
 
-
+static NSUInteger MAXTextCount = 400;
 static NSString * const SIMEditTouchEndNotification = @"SIMEditTouchEndNotificationKey";
 
 /**
@@ -26,7 +26,11 @@ typedef NS_ENUM(NSUInteger,SIMEditImageToolType)
 typedef NS_ENUM(NSUInteger,SIMViewTag)
 {
     SIMViewTagOverLayerTag = 998,
+    SIMViewTagFeedbackGuideImageViewTag = 999,
     SIMViewTagQuestionViewTag = 1001,
+    SIMViewTagCoverViewTag = 1002,
+    SIMViewTagTextViewPlaceHolderTag = 2001,
+    SIMViewTagTextCountTag = 2002,
 };
 
 #endif /* SIMImageEditDefine_h */

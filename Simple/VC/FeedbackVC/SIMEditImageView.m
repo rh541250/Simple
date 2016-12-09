@@ -7,7 +7,6 @@
 //
 
 #import "SIMEditImageView.h"
-#import "SIMMasicImageView.h"
 #import "PaintingView.h"
 
 @interface SIMEditImageView ()
@@ -23,11 +22,11 @@
 
 @property (nonatomic, assign) CGMutablePathRef path;
 
-@property (nonatomic, strong) PaintingView *paintView;
-
 @property (nonatomic, strong) NSMutableArray *arr;
 
 @property (nonatomic, strong) NSMutableArray *toolTypeArr;
+
+@property (nonatomic, strong) PaintingView *paintView;
 
 @end
 

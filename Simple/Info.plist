@@ -39,5 +39,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>information Property List</key>
+	<dict>
+		<key>Privacy - Photo Library Usage Description</key>
+		<string>photoLibraryDesciption</string>
+	</dict>
 </dict>
 </plist>

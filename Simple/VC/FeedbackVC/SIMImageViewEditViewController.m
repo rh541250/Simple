@@ -8,6 +8,7 @@
 #import "SIMImageViewEditViewController.h"
 #import "SIMEditImageView.h"
 #import "SIMEditImageToolView.h"
+#import "FLFCommitQuestionView.h"
 
 static CGFloat SIMImageEditToolBarHeight = 50.0;
 
@@ -38,6 +39,8 @@ static CGFloat SIMImageEditToolBarHeight = 50.0;
 
     [self initViews];
     [self initNavigationItem];
+    //添加引导图
+    [self addFeedbackGuideView];
 }
 
 - (void)initViews
@@ -62,22 +65,58 @@ static CGFloat SIMImageEditToolBarHeight = 50.0;
 
 - (void)initNavigationItem
 {
-    UILabel *leftLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 50, 30)];
-    leftLabel.text = @"取消";
-    leftLabel.font = [UIFont systemFontOfSize:16.0];
-    [leftLabel setTextColor:[UIColor whiteColor]];
+    UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    leftBtn.frame = CGRectMake(0, 0, 50, 30);
+    [leftBtn setTitle:@"取消" forState:UIControlStateNormal];
+    [leftBtn.titleLabel setFont:[UIFont systemFontOfSize:16.0]];
+    [leftBtn.titleLabel setTextColor:[UIColor whiteColor]];
+    [leftBtn addTarget:self action:@selector(doCancel:) forControlEvents:UIControlEventTouchUpInside];
     
-    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithCustomView:leftLabel];
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithCustomView:leftBtn];
     self.navigationItem.leftBarButtonItem = leftItem;
     
-    UIButton *rightButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 150, 30)];
+    UIButton *rightButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 140, 30)];
     [rightButton setTitle:@"下一步：描述问题" forState:UIControlStateNormal];
     rightButton.titleLabel.font = [UIFont systemFontOfSize:16.0];
     [rightButton.titleLabel setTextColor:[UIColor whiteColor]];
-    [rightButton addTarget:self action:@selector(toQuestionDescribe:) forControlEvents:UIControlEventTouchUpInside];
+    [rightButton addTarget:self action:@selector(doNext:) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithCustomView:rightButton];
     self.navigationItem.rightBarButtonItem = rightItem;
+}
+
+- (void)addFeedbackGuideView
+{
+    NSString *hadInFeedBack = [[NSUserDefaults standardUserDefaults] objectForKey:@"hadInFeedBack"];
+    if (!hadInFeedBack)
+    {
+        UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+        UIImageView *feedbackGuideImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"feedback_guide"]];
+        feedbackGuideImageView.frame = window.bounds;
+        feedbackGuideImageView.tag = SIMViewTagFeedbackGuideImageViewTag;
+        [feedbackGuideImageView setUserInteractionEnabled:YES];
+        UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(feedbackGuideViewTaped)];
+        [feedbackGuideImageView addGestureRecognizer:tapGes];
+        [window addSubview:feedbackGuideImageView];
+        [[NSUserDefaults standardUserDefaults] setObject:@"yes" forKey:@"hadInFeedBack"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+}
+
+- (void)feedbackGuideViewTaped
+{
+    UIImageView *feedbackGuideImageView = (UIImageView *)[[[UIApplication sharedApplication] keyWindow] viewWithTag:SIMViewTagFeedbackGuideImageViewTag];
+    [feedbackGuideImageView removeFromSuperview];
+}
+
+- (void)doCancel:(UIButton *)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)doNext:(UIButton *)sender
+{
+    [FLFCommitQuestionView addCommitQuestionViewWithImage:[m_editImageView snapshot]];
 }
 
 #pragma mark - SIMEditImageToolProtocol
@@ -94,26 +133,6 @@ static CGFloat SIMImageEditToolBarHeight = 50.0;
 - (void)exchangeEditToolToType:(SIMEditImageToolType)simEditImageToolType
 {
     m_editImageView.currentEditTool = simEditImageToolType;;
-}
-
-#pragma mark - target selector
-- (void)toQuestionDescribe:(id)sender
-{
-    
-}
-
-- (UIView *)createQuestionDescribeView
-{
-//    UIWindow *window = [UIApplication sharedApplication].keyWindow;
-//    UIView *containerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
-//    containerView.tag = SIMViewTagQuestionViewTag;
-//    containerView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.7];
-//    [window addSubview:containerView];
-    
-    //添加对话框
-//    UIView *dialogView = [[UIView alloc]initWithFrame:CGRectMake(<#CGFloat x#>, <#CGFloat y#>, 295, 246)];
-    return nil;
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -215,4 +234,17 @@ static CGFloat SIMImageEditToolBarHeight = 50.0;
     return resultImage ;
     
 }
+@end
+
+@implementation UIView (snapshot)
+
+- (UIImage *)snapshot
+{
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, YES, 0);
+    [self drawViewHierarchyInRect:self.bounds afterScreenUpdates:YES];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
 @end
