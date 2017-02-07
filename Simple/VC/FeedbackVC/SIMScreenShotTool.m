@@ -17,7 +17,7 @@
     UIImage *m_screenShotImage;
     __weak UIViewController *m_weakViewController;
     UIWindow *m_window;
-    dispatch_source_t m_timer;
+//    dispatch_source_t m_timer;
 }
 @end
 
@@ -41,7 +41,6 @@
 
 - (void)handleScreenShotWithViewController
 {
-    NSLog(@"检测到截屏");
     m_screenShotImage = [SIMScreenShotTool imageFromScreenshot];
     if (m_screenShotImage)
     {
@@ -71,7 +70,7 @@
 - (void)startTimer
 {
     __block int32_t timeOutCount = 5;
-    m_timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
+    dispatch_source_t m_timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
     
     dispatch_source_set_timer(m_timer, DISPATCH_TIME_NOW, 1ull * NSEC_PER_SEC, 0);
     dispatch_source_set_event_handler(m_timer, ^{

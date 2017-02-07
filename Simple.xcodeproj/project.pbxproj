@@ -118,15 +118,6 @@
 		226CEFFE1D9AB36700FCCB63 /* SIMImageViewEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMImageViewEditViewController.m; sourceTree = "<group>"; };
 		4B7F45D51DEFFA18003C3BE5 /* JSPatchTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSPatchTestViewController.h; sourceTree = "<group>"; };
 		4B7F45D61DEFFA18003C3BE5 /* JSPatchTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSPatchTestViewController.m; sourceTree = "<group>"; };
-		4B7F45FE1DF4F7FB003C3BE5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4B7F46001DF4F7FB003C3BE5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		4B7F46011DF4F7FB003C3BE5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4B7F46031DF4F7FB003C3BE5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4B7F46041DF4F7FB003C3BE5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		4B7F46071DF4F7FB003C3BE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4B7F46091DF4F7FB003C3BE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4B7F460C1DF4F7FB003C3BE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		4B7F460E1DF4F7FB003C3BE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B7F46131DF4FD51003C3BE5 /* jspatch.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jspatch.js; sourceTree = "<group>"; };
 		4B7F46391DF562D3003C3BE5 /* SIMScreenShotOverLayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIMScreenShotOverLayView.h; sourceTree = "<group>"; };
 		4B7F463A1DF562D3003C3BE5 /* SIMScreenShotOverLayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIMScreenShotOverLayView.m; sourceTree = "<group>"; };
@@ -300,30 +291,6 @@
 				4BF26CE71DB47954003DB868 /* 1.html */,
 			);
 			path = WebVC;
-			sourceTree = "<group>";
-		};
-		4B7F45FC1DF4F7FB003C3BE5 /* Test */ = {
-			isa = PBXGroup;
-			children = (
-				4B7F46001DF4F7FB003C3BE5 /* AppDelegate.h */,
-				4B7F46011DF4F7FB003C3BE5 /* AppDelegate.m */,
-				4B7F46031DF4F7FB003C3BE5 /* ViewController.h */,
-				4B7F46041DF4F7FB003C3BE5 /* ViewController.m */,
-				4B7F46061DF4F7FB003C3BE5 /* Main.storyboard */,
-				4B7F46091DF4F7FB003C3BE5 /* Assets.xcassets */,
-				4B7F460B1DF4F7FB003C3BE5 /* LaunchScreen.storyboard */,
-				4B7F460E1DF4F7FB003C3BE5 /* Info.plist */,
-				4B7F45FD1DF4F7FB003C3BE5 /* Supporting Files */,
-			);
-			path = Test;
-			sourceTree = "<group>";
-		};
-		4B7F45FD1DF4F7FB003C3BE5 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				4B7F45FE1DF4F7FB003C3BE5 /* main.m */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		4B9FEE111DC3285300494C3B /* images */ = {
@@ -602,7 +569,6 @@
 				A0DEEA8B1CC9F8BD006516E3 /* Simple */,
 				A0DEEAA51CC9F8BD006516E3 /* SimpleTests */,
 				A0DEEAB01CC9F8BD006516E3 /* SimpleUITests */,
-				4B7F45FC1DF4F7FB003C3BE5 /* Test */,
 				A0DEEA8A1CC9F8BD006516E3 /* Products */,
 				0A21C36B3403764DC63885B9 /* Frameworks */,
 				C267A4D43C2FF87DC8742FED /* Pods */,
@@ -962,22 +928,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4B7F46061DF4F7FB003C3BE5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4B7F46071DF4F7FB003C3BE5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		4B7F460B1DF4F7FB003C3BE5 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4B7F460C1DF4F7FB003C3BE5 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 		A0DEEA9A1CC9F8BD006516E3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
